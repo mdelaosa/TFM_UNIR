@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 {
     [Header("Player settings")]
     [SerializeField] private PlayerID playerID;
+    [SerializeField] private bool isMoving = false;
 
     [Header("Movement settings")]
     [SerializeField] private float speed = 5f;                  // Velocidad de movimiento 
@@ -70,6 +71,15 @@ public class Player : MonoBehaviour
 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         movementDirection.Normalize();
+
+        if (movementDirection != Vector3.zero)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
 
         transform.position = transform.position + movementDirection * (isSprinting ? sprintSpeed : speed) * Time.deltaTime;
 
