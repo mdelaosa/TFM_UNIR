@@ -160,4 +160,12 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    #region Getters and setters
+    public PlayerID GetPlayerID()
+    {
+        return playerID;
+    }
+
+    #endregion
 }
