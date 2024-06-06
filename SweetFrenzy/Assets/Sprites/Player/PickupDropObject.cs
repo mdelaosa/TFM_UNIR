@@ -8,26 +8,20 @@ public class PickupDropObject : MonoBehaviour
     [Header("Pick up/Drop object")]
     [SerializeField] Player player;
     [SerializeField] private GameObject handPoint;
-    [SerializeField] private GameObject pickedObject = null;
+    private GameObject pickedObject = null;
     [SerializeField] private bool hasObject = false;
     [SerializeField] private bool canDrop = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         Drop();
     }
 
-    /// <summary>
-    /// Drop object
-    /// </summary>
     private void Drop()
     {
         bool dropInput;
@@ -52,10 +46,6 @@ public class PickupDropObject : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Pick up object
-    /// </summary>
-    /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {
         bool pickupInput;
@@ -91,10 +81,6 @@ public class PickupDropObject : MonoBehaviour
         yield return StartCoroutine(DropObjectRoutine());
     }
 
-    /// <summary>
-    /// Wait one frame to prevent the same key from being used to pick up and drop in the same frame
-    /// </summary>
-    /// <returns></returns>
     IEnumerator DropObjectRoutine()
     {
         yield return null;
@@ -102,7 +88,3 @@ public class PickupDropObject : MonoBehaviour
         canDrop = true;
     }
 }
-
-
-
-

@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
+    [Header("Game objects")]
     [SerializeField] private Player player;
+    private Fruit fruit;
+
+    [Header("Booleans")]
     [SerializeField] private bool isTouchingUtensil = false;
     [SerializeField] private bool isTouchingFruit = false;
     [SerializeField] private bool isCutting = false;
-    [SerializeField] private Fruit fruitScript;
 
     private void Update()
     {
@@ -15,7 +18,7 @@ public class PlayerAction : MonoBehaviour
 
     private void Cut()
     {
-        if (isTouchingUtensil && isTouchingFruit && fruitScript != null)
+        if (isTouchingUtensil && isTouchingFruit && fruit != null)
         {
             if (player.GetPlayerID() == PlayerID.player1 && Input.GetKey(KeyCode.E))
             {
@@ -45,11 +48,11 @@ public class PlayerAction : MonoBehaviour
 
         if (other.CompareTag("Food"))
         {
-            Fruit fruit = other.GetComponent<Fruit>();
-            if (fruit != null && fruit.GetFoodStatus() == FoodStatus.raw)
+            Fruit fruitCollider = other.GetComponent<Fruit>();
+            if (fruitCollider != null && fruitCollider.GetFoodStatus() == FoodStatus.raw)
             {
                 isTouchingFruit = true;
-                fruitScript = fruit;
+                fruit = fruitCollider;
             }
         }
     }
@@ -63,11 +66,11 @@ public class PlayerAction : MonoBehaviour
 
         if (other.CompareTag("Food"))
         {
-            Fruit fruit = other.GetComponent<Fruit>();
-            if (fruit != null && fruit.GetFoodStatus() == FoodStatus.raw)
+            Fruit fruitCollider = other.GetComponent<Fruit>();
+            if (fruitCollider != null && fruitCollider.GetFoodStatus() == FoodStatus.raw)
             {
                 isTouchingFruit = false;
-                fruitScript = null;
+                fruit = null;
             }
         }
 
@@ -82,16 +85,16 @@ public class PlayerAction : MonoBehaviour
         if (!isCutting)
         {
             isCutting = true;
-            fruitScript.StartCutting();
+            fruit.StartCutting();
         }
     }
 
     private void StopCutting()
     {
-        if (isCutting && fruitScript != null)
+        if (isCutting && fruit != null)
         {
             isCutting = false;
-            fruitScript.StopCutting();
+            fruit.StopCutting();
         }
     }
 }

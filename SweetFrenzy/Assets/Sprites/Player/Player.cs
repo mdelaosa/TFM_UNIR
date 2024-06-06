@@ -15,26 +15,24 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isMoving = false;
 
     [Header("Movement settings")]
-    [SerializeField] private float speed = 5f;                  // Velocidad de movimiento 
-    [SerializeField] private float normalSpeed = 5f;            // Velocidad normal
-    [SerializeField] private float rotationSpeed = 5f;          // Velocidad de rotacion
+    [SerializeField] private float speed = 5f;                   
+    [SerializeField] private float normalSpeed = 5f;            
+    [SerializeField] private float rotationSpeed = 5f;          
 
     [Header("Sprint settings")]
-    [SerializeField] private float sprintSpeed = 10f;           // Velocidad de sprint
-    [SerializeField] private float sprintDuration = 3f;         // Duración del sprint en segundos
-    [SerializeField] private float sprintCooldown = 5f;         // Tiempo de espera entre sprints en segundos
+    [SerializeField] private float sprintSpeed = 10f;          
+    [SerializeField] private float sprintDuration = 3f;         
+    [SerializeField] private float sprintCooldown = 5f;         
     [SerializeField] private bool isSprinting = false;
     [SerializeField] private bool canSprint = true;
-    [SerializeField] private float sprintTimer = 0f;            // Temporizador del sprintDuration
-    [SerializeField] private float sprintCooldownTimer = 0f;    // Temporizador del sprintCooldown
+    [SerializeField] private float sprintTimer = 0f;            
+    [SerializeField] private float sprintCooldownTimer = 0f;    
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

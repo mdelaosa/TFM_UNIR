@@ -1,35 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
-
-public enum RecipeName
-{
-    applePie,       // tarta de manzana
-    //pancakes,       // tortitas
-    //brownie,        // brownie
-    fruitBowl,      // bol de frutas
-    fruitSmoothie,  // batido de frutas
-    //hotChocolate,   // chocolate caliente
-    //coffee,         // cafe
-    //cheesecake      // tarta de queso
-}
-
 
 public class Recipe : MonoBehaviour
 {
     [SerializeField] private RecipeName recipeName;
-    [SerializeField] List<FoodName> ingredients = new List<FoodName>();
+    [SerializeField] private List<FoodName> ingredients = new List<FoodName>();
 
-    // Start is called before the first frame update
+    [SerializeField] private Dictionary<RecipeName, List<FoodName>> recipeIngredients = new Dictionary<RecipeName, List<FoodName>>()
+    {
+        { RecipeName.applePie, new List<FoodName> { FoodName.apple, FoodName.milk, FoodName.flour, FoodName.egg } },
+        { RecipeName.fruitBowl, new List<FoodName> { FoodName.strawberry, FoodName.apple, FoodName.banana } },
+        { RecipeName.fruitSmoothie, new List<FoodName> { FoodName.strawberry, FoodName.banana, FoodName.milk } }
+    };
+
+    [SerializeField] private bool isReady;
+
     void Start()
     {
-        
+        isReady = false;
+        AssignIngredients();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() { }
+
+    public void AssignIngredients()
     {
-        
+        if (recipeIngredients.ContainsKey(recipeName))
+        {
+            ingredients = recipeIngredients[recipeName];
+        }
+        else
+        {
+            Debug.LogWarning("No se encontraron ingredientes para la receta: " + recipeName);
+        }
     }
+
+    #region Getters and setters
+    public List<FoodName> GetIngredients()
+    {
+        return ingredients;
+    }
+    #endregion
 }
