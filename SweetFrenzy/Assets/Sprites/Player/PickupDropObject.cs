@@ -69,7 +69,7 @@ public class PickupDropObject : MonoBehaviour
             pickupInput = Input.GetKeyDown(KeyCode.RightControl);
         }
 
-        if (other.gameObject.CompareTag("Object"))
+        if (other.gameObject.CompareTag("Food"))
         {
             if (pickupInput && !hasObject)
             {
