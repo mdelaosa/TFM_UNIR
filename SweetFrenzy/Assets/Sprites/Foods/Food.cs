@@ -16,24 +16,20 @@ public enum FoodStatus
 
 public enum FoodType
 {
-    raw,            // materia prima
-    processed,      // procesado
-    cooked          // postre
+    raw,            
+    processed,      
+    cooked          
 }
 
 public enum FoodName
 {
     apple,
     strawberry,
-    banana,
-    //nut,
-    //cheese, 
+    banana, 
     egg, 
     milk, 
     flour, 
-    //coffee, 
-    //chocolateBar,
-    dough   //masa
+    dough   
 }
 
 
@@ -42,14 +38,11 @@ public class Food : MonoBehaviour
     [SerializeField] protected FoodName foodName;
     [SerializeField] protected FoodStatus foodStatus;
     [SerializeField] protected FoodType foodType;
-    //[SerializeField] protected List<FoodStatus> possibleStatus = new List<FoodStatus>();
-    //[SerializeField] private List<RecipeName> possibleRecipes;
     [SerializeField] private string foodTag = "Food";
 
     // Start is called before the first frame update
     void Start()
     {
-        //PossibleStatus();
         gameObject.tag = foodTag;
     }
 
@@ -60,33 +53,6 @@ public class Food : MonoBehaviour
     }
 
 
-
-    //private void PossibleStatus()
-    //{
-    //    if ((foodName == FoodName.apple) || (foodName == FoodName.strawberry) || (foodName == FoodName.banana) || (foodName == FoodName.nut) || (foodName == FoodName.cheese) || (foodName == FoodName.egg) || (foodName == FoodName.milk) || (foodName == FoodName.flour) || (foodName == FoodName.coffee) || (foodName == FoodName.chocolateBar) || (foodName == FoodName.dough))
-    //    {
-    //        possibleStatus.Add(FoodStatus.raw);
-    //        type = FoodType.raw;
-    //    }
-
-    //    if ((foodName == FoodName.apple) || (foodName == FoodName.strawberry) || (foodName == FoodName.banana) || (foodName == FoodName.nut) || (foodName == FoodName.cheese))
-    //    {
-    //        possibleStatus.Add(FoodStatus.cut);
-    //    }
-
-    //    if (foodName == FoodName.chocolateBar)
-    //    {
-    //        possibleStatus.Add(FoodStatus.melted);
-    //    }
-    //}
-
-    //public void SetStatus(FoodStatus newStatus)
-    //{
-    //    if (possibleStatus.Find(newStatus))
-    //    {
-    //        status = newStatus;
-    //    }
-    //}
 
     #region Getters and setters
 

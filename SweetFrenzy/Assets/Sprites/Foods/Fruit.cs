@@ -1,40 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fruit : Food
 {
-    [SerializeField] protected bool isRaw = true;
-    [SerializeField] protected bool isCut = false;
-    [SerializeField] protected GameObject fruitRaw;
-    [SerializeField] protected GameObject fruitIsBeingCut;
-    [SerializeField] protected GameObject fruitCut;
-    [SerializeField] protected float cutDelay;
-    protected Coroutine cutRoutine;
+    [Header("Cut")]
+    [SerializeField] private GameObject fruitRaw;
+    [SerializeField] private GameObject fruitIsBeingCut;
+    [SerializeField] private GameObject fruitCut;
+     private float cutDelay;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Progress Bar")]
+    [SerializeField] private GameObject progressBar;
+    [SerializeField] private GameObject progressBarVariable;
+    private Vector3 initialScale;
+    private Vector3 initialPosition;
+    private float timer = 0f;
+    private float progress = 0f;
+
+    private Coroutine cutRoutine;
+     
+
+    private void Start()
     {
         foodType = FoodType.raw;
         foodStatus = FoodStatus.raw;
         fruitRaw.SetActive(true);
         fruitCut.SetActive(false);
+        progressBar.SetActive(false);
         cutDelay = 2;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        initialScale = progressBarVariable.transform.localScale;
+        initialPosition = progressBarVariable.transform.localPosition;
     }
 
     public void StartCutting()
     {
-        if (cutRoutine == null)
+        if ((cutRoutine == null) && (foodType != FoodType.processed))
         {
             cutRoutine = StartCoroutine(CutFruitRoutine());
+            progressBar.SetActive(true);
         }
     }
+
 
     public void StopCutting()
     {
@@ -42,15 +49,35 @@ public class Fruit : Food
         {
             StopCoroutine(cutRoutine);
             cutRoutine = null;
+            if (foodStatus == FoodStatus.cut)
+            {
+                progressBar.SetActive(false);
+            }
         }
     }
 
     private IEnumerator CutFruitRoutine()
     {
         UpdateSprite();
-        yield return new WaitForSeconds(cutDelay);
+
+        while (timer < cutDelay)
+        {
+            progress = timer / cutDelay;
+
+            progressBarVariable.transform.localScale = new Vector3(initialScale.x * progress, initialScale.y, initialScale.z);
+
+            progressBarVariable.transform.localPosition = new Vector3(initialPosition.x - initialScale.x * 0.5f * (1 - progress), initialPosition.y, initialPosition.z);
+
+            yield return null;
+            timer += Time.deltaTime;
+        }
+
         foodStatus = FoodStatus.cut;
+        foodType = FoodType.processed;
         UpdateSprite();
+        progressBar.SetActive(false);
+        progressBarVariable.transform.localScale = initialScale;
+        progressBarVariable.transform.localPosition = initialPosition;
     }
 
     private void UpdateSprite()
