@@ -7,6 +7,7 @@ public class Fruit : Food
     [SerializeField] protected bool isRaw = true;
     [SerializeField] protected bool isCut = false;
     [SerializeField] protected GameObject fruitRaw;
+    [SerializeField] protected GameObject fruitIsBeingCut;
     [SerializeField] protected GameObject fruitCut;
     [SerializeField] protected float cutDelay;
     protected Coroutine cutRoutine;
@@ -46,6 +47,7 @@ public class Fruit : Food
 
     private IEnumerator CutFruitRoutine()
     {
+        UpdateSprite();
         yield return new WaitForSeconds(cutDelay);
         foodStatus = FoodStatus.cut;
         UpdateSprite();
@@ -53,9 +55,16 @@ public class Fruit : Food
 
     private void UpdateSprite()
     {
-        if (foodStatus == FoodStatus.cut)
+        if (foodStatus == FoodStatus.raw)
         {
             fruitRaw.SetActive(false);
+            fruitIsBeingCut.SetActive(true);
+            fruitCut.SetActive(false);
+        }
+        else if (foodStatus == FoodStatus.cut)
+        {
+            fruitRaw.SetActive(false);
+            fruitIsBeingCut.SetActive(false);
             fruitCut.SetActive(true);
         }
     }
