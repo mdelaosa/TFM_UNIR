@@ -152,15 +152,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63385527}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.408, y: -0.32268748, z: 2.55}
+  m_LocalRotation: {x: -0, y: 0.9994996, z: -0, w: -0.031632915}
+  m_LocalPosition: {x: 3.76, y: -0.32268748, z: 1.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 531991499}
   - {fileID: 456676383}
   m_Father: {fileID: 523222635}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 183.625, z: 0}
 --- !u!114 &63385529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 65461993}
+  - component: {fileID: 65461999}
   - component: {fileID: 65461998}
   - component: {fileID: 65461997}
   - component: {fileID: 65461996}
@@ -313,7 +314,7 @@ Transform:
   m_GameObject: {fileID: 65461992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7611, y: -0.2788, z: -1.3379}
+  m_LocalPosition: {x: 3.72, y: -0.2788, z: 0.16}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -425,7 +426,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65461992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c81383d677a6014d89f01279c97db35, type: 3}
   m_Name: 
@@ -433,8 +434,28 @@ MonoBehaviour:
   foodName: 0
   foodStatus: 0
   foodType: 0
-  possibleStatus: 0000000001000000
   foodTag: Object
+  isRaw: 1
+  isCut: 0
+  fruitRaw: {fileID: 1719672179}
+  fruitCut: {fileID: 1461983569}
+  cutDelay: 0
+--- !u!114 &65461999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65461992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d0e3b4a07d33d4b94d472dfa0379f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: 0
+  foodStatus: 0
+  foodType: 0
+  foodTag: Food
   isRaw: 1
   isCut: 0
   fruitRaw: {fileID: 1719672179}
@@ -775,7 +796,7 @@ Transform:
   m_GameObject: {fileID: 466798927}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35, y: -1.275, z: 0.989}
+  m_LocalPosition: {x: 6.06, y: -1.275, z: 2.15}
   m_LocalScale: {x: 1, y: 0.0925, z: 0.9872}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -922,9 +943,9 @@ GameObject:
   m_Component:
   - component: {fileID: 531991499}
   - component: {fileID: 531991502}
+  - component: {fileID: 531991503}
   - component: {fileID: 531991501}
   - component: {fileID: 531991500}
-  - component: {fileID: 531991503}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -1025,6 +1046,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08119379d9b2131468fc4c20ce6e2d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 63385529}
+  isTouchingUtensil: 0
+  isTouchingFruit: 0
+  isCutting: 0
+  fruitScript: {fileID: 0}
 --- !u!1 &638344876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2111891817}
   - component: {fileID: 2111891820}
+  - component: {fileID: 2111891821}
   - component: {fileID: 2111891819}
   - component: {fileID: 2111891818}
   m_Layer: 0
@@ -2468,6 +2495,23 @@ MonoBehaviour:
   pickedObject: {fileID: 0}
   hasObject: 0
   canDrop: 0
+--- !u!114 &2111891821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111891816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08119379d9b2131468fc4c20ce6e2d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1720618845}
+  isTouchingUtensil: 0
+  isTouchingFruit: 0
+  isCutting: 0
+  fruitScript: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

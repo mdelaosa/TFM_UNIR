@@ -31,7 +31,7 @@ public enum FoodName
     egg, 
     milk, 
     flour, 
-    //coffee, z
+    //coffee, 
     //chocolateBar,
     dough   //masa
 }
@@ -42,7 +42,7 @@ public class Food : MonoBehaviour
     [SerializeField] protected FoodName foodName;
     [SerializeField] protected FoodStatus foodStatus;
     [SerializeField] protected FoodType foodType;
-    [SerializeField] protected List<FoodStatus> possibleStatus = new List<FoodStatus>();
+    //[SerializeField] protected List<FoodStatus> possibleStatus = new List<FoodStatus>();
     //[SerializeField] private List<RecipeName> possibleRecipes;
     [SerializeField] private string foodTag = "Food";
 

@@ -18,6 +18,7 @@ public class Fruit : Food
         foodStatus = FoodStatus.raw;
         fruitRaw.SetActive(true);
         fruitCut.SetActive(false);
+        cutDelay = 2;
     }
 
     // Update is called once per frame
