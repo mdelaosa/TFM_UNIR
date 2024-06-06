@@ -10,16 +10,29 @@ public class PlayerAction : MonoBehaviour
 
     private void Update()
     {
+        Cut();
+    }
+
+    private void Cut()
+    {
         if (isTouchingUtensil && isTouchingFruit && fruitScript != null)
         {
-            if (player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.E))
+            if (player.GetPlayerID() == PlayerID.player1 && Input.GetKey(KeyCode.E))
             {
                 StartCutting();
             }
-            else if (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.Return))
+            else if (player.GetPlayerID() == PlayerID.player2 && Input.GetKey(KeyCode.Return))
             {
                 StartCutting();
             }
+            else
+            {
+                StopCutting();
+            }
+        }
+        else
+        {
+            StopCutting();
         }
     }
 
@@ -46,7 +59,6 @@ public class PlayerAction : MonoBehaviour
         if (other.CompareTag("Utensil"))
         {
             isTouchingUtensil = false;
-            StopCutting();
         }
 
         if (other.CompareTag("Food"))
@@ -55,9 +67,13 @@ public class PlayerAction : MonoBehaviour
             if (fruit != null && fruit.GetFoodStatus() == FoodStatus.raw)
             {
                 isTouchingFruit = false;
-                StopCutting();
                 fruitScript = null;
             }
+        }
+
+        if (!isTouchingUtensil || !isTouchingFruit)
+        {
+            StopCutting();
         }
     }
 
