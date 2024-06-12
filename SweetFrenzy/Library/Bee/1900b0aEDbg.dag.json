@@ -19680,7 +19680,11 @@
       "DisplayName": "Writing Assembly-CSharp.rsp",
       "ActionType": "WriteFile",
       "PayloadOffset": 1478583,
+<<<<<<< HEAD
       "PayloadLength": 33357,
+=======
+      "PayloadLength": 33565,
+>>>>>>> a618de841b985c83138461b64ef8138ba20173c2
       "PayloadDebugContentSnippet": "-target:library\r\n-out:\"Library",
       "Inputs": [],
       "Outputs": [
@@ -19692,7 +19696,11 @@
       "Annotation": "WriteText Library/Bee/artifacts/1900b0aEDbg.dag/Assembly-CSharp.rsp2",
       "DisplayName": "Writing Assembly-CSharp.rsp2",
       "ActionType": "WriteFile",
+<<<<<<< HEAD
       "PayloadOffset": 1512030,
+=======
+      "PayloadOffset": 1512238,
+>>>>>>> a618de841b985c83138461b64ef8138ba20173c2
       "PayloadLength": 0,
       "PayloadDebugContentSnippet": "",
       "Inputs": [],
@@ -19939,10 +19947,22 @@
         "Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll",
         "Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll",
         "Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll",
+<<<<<<< HEAD
         "Assets/Scripts/PickupDropObject.cs",
         "Assets/Scripts/Player.cs",
         "Assets/Scripts/SceneManager.cs",
         "Assets/Scripts/SettingsMenu.cs",
+=======
+        "Assets/Sprites/Enumerations/Enumerations.cs",
+        "Assets/Sprites/Foods/Food.cs",
+        "Assets/Sprites/Foods/Fruit.cs",
+        "Assets/Sprites/Objects/Knife.cs",
+        "Assets/Sprites/Player/PickupDropObject.cs",
+        "Assets/Sprites/Player/Player.cs",
+        "Assets/Sprites/Player/PlayerAction.cs",
+        "Assets/Sprites/Recipes/ApplePie.cs",
+        "Assets/Sprites/Recipes/Recipe.cs",
+>>>>>>> a618de841b985c83138461b64ef8138ba20173c2
         "C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll",
         "C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll",
         "Library/Bee/artifacts/1900b0aEDbg.dag/Assembly-CSharp.rsp"
@@ -20181,7 +20201,11 @@
       "Annotation": "WriteText Library/Bee/artifacts/1900b0aEDbg.dag/Assembly-CSharp.dll.mvfrm.rsp",
       "DisplayName": "Writing Assembly-CSharp.dll.mvfrm.rsp",
       "ActionType": "WriteFile",
+<<<<<<< HEAD
       "PayloadOffset": 1512129,
+=======
+      "PayloadOffset": 1512337,
+>>>>>>> a618de841b985c83138461b64ef8138ba20173c2
       "PayloadLength": 9606,
       "PayloadDebugContentSnippet": "Library\\Bee\\artifacts\\mvdfrm\\U",
       "Inputs": [],
