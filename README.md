@@ -1,5 +1,5 @@
 --------
-#PLAYER 1
+PLAYER 1
 --------
 - AWSD: move
 - Left Shift: sprint
@@ -7,7 +7,7 @@
 - E: cut food
 
 --------
-#PLAYER 2
+PLAYER 2
 --------
 - Arrows: move
 - Right Shift: sprint
