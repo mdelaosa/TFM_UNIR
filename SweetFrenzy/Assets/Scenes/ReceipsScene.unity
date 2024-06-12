@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 63385528}
-  - component: {fileID: 63385529}
+  - component: {fileID: 63385536}
   - component: {fileID: 63385533}
   - component: {fileID: 63385532}
   - component: {fileID: 63385531}
@@ -161,30 +161,6 @@ Transform:
   - {fileID: 456676383}
   m_Father: {fileID: 523222635}
   m_LocalEulerAnglesHint: {x: 0, y: 183.625, z: 0}
---- !u!114 &63385529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63385527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82861334dcd6db49a7486c178bc6046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerID: 2
-  isMoving: 0
-  speed: 5
-  normalSpeed: 5
-  rotationSpeed: 5
-  sprintSpeed: 10
-  sprintDuration: 3
-  sprintCooldown: 5
-  isSprinting: 0
-  canSprint: 1
-  sprintTimer: 0
-  sprintCooldownTimer: 0
 --- !u!54 &63385530
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -283,6 +259,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63385527}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &63385536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63385527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f200137d9878eb94aa3a6ebabb46ba97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 2
+  isMoving: 0
+  speed: 5
+  normalSpeed: 5
+  rotationSpeed: 5
+  sprintSpeed: 10
+  sprintDuration: 3
+  sprintCooldown: 5
+  isSprinting: 0
+  canSprint: 1
+  sprintTimer: 0
+  sprintCooldownTimer: 0
 --- !u!1 &65461992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 531991499}
-  - component: {fileID: 531991502}
+  - component: {fileID: 531991504}
   - component: {fileID: 531991503}
   - component: {fileID: 531991501}
   - component: {fileID: 531991500}
@@ -1105,22 +1105,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &531991502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531991498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f96c2d82ed1c445a2c92059e58ac2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 63385529}
-  handPoint: {fileID: 638344876}
-  hasObject: 0
-  canDrop: 0
 --- !u!114 &531991503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,10 +1117,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08119379d9b2131468fc4c20ce6e2d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 63385529}
+  player: {fileID: 63385536}
   isTouchingUtensil: 0
   isTouchingFruit: 0
   isCutting: 0
+--- !u!114 &531991504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531991498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b7079cf029cdd49ae671b54e2166db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 63385536}
+  handPoint: {fileID: 638344876}
+  hasObject: 0
+  canDrop: 0
 --- !u!1 &638344876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,7 +2817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720618846}
-  - component: {fileID: 1720618845}
+  - component: {fileID: 1720618850}
   - component: {fileID: 1720618844}
   - component: {fileID: 1720618843}
   - component: {fileID: 1720618842}
@@ -2900,30 +2900,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720618841}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1720618845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720618841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82861334dcd6db49a7486c178bc6046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerID: 1
-  isMoving: 0
-  speed: 5
-  normalSpeed: 5
-  rotationSpeed: 5
-  sprintSpeed: 10
-  sprintDuration: 3
-  sprintCooldown: 5
-  isSprinting: 0
-  canSprint: 1
-  sprintTimer: 0
-  sprintCooldownTimer: 0
 --- !u!4 &1720618846
 Transform:
   m_ObjectHideFlags: 0
@@ -2968,6 +2944,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1720618850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720618841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f200137d9878eb94aa3a6ebabb46ba97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 1
+  isMoving: 0
+  speed: 5
+  normalSpeed: 5
+  rotationSpeed: 5
+  sprintSpeed: 10
+  sprintDuration: 3
+  sprintCooldown: 5
+  isSprinting: 0
+  canSprint: 1
+  sprintTimer: 0
+  sprintCooldownTimer: 0
 --- !u!1 &1752945416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,7 +3549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2111891817}
-  - component: {fileID: 2111891820}
+  - component: {fileID: 2111891822}
   - component: {fileID: 2111891821}
   - component: {fileID: 2111891819}
   - component: {fileID: 2111891818}
@@ -3624,22 +3624,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2111891820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111891816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f96c2d82ed1c445a2c92059e58ac2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1720618845}
-  handPoint: {fileID: 714161495}
-  hasObject: 0
-  canDrop: 0
 --- !u!114 &2111891821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3652,10 +3636,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08119379d9b2131468fc4c20ce6e2d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1720618845}
+  player: {fileID: 1720618850}
   isTouchingUtensil: 0
   isTouchingFruit: 0
   isCutting: 0
+--- !u!114 &2111891822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111891816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b7079cf029cdd49ae671b54e2166db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1720618850}
+  handPoint: {fileID: 714161495}
+  hasObject: 0
+  canDrop: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
