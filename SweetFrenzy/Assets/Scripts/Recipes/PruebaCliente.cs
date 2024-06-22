@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class PruebaCliente : MonoBehaviour
 {
-    private RecipeGenerator recipeGenerator;
+    private OrderGenerator orderGenerator;
     [SerializeField] private int tiempo = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        recipeGenerator = FindObjectOfType<RecipeGenerator>();
-
-        if (recipeGenerator == null)
-        {
-            Debug.LogError("RecipeGenerator no encontrado.");
-            return;
-        }
+        orderGenerator = FindObjectOfType<OrderGenerator>();
 
         StartCoroutine(CallGenerateRecipeEveryFiveSeconds());
     }
@@ -31,7 +25,7 @@ public class PruebaCliente : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(tiempo);
-            recipeGenerator.GenerateRecipe();
+            orderGenerator.GenerateOrder();
         }
     }
 }
