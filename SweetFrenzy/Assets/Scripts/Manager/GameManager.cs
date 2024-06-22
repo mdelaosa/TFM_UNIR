@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour
 {
     private int numOrders = 0;
     private int points = 0;
+    private bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isGameOver = false;
     }
 
     // Update is called once per frame
@@ -29,11 +30,17 @@ public class GameManager : MonoBehaviour
     public void AddOrder()
     {
         numOrders++;
+        Debug.Log("Total orders: " + numOrders);
     }
 
     public int GetNumOrders()
     {
         return numOrders;
+    }
+
+    public bool IsGameOver()
+    {
+        return isGameOver;
     }
 
     #endregion

@@ -11,7 +11,7 @@ public class Recipes : MonoBehaviour
             {
                 { "ingredients", new List<FoodName> { FoodName.apple, FoodName.milk, FoodName.flour, FoodName.egg } },
                 { "deliveryTime", 5 },
-                { "points", 10 }
+                { "points", 50 }
             }
         },
         {
@@ -27,7 +27,7 @@ public class Recipes : MonoBehaviour
             {
                 { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.banana, FoodName.milk } },
                 { "deliveryTime", 4 },
-                { "points", 10 }
+                { "points", 20 }
             }
         }
     };
