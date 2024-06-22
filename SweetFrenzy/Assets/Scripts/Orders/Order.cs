@@ -78,6 +78,7 @@ public class Order : MonoBehaviour
             {
                 gameManager.AddPoints(-(points/2));
             }
+            Destroy(gameObject);
         }
     }
 

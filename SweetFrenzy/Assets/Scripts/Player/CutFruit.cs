@@ -4,7 +4,7 @@ public class CutFruit : MonoBehaviour
 {
     [Header("Game objects")]
     [SerializeField] private Player player;
-    private Fruit fruit;
+    [SerializeField] private Fruit fruit;
 
     [Header("Booleans")]
     [SerializeField] private bool isTouchingUtensil = false;
@@ -41,7 +41,7 @@ public class CutFruit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Utensil"))
+        if (other.CompareTag("Knife"))
         {
             isTouchingUtensil = true;
         }
@@ -59,7 +59,7 @@ public class CutFruit : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Utensil"))
+        if (other.CompareTag("Knife"))
         {
             isTouchingUtensil = false;
         }

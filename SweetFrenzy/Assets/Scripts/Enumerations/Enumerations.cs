@@ -24,10 +24,17 @@ public enum FoodName
     apple,
     strawberry,
     banana,
+    mixedAppleBanana,
+    mixedAppleStrawberry,
+    mixedStrawberryBanana,
     egg,
     milk,
     flour,
-    dough
+    dough,
+    rawApplePie,
+    applePie,
+    fruitBowl,
+    fruitSmoothie,
 }
 
 public enum RecipeName
