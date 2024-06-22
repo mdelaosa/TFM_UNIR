@@ -12,35 +12,6 @@ public class Recipe : MonoBehaviour
     private float timer;
     private GameManager gameManager;
 
-    [SerializeField]
-    private Dictionary<RecipeName, Dictionary<string, object>> recipes = new Dictionary<RecipeName, Dictionary<string, object>>()
-    {
-        {
-            RecipeName.applePie, new Dictionary<string, object>
-            {
-                { "ingredients", new List<FoodName> { FoodName.apple, FoodName.milk, FoodName.flour, FoodName.egg } },
-                { "deliveryTime", 5 },
-                { "points", 10 }
-            }
-        },
-        {
-            RecipeName.fruitBowl, new Dictionary<string, object>
-            {
-                { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.apple, FoodName.banana } },
-                { "deliveryTime", 3 },
-                { "points", 10 }
-            }
-        },
-        {
-            RecipeName.fruitSmoothie, new Dictionary<string, object>
-            {
-                { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.banana, FoodName.milk } },
-                { "deliveryTime", 4 },
-                { "points", 10 }
-            }
-        }
-    };
-
     void Start()
     {
         isReady = false;
@@ -61,6 +32,7 @@ public class Recipe : MonoBehaviour
 
     public void AssignRecipe()
     {
+        var recipes = RecipeGenerator.GetRecipes();
         if (recipes.ContainsKey(recipeName))
         {
             var recipeData = recipes[recipeName];
@@ -70,16 +42,6 @@ public class Recipe : MonoBehaviour
         }
     }
 
-    #region Create recipe
-    public static Recipe CreateRecipe(GameObject parentObject, RecipeName recipeName)
-    {
-        Recipe newRecipe = parentObject.AddComponent<Recipe>();
-        newRecipe.SetRecipeName(recipeName);
-        return newRecipe;
-    }
-    #endregion
-
-    #region Timer
     private void StartTimer()
     {
         timer = deliveryTime;
@@ -104,15 +66,20 @@ public class Recipe : MonoBehaviour
         {
             Debug.Log("Pedido perdido: " + recipeName);
 
-            if (gameManager != null && recipes.ContainsKey(recipeName))
+            if (gameManager != null)
             {
-                gameManager.AddPoints(-points); 
+                gameManager.AddPoints(-points);
             }
         }
     }
-    #endregion
 
-    #region Getters and setters
+    public static Recipe CreateRecipe(GameObject parentObject, RecipeName recipeName)
+    {
+        Recipe newRecipe = parentObject.AddComponent<Recipe>();
+        newRecipe.SetRecipeName(recipeName);
+        return newRecipe;
+    }
+
     public List<FoodName> GetIngredients()
     {
         return ingredients;
@@ -128,5 +95,4 @@ public class Recipe : MonoBehaviour
         recipeName = newRecipeName;
         AssignRecipe();
     }
-    #endregion
 }

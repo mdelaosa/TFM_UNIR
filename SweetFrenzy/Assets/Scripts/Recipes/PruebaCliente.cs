@@ -10,7 +10,7 @@ public class PruebaCliente : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        recipeGenerator = GetComponent<RecipeGenerator>();
+        recipeGenerator = FindObjectOfType<RecipeGenerator>();
 
         if (recipeGenerator == null)
         {

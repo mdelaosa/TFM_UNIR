@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public void AddPoints(int addedPoints)
     {
-        points =+ addedPoints;
+        points = points + addedPoints;
         Debug.Log("Total points: " + points);
     }
 }
