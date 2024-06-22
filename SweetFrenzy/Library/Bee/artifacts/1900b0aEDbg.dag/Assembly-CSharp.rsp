@@ -358,13 +358,16 @@
 "Assets/Scripts/Enumerations/Enumerations.cs"
 "Assets/Scripts/Foods/Food.cs"
 "Assets/Scripts/Foods/Fruit.cs"
+"Assets/Scripts/Manager/GameManager.cs"
 "Assets/Scripts/Menu/SettingsMenu.cs"
 "Assets/Scripts/Objects/Knife.cs"
 "Assets/Scripts/Player/PickupDropObject.cs"
 "Assets/Scripts/Player/Player.cs"
 "Assets/Scripts/Player/PlayerAction.cs"
 "Assets/Scripts/Recipes/ApplePie.cs"
+"Assets/Scripts/Recipes/PruebaCliente.cs"
 "Assets/Scripts/Recipes/Recipe.cs"
+"Assets/Scripts/Recipes/RecipeGenerator.cs"
 "Assets/Scripts/Scene/SceneManager.cs"
 -langversion:9.0
 
