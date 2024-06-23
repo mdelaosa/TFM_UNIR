@@ -46,10 +46,6 @@ public class Player : MonoBehaviour
     }
 
     #region Movement and rotation
-
-    /// <summary>
-    /// Player's walk movement
-    /// </summary>
     private void Movement()
     {
         float horizontalInput;
@@ -84,10 +80,6 @@ public class Player : MonoBehaviour
         Rotation(movementDirection);
     }
 
-    /// <summary>
-    /// Player's rotation based on direction of movement
-    /// </summary>
-    /// <param name="movementDirection"></param>
     private void Rotation(Vector3 movementDirection)
     {
         if (movementDirection != Vector3.zero)
@@ -99,10 +91,6 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Sprint
-
-    /// <summary>
-    /// Sprint functionality
-    /// </summary>
     private void Sprint()
     {
         bool sprintInput;
@@ -127,9 +115,6 @@ public class Player : MonoBehaviour
         }        
     }
 
-    /// <summary>
-    /// Update sprint settings
-    /// </summary>
     private void UpdateSprint()
     {
         if (isSprinting)
@@ -163,6 +148,11 @@ public class Player : MonoBehaviour
     public PlayerID GetPlayerID()
     {
         return playerID;
+    }
+
+    public bool IsMoving()
+    {
+        return isMoving;
     }
 
     #endregion

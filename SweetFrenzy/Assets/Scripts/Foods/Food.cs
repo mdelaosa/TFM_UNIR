@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+// Food.cs
 using UnityEngine;
 
 public class Food : MonoBehaviour
@@ -7,27 +6,27 @@ public class Food : MonoBehaviour
     [SerializeField] protected FoodName foodName;
     [SerializeField] protected FoodStatus foodStatus;
     [SerializeField] protected FoodType foodType;
-    [SerializeField] private string foodTag = "Food";
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameObject.tag = foodTag;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 
     #region Getters and setters
+
+    public void SetFoodStatus(FoodStatus newFoodSatus)
+    {
+        foodStatus = newFoodSatus;
+    }
 
     public FoodStatus GetFoodStatus()
     {
         return foodStatus;
+    }
+
+    public FoodName GetFoodName()
+    {
+        return foodName;
+    }
+
+    public FoodType GetFoodType()
+    {
+        return foodType;
     }
     #endregion
 }

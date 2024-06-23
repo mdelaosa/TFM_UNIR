@@ -6,6 +6,15 @@ TagManager:
   tags:
   - Food
   - Utensil
+  - Egg
+  - Milk
+  - Flour
+  - Dough
+  - Bowl
+  - Knife
+  - BowlFruit
+  - Mixer
+  - Kneader
   layers:
   - Default
   - TransparentFX

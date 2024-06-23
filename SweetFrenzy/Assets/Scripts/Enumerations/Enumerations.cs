@@ -9,7 +9,9 @@ public enum FoodStatus
     mixed,          // mezclado
     kneaded,        // amasado
     baked,          // horneado
-    ready           // listo
+    ready,          // listo
+    bowled,
+    served
 }
 
 public enum FoodType
@@ -24,10 +26,17 @@ public enum FoodName
     apple,
     strawberry,
     banana,
+    mixedAppleBanana,
+    mixedAppleStrawberry,
+    mixedStrawberryBanana,
     egg,
     milk,
     flour,
-    dough
+    dough,
+    rawApplePie,
+    applePie,
+    fruitBowl,
+    fruitSmoothie,
 }
 
 public enum RecipeName
@@ -35,4 +44,28 @@ public enum RecipeName
     applePie,
     fruitBowl,
     fruitSmoothie
+}
+
+public enum UtensilName
+{
+    table,
+    kneader,
+    kneaderEgg,
+    kneaderMilk,
+    kneaderFlour,
+    kneaderMixEggMilk,
+    kneaderMixEggFlour,
+    kneaderMixMilkFlour,
+    kneaderNotMixDough,
+    kneaderDough,
+    bowl,
+    knife
+}
+
+public enum UtensilStatus
+{
+    empty,
+    full,
+    kneading,
+    none
 }
