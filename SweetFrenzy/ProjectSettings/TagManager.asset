@@ -4,11 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Object
-  - Chair
-  - Trigger
-  - Client
-  - Plate
+  - Food
+  - Utensil
+  - Egg
+  - Milk
+  - Flour
+  - Dough
+  - Bowl
+  - Knife
+  - BowlFruit
+  - Mixer
+  - Kneader
   layers:
   - Default
   - TransparentFX
