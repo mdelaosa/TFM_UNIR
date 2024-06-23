@@ -4,7 +4,7 @@ public class CutFruit : MonoBehaviour
 {
     [Header("Game objects")]
     [SerializeField] private Player player;
-    [SerializeField] private Fruit fruit;
+    private Fruit fruit;
 
     [Header("Booleans")]
     [SerializeField] private bool isTouchingUtensil = false;

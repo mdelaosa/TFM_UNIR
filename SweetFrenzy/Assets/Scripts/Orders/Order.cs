@@ -12,6 +12,7 @@ public class Order : MonoBehaviour
     [SerializeField] private bool isReady;
     private float timer;
     private GameManager gameManager;
+    private OrderManager orderManager;
 
     void Start()
     {
@@ -29,6 +30,9 @@ public class Order : MonoBehaviour
             gameManager.AddOrder();
             idOrder = gameManager.GetNumOrders();
         }
+
+        orderManager = FindObjectOfType<OrderManager>();
+        orderManager.AddOrder(this);
     }
 
     void Update()
@@ -76,10 +80,32 @@ public class Order : MonoBehaviour
 
             if (gameManager != null)
             {
-                gameManager.AddPoints(-(points/2));
+                gameManager.AddPoints(-(points / 2));
             }
             Destroy(gameObject);
         }
+    }
+
+    public bool FulfillOrder(List<FoodName> servedFoods)
+    {
+        if (isReady)
+            return false;
+
+        foreach (var ingredient in ingredients)
+        {
+            if (!servedFoods.Contains(ingredient))
+                return false;
+        }
+
+        isReady = true;
+        Debug.Log($"Order {idOrder} is fulfilled!");
+        if (gameManager != null)
+        {
+            gameManager.AddPoints(points);
+        }
+
+        Destroy(gameObject);
+        return true;
     }
 
     #region Getters and setters

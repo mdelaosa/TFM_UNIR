@@ -361,17 +361,21 @@
 "Assets/Scripts/Foods/Fruit.cs"
 "Assets/Scripts/Manager/GameManager.cs"
 "Assets/Scripts/Menu/SettingsMenu.cs"
-"Assets/Scripts/Objects/Knife.cs"
 "Assets/Scripts/Orders/Order.cs"
 "Assets/Scripts/Orders/OrderGenerator.cs"
+"Assets/Scripts/Orders/OrderManager.cs"
 "Assets/Scripts/Player/CutFruit.cs"
-"Assets/Scripts/Player/MixDoughAndApple.cs"
+"Assets/Scripts/Player/KneadDough.cs"
 "Assets/Scripts/Player/MixIngredients.cs"
 "Assets/Scripts/Player/PickupDropObject.cs"
 "Assets/Scripts/Player/Player.cs"
 "Assets/Scripts/Pruebas - para borrar/PruebaCliente.cs"
 "Assets/Scripts/Recipes/Recipes.cs"
 "Assets/Scripts/Scene/SceneManager.cs"
+"Assets/Scripts/Utensils/Kneader.cs"
+"Assets/Scripts/Utensils/Mixer.cs"
+"Assets/Scripts/Utensils/Table.cs"
+"Assets/Scripts/Utensils/Utensil.cs"
 -langversion:9.0
 
 /deterministic

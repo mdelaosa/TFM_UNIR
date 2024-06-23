@@ -10,7 +10,7 @@ public class Recipes : MonoBehaviour
             RecipeName.applePie, new Dictionary<string, object>
             {
                 { "ingredients", new List<FoodName> { FoodName.apple, FoodName.milk, FoodName.flour, FoodName.egg } },
-                { "deliveryTime", 5 },
+                { "deliveryTime", 300 },
                 { "points", 50 }
             }
         },
@@ -18,7 +18,7 @@ public class Recipes : MonoBehaviour
             RecipeName.fruitBowl, new Dictionary<string, object>
             {
                 { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.apple, FoodName.banana } },
-                { "deliveryTime", 3 },
+                { "deliveryTime", 300 },
                 { "points", 10 }
             }
         },

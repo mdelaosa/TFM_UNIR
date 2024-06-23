@@ -6,18 +6,13 @@ public class Food : MonoBehaviour
     [SerializeField] protected FoodName foodName;
     [SerializeField] protected FoodStatus foodStatus;
     [SerializeField] protected FoodType foodType;
-    //[SerializeField] private string foodTag = "Food";
-
-    void Start()
-    {
-        //gameObject.tag = foodTag;
-    }
-
-    void Update()
-    {
-    }
 
     #region Getters and setters
+
+    public void SetFoodStatus(FoodStatus newFoodSatus)
+    {
+        foodStatus = newFoodSatus;
+    }
 
     public FoodStatus GetFoodStatus()
     {
@@ -27,6 +22,11 @@ public class Food : MonoBehaviour
     public FoodName GetFoodName()
     {
         return foodName;
+    }
+
+    public FoodType GetFoodType()
+    {
+        return foodType;
     }
     #endregion
 }

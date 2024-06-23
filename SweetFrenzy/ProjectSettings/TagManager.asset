@@ -13,6 +13,8 @@ TagManager:
   - Bowl
   - Knife
   - BowlFruit
+  - Mixer
+  - Kneader
   layers:
   - Default
   - TransparentFX
