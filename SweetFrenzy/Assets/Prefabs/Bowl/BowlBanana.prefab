@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 2
-  foodStatus: 5
+  foodStatus: 6
   foodType: 0
 --- !u!114 &4838049773430044038
 MonoBehaviour:

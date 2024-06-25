@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MixIngredients : MonoBehaviour
 {
+    public static MixIngredients Instance { get; private set; }
+
     [Header("Game Objects")]
     [SerializeField] private Player player;
     [SerializeField] private List<Food> ingredients = new List<Food>();
@@ -37,6 +39,18 @@ public class MixIngredients : MonoBehaviour
     [Header("Booleans")]
     [SerializeField] private bool isTouchingBowl = false;
     [SerializeField] private bool isMixing = false;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {
@@ -145,52 +159,52 @@ public class MixIngredients : MonoBehaviour
     {
         bool hasEgg = false, hasMilk = false, hasFlour = false;
         bool hasApple = false, hasStrawberry = false, hasBanana = false;
+
+        bool hasEmptyBowl = false;
         bool hasBowlApple = false, hasBowlStrawberry = false, hasBowlBanana = false;
         bool hasBowlMixAppleBanana = false, hasBowlMixAppleStrawberry = false, hasBowlMixStrawberryBanana = false;
+
+        bool hasEmptyKneader = false;
         bool hasKneaderEgg = false, hasKneaderMilk = false, hasKneaderFlour = false;
         bool hasKneaderMixEggMilk = false, hasKneaderMixEggFlour = false, hasKneaderMixMilkFlour = false;
-        bool hasKneaderNotMixDough = false, hasKneaderDough = false, hasBowlDough = false;
-        bool hasEmptyBowl = false, hasEmptyKneader = false;
+        bool hasKneaderDough = false, hasBowlDough = false;
 
         foreach (var ingredient in ingredients)
         {
             if (ingredient == null) continue;
 
-            if (ingredient.GetFoodName() == FoodName.egg) hasEgg = true;
-            else if (ingredient.GetFoodName() == FoodName.milk) hasMilk = true;
-            else if (ingredient.GetFoodName() == FoodName.flour) hasFlour = true;
+            if (ingredient.GetFoodName() == FoodName.egg && ingredient.GetFoodStatus() == FoodStatus.raw) hasEgg = true;
+            else if (ingredient.GetFoodName() == FoodName.milk && ingredient.GetFoodStatus() == FoodStatus.raw) hasMilk = true;
+            else if (ingredient.GetFoodName() == FoodName.flour && ingredient.GetFoodStatus() == FoodStatus.raw) hasFlour = true;
+            else if (ingredient.GetFoodName() == FoodName.apple && ingredient.GetFoodStatus() == FoodStatus.raw) hasApple = true;
+            else if (ingredient.GetFoodName() == FoodName.strawberry && ingredient.GetFoodStatus() == FoodStatus.raw) hasStrawberry = true;
+            else if (ingredient.GetFoodName() == FoodName.banana && ingredient.GetFoodStatus() == FoodStatus.raw) hasBanana = true;
 
-            else if (ingredient.GetFoodName() == FoodName.apple && ingredient.GetFoodStatus() == FoodStatus.cut) hasApple = true;
-            else if (ingredient.GetFoodName() == FoodName.strawberry && ingredient.GetFoodStatus() == FoodStatus.cut) hasStrawberry = true;
-            else if (ingredient.GetFoodName() == FoodName.banana && ingredient.GetFoodStatus() == FoodStatus.cut) hasBanana = true;
+            else if (ingredient.GetFoodName() == FoodName.apple && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlApple = true;
+            else if (ingredient.GetFoodName() == FoodName.strawberry && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlStrawberry = true;
+            else if (ingredient.GetFoodName() == FoodName.banana && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlBanana = true;
+            else if (ingredient.GetFoodName() == FoodName.dough && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlDough = true;
 
-            else if (ingredient.GetFoodName() == FoodName.apple && ingredient.GetFoodStatus() == FoodStatus.ready) hasBowlApple = true;
-            else if (ingredient.GetFoodName() == FoodName.strawberry && ingredient.GetFoodStatus() == FoodStatus.ready) hasBowlStrawberry = true;
-            else if (ingredient.GetFoodName() == FoodName.banana && ingredient.GetFoodStatus() == FoodStatus.ready) hasBowlBanana = true;
-
-            else if (ingredient.GetFoodName() == FoodName.mixedAppleBanana) hasBowlMixAppleBanana = true;
-            else if (ingredient.GetFoodName() == FoodName.mixedAppleStrawberry) hasBowlMixAppleStrawberry = true;
-            else if (ingredient.GetFoodName() == FoodName.mixedStrawberryBanana) hasBowlMixStrawberryBanana = true;
+            else if (ingredient.GetFoodName() == FoodName.mixAppleBanana && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlMixAppleBanana = true;
+            else if (ingredient.GetFoodName() == FoodName.mixAppleStrawberry && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlMixAppleStrawberry = true;
+            else if (ingredient.GetFoodName() == FoodName.mixStrawberryBanana && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlMixStrawberryBanana = true;
         }
 
         foreach (var utensil in utensils)
         {
             if (utensil == null) continue;
 
-            if (utensil.GetUtensilName() == UtensilName.bowl && utensil.GetUtensilStatus() == UtensilStatus.empty) hasEmptyBowl = true;
-            else if (utensil.GetUtensilName() == UtensilName.kneader && utensil.GetUtensilStatus() == UtensilStatus.empty) hasEmptyKneader = true;
-
+            if (utensil.GetUtensilName() == UtensilName.bowl) hasEmptyBowl = true;
+            else if (utensil.GetUtensilName() == UtensilName.kneader) hasEmptyKneader = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderEgg) hasKneaderEgg = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderMilk) hasKneaderMilk = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderFlour) hasKneaderFlour = true;
-
             else if (utensil.GetUtensilName() == UtensilName.kneaderMixEggMilk) hasKneaderMixEggMilk = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderMixEggFlour) hasKneaderMixEggFlour = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderMixMilkFlour) hasKneaderMixMilkFlour = true;
-
-            else if (utensil.GetUtensilName() == UtensilName.kneaderNotMixDough) hasKneaderNotMixDough = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderDough) hasKneaderDough = true;
         }
+
 
         if (hasEmptyBowl && hasApple)
         {
@@ -233,6 +247,7 @@ public class MixIngredients : MonoBehaviour
         {
             CreateIngredientsMix(kneaderFlourPrefab);
         }
+
         else if ((hasKneaderEgg && hasMilk) || (hasKneaderMilk && hasEgg))
         {
             CreateIngredientsMix(kneaderMixEggMilkPrefab);
@@ -249,6 +264,7 @@ public class MixIngredients : MonoBehaviour
         {
             CreateIngredientsMix(kneaderNotMixDoughPrefab);
         }
+
         else if (hasEmptyBowl && hasKneaderDough)
         {
             CreateIngredientsMixInHand(bowlDoughPrefab);
@@ -259,7 +275,6 @@ public class MixIngredients : MonoBehaviour
         }
     }
 
-    #region Create ingredients
     private void CreateIngredientsMix(GameObject mixPrefab)
     {
         foreach (var ingredient in ingredients)
@@ -271,14 +286,14 @@ public class MixIngredients : MonoBehaviour
         }
         ingredients.Clear();
 
-        foreach (var utensil in utensils)
+        foreach (var utensil in utensils.ToList())
         {
             if (utensil != null)
             {
                 Destroy(utensil.gameObject);
             }
+            utensils.Remove(utensil);
         }
-        utensils.Clear();
 
         if (mixPrefab != null)
         {
@@ -300,7 +315,7 @@ public class MixIngredients : MonoBehaviour
         }
         ingredients.Clear();
 
-        foreach (var utensil in utensils)
+        foreach (var utensil in utensils.ToList())
         {
             if (utensil != null)
             {
@@ -314,8 +329,8 @@ public class MixIngredients : MonoBehaviour
                     Destroy(utensil.gameObject);
                 }
             }
+            utensils.Remove(utensil);
         }
-        utensils.Clear();
 
         if (mixPrefab != null)
         {
@@ -326,5 +341,13 @@ public class MixIngredients : MonoBehaviour
 
         isMixing = false;
     }
-    #endregion
+
+    public void HandleUtensilDestruction(GameObject utensil)
+    {
+        if (utensils.Contains(utensil.GetComponent<Utensil>()))
+        {
+            utensils.Remove(utensil.GetComponent<Utensil>());
+            Destroy(utensil);
+        }
+    }
 }

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 0
-  foodStatus: 5
+  foodStatus: 6
   foodType: 0
 --- !u!33 &3536219725393309636
 MeshFilter:

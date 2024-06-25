@@ -1,7 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
-
 
 public class Kneader : Utensil
 {
@@ -30,7 +28,7 @@ public class Kneader : Utensil
         notKneadedDough.SetActive(true);
         doughKneading.SetActive(false);
         progressBar.SetActive(false);
-        kneadingDelay = 5f;
+        kneadingDelay = 2f;
 
         initialScale = progressBarVariable.transform.localScale;
         initialPosition = progressBarVariable.transform.localPosition;
@@ -63,7 +61,7 @@ public class Kneader : Utensil
             doughFinished = Instantiate(kneaderDoughPrefab);
             doughFinished.transform.position = transform.position;
 
-            Destroy(gameObject);
+            MixIngredients.Instance.HandleUtensilDestruction(gameObject);
         }
     }
 
