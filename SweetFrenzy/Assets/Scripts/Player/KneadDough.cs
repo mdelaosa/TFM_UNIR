@@ -4,7 +4,7 @@ public class KneadDough: MonoBehaviour
 {
     [Header("Game Objects")]
     [SerializeField] private Player player;
-    private Kneader kneader;
+    [SerializeField] private Kneader kneader;
 
     [Header("Booleans")]
     [SerializeField] private bool isTouchingKneader = false;
@@ -19,11 +19,11 @@ public class KneadDough: MonoBehaviour
     {
         if (!player.IsMoving() && isTouchingKneader && kneader != null && kneader.GetUtensilName() == UtensilName.kneaderNotMixDough)
         {
-            if (player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.E))
+            if (player.GetPlayerID() == PlayerID.player1 && Input.GetKey(KeyCode.E))
             {
                 StartKneading();
             }
-            else if (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.Return))
+            else if (player.GetPlayerID() == PlayerID.player2 && Input.GetKey(KeyCode.Return))
             {
                 StartKneading();
             }
@@ -63,7 +63,7 @@ public class KneadDough: MonoBehaviour
         if (!isKneading && kneader != null)
         {
             isKneading = true;
-            //kneader.StartKneading();
+            kneader.StartKneading();
         }
     }
 
@@ -72,7 +72,7 @@ public class KneadDough: MonoBehaviour
         if (isKneading && kneader != null)
         {
             isKneading = false;
-            //kneader.StopKneading();
+            kneader.StopKneading();
         }
     }
 }

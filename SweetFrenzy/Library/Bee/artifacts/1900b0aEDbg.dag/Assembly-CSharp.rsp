@@ -356,6 +356,8 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Client/OrderRecipe.cs"
+"Assets/Scripts/ClientController.cs"
+"Assets/Scripts/ClientManager.cs"
 "Assets/Scripts/Enumerations/Enumerations.cs"
 "Assets/Scripts/Foods/Food.cs"
 "Assets/Scripts/Foods/Fruit.cs"

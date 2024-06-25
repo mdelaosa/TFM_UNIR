@@ -4,12 +4,12 @@ using UnityEngine;
 
 public enum FoodStatus
 {
-    raw,            // crudo
-    cut,            // cortado
-    mixed,          // mezclado
-    kneaded,        // amasado
-    baked,          // horneado
-    ready,          // listo
+    raw,            
+    cut,            
+    mixed,          
+    kneaded,        
+    baked,          
+    ready,          
     bowled,
     served
 }
@@ -66,6 +66,8 @@ public enum UtensilStatus
 {
     empty,
     full,
+    preparedToWork,
     kneading,
+    finished,
     none
 }

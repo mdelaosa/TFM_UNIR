@@ -9,8 +9,8 @@ public class PickupDropObject : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] private GameObject handPoint;
     private GameObject pickedObject = null;
-    [SerializeField] private bool hasObject = false;
-    [SerializeField] private bool canDrop = false;
+    private bool hasObject = false;
+    private bool canDrop = false;
 
     void Start()
     {

@@ -501,6 +501,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160638104}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &353417047
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1680936770}
+    m_Modifications:
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2311125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246200518387579263, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_Name
+      value: Kneader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+--- !u!4 &353417048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+  m_PrefabInstance: {fileID: 353417047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &355100628
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +597,63 @@ Transform:
   - {fileID: 698184325}
   m_Father: {fileID: 157728900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &405914821
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475087009660329466, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063413311322007565, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+      propertyPath: m_Name
+      value: KneaderNotMixDough
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
 --- !u!1 &427114023
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1100,7 @@ GameObject:
   - component: {fileID: 531991504}
   - component: {fileID: 531991503}
   - component: {fileID: 531991506}
+  - component: {fileID: 531991507}
   - component: {fileID: 531991501}
   - component: {fileID: 531991500}
   m_Layer: 0
@@ -1084,8 +1204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 63385536}
   handPoint: {fileID: 638344876}
-  hasObject: 0
-  canDrop: 0
 --- !u!114 &531991506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,9 +1236,25 @@ MonoBehaviour:
   kneaderMixEggMilkPrefab: {fileID: 2888480292922500038, guid: efe109d5c2e2eed4fb346ac03e06308f, type: 3}
   kneaderMixEggFlourPrefab: {fileID: 7954549608013582769, guid: 6c0512c2856518e469ba96453c37cac6, type: 3}
   kneaderMixMilkFlourPrefab: {fileID: 6341542622243350140, guid: 98ede204810783743bad7bc1e4cbddcf, type: 3}
-  kneaderNotMixDoughPrefab: {fileID: 3930419073686710418, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+  kneaderNotMixDoughPrefab: {fileID: 6063413311322007565, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
   isTouchingBowl: 0
   isMixing: 0
+--- !u!114 &531991507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531991498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3fff767f3c58d41abc20355195393d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 63385536}
+  kneader: {fileID: 0}
+  isTouchingKneader: 0
+  isKneading: 0
 --- !u!1 &583804288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1795,7 @@ Transform:
   - {fileID: 466798928}
   - {fileID: 427114024}
   - {fileID: 160638105}
-  - {fileID: 1733046664}
+  - {fileID: 353417048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720618841
@@ -1857,68 +1991,6 @@ Transform:
   - {fileID: 583804290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1733046663
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1680936770}
-    m_Modifications:
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.32439995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.2311125
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.616259
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246200518387579263, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-      propertyPath: m_Name
-      value: Kneader
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
---- !u!4 &1733046664 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
-  m_PrefabInstance: {fileID: 1733046663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1752945416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2202,7 @@ GameObject:
   - component: {fileID: 2111891822}
   - component: {fileID: 2111891821}
   - component: {fileID: 2111891823}
+  - component: {fileID: 2111891824}
   - component: {fileID: 2111891819}
   - component: {fileID: 2111891818}
   m_Layer: 0
@@ -2233,8 +2306,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1720618850}
   handPoint: {fileID: 714161495}
-  hasObject: 0
-  canDrop: 0
 --- !u!114 &2111891823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2267,9 +2338,25 @@ MonoBehaviour:
   kneaderMixEggMilkPrefab: {fileID: 2888480292922500038, guid: efe109d5c2e2eed4fb346ac03e06308f, type: 3}
   kneaderMixEggFlourPrefab: {fileID: 7954549608013582769, guid: 6c0512c2856518e469ba96453c37cac6, type: 3}
   kneaderMixMilkFlourPrefab: {fileID: 6341542622243350140, guid: 98ede204810783743bad7bc1e4cbddcf, type: 3}
-  kneaderNotMixDoughPrefab: {fileID: 3930419073686710418, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+  kneaderNotMixDoughPrefab: {fileID: 6063413311322007565, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
   isTouchingBowl: 0
   isMixing: 0
+--- !u!114 &2111891824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111891816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3fff767f3c58d41abc20355195393d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1720618850}
+  kneader: {fileID: 0}
+  isTouchingKneader: 0
+  isKneading: 0
 --- !u!1001 &635496034781664024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2625,3 +2712,4 @@ SceneRoots:
   - {fileID: 157728900}
   - {fileID: 1680936770}
   - {fileID: 1941853920}
+  - {fileID: 405914821}
