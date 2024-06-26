@@ -359,6 +359,7 @@
 "Assets/Scripts/Enumerations/Enumerations.cs"
 "Assets/Scripts/Foods/Food.cs"
 "Assets/Scripts/Foods/Fruit.cs"
+"Assets/Scripts/Foods/Ingredient.cs"
 "Assets/Scripts/Manager/GameManager.cs"
 "Assets/Scripts/Menu/SettingsMenu.cs"
 "Assets/Scripts/Orders/Order.cs"

@@ -6,9 +6,9 @@ public class IngredientBox : MonoBehaviour
 {
 
     [Header("Pick up object from a box")]
-    [SerializeField] private GameObject counter;
+    [SerializeField] private Player player;
 
-    [SerializeField] public GameObject ingredients;
+    private Ingredient ingredients;
     [SerializeField] private bool hasIngredient = false;
     [SerializeField] private bool isTouchingPlayer = false;
     [SerializeField] private bool isTouchingFruit = false;
@@ -20,27 +20,28 @@ public class IngredientBox : MonoBehaviour
 
     void Update()
     {
-        checkFruitCounter();
+        CheckFruitCounter();
     }
 
-    private void ingredient()
-    {
-        if (hasIngredient)
-        {
-            Instantiate(ingredients, transform.position, Quaternion.identity);
-        }
-    }
-
-    private void checkFruitCounter()
+    private void CheckFruitCounter()
     {
         if (!isTouchingPlayer)
         {
             hasIngredient = false;
         }
-        else if (isTouchingPlayer && hasIngredient && Input.GetKeyDown(KeyCode.Space))
+        else if (isTouchingPlayer && hasIngredient && !isTouchingFruit)
         {
-            hasIngredient = true;
-            ingredient();
+            if(player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.E))
+            {
+                ingredients.GetIngredient();
+                hasIngredient = false;
+            }
+            else if (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.Return))
+            {
+                ingredients.GetIngredient();
+                hasIngredient = false;
+            }
+
         }
     }
 
@@ -48,10 +49,12 @@ public class IngredientBox : MonoBehaviour
     {
         if (!hasIngredient)
         {
-            if (other.gameObject.CompareTag("Hand"))
+            if (other.gameObject.CompareTag("FoodBox"))
             {
+                Ingredient food = other.gameObject.GetComponent<Ingredient>();
                 isTouchingPlayer = true;
                 hasIngredient = true;
+                ingredients = food;
             }
         }
         if (other.gameObject.CompareTag("Food"))
@@ -63,7 +66,7 @@ public class IngredientBox : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Hand"))
+        if (other.gameObject.CompareTag("FoodBox"))
         {
             isTouchingPlayer = false;
         }

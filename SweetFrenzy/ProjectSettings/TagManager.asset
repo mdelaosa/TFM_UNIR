@@ -16,6 +16,7 @@ TagManager:
   - Mixer
   - Kneader
   - Hand
+  - FoodBox
   layers:
   - Default
   - TransparentFX
