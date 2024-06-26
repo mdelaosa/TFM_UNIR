@@ -16,7 +16,7 @@ public class MixIngredients : MonoBehaviour
     [Header("Player Handpoint")]
     [SerializeField] private Transform handPoint;
 
-    [Header("Prefabs")]
+    [Header("Bowl Prefabs")]
     [SerializeField] private GameObject bowlApplePrefab;
     [SerializeField] private GameObject bowlStrawberryPrefab;
     [SerializeField] private GameObject bowlBananaPrefab;
@@ -27,6 +27,7 @@ public class MixIngredients : MonoBehaviour
     [SerializeField] private GameObject bowlDoughPrefab;
     [SerializeField] private GameObject rawApplePiePrefab;
 
+    [Header("Kneader Prefabs")]
     [SerializeField] private GameObject emptyKneaderPrefab;
     [SerializeField] private GameObject kneaderEggPrefab;
     [SerializeField] private GameObject kneaderMilkPrefab;
@@ -36,8 +37,20 @@ public class MixIngredients : MonoBehaviour
     [SerializeField] private GameObject kneaderMixMilkFlourPrefab;
     [SerializeField] private GameObject kneaderNotMixDoughPrefab;
 
+    [Header("Mixer Prefabs")]
+    [SerializeField] private GameObject emptyMixerPrefab;
+    [SerializeField] private GameObject mixerMilkPrefab;
+    [SerializeField] private GameObject mixerStrawberryPrefab;
+    [SerializeField] private GameObject mixerBananaPrefab;
+    [SerializeField] private GameObject mixerMixMilkStrawberryPrefab;
+    [SerializeField] private GameObject mixerMixMilkBananaPrefab;
+    [SerializeField] private GameObject mixerMixStrawberryBananaPrefab;
+    [SerializeField] private GameObject mixerNotMixSmoothiePrefab;
+    [SerializeField] private GameObject mixerSmoothiePrefab;
+    [SerializeField] private GameObject fruitSmoothiePrefab;
+
     [Header("Booleans")]
-    [SerializeField] private bool isTouchingBowl = false;
+    [SerializeField] private bool isTouchingUtensil = false;
     [SerializeField] private bool isMixing = false;
 
     private void Awake()
@@ -59,7 +72,7 @@ public class MixIngredients : MonoBehaviour
 
     private void Mix()
     {
-        if (!player.IsMoving() && isTouchingBowl)
+        if (!player.IsMoving() && isTouchingUtensil)
         {
             if (player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.LeftControl))
             {
@@ -82,9 +95,9 @@ public class MixIngredients : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bowl") || other.CompareTag("Kneader"))
+        if (other.CompareTag("Bowl") || other.CompareTag("Kneader") ||  other.CompareTag("Mixer") || other.CompareTag("Glass"))
         {
-            isTouchingBowl = true;
+            isTouchingUtensil = true;
             Utensil utensil = other.GetComponent<Utensil>();
             if (utensil != null && !utensils.Contains(utensil))
             {
@@ -103,7 +116,7 @@ public class MixIngredients : MonoBehaviour
 
         if (other.CompareTag("BowlFruit"))
         {
-            isTouchingBowl = true;
+            isTouchingUtensil = true;
 
             Food food = other.GetComponent<Food>();
             if (food != null && !ingredients.Contains(food))
@@ -115,9 +128,9 @@ public class MixIngredients : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Bowl") || other.CompareTag("BowlFruit"))
+        if (other.CompareTag("Bowl") || other.CompareTag("BowlFruit") || other.CompareTag("Mixer") || other.CompareTag("Glass"))
         {
-            isTouchingBowl = false;
+            isTouchingUtensil = false;
         }
 
         Food food = other.GetComponent<Food>();
@@ -132,7 +145,7 @@ public class MixIngredients : MonoBehaviour
             utensils.Remove(utensil);
         }
 
-        if (!isTouchingBowl)
+        if (!isTouchingUtensil)
         {
             StopMixing();
         }
@@ -169,6 +182,11 @@ public class MixIngredients : MonoBehaviour
         bool hasKneaderMixEggMilk = false, hasKneaderMixEggFlour = false, hasKneaderMixMilkFlour = false;
         bool hasKneaderDough = false, hasBowlDough = false;
 
+        bool hasEmptyMixer = false, hasEmptyGlass = false;
+        bool hasMixerMilk = false, hasMixerStrawberry = false, hasMixerBanana = false; 
+        bool hasMixerMixMilkStrawberry = false, hasMixerMixMilkBanana = false, hasMixerMixStrawberryBanana = false; 
+        bool hasMixerSmoothie = false;
+
         foreach (var ingredient in ingredients)
         {
             if (ingredient == null) continue;
@@ -176,9 +194,9 @@ public class MixIngredients : MonoBehaviour
             if (ingredient.GetFoodName() == FoodName.egg && ingredient.GetFoodStatus() == FoodStatus.raw) hasEgg = true;
             else if (ingredient.GetFoodName() == FoodName.milk && ingredient.GetFoodStatus() == FoodStatus.raw) hasMilk = true;
             else if (ingredient.GetFoodName() == FoodName.flour && ingredient.GetFoodStatus() == FoodStatus.raw) hasFlour = true;
-            else if (ingredient.GetFoodName() == FoodName.apple && ingredient.GetFoodStatus() == FoodStatus.raw) hasApple = true;
-            else if (ingredient.GetFoodName() == FoodName.strawberry && ingredient.GetFoodStatus() == FoodStatus.raw) hasStrawberry = true;
-            else if (ingredient.GetFoodName() == FoodName.banana && ingredient.GetFoodStatus() == FoodStatus.raw) hasBanana = true;
+            else if (ingredient.GetFoodName() == FoodName.apple && ingredient.GetFoodStatus() == FoodStatus.cut) hasApple = true;
+            else if (ingredient.GetFoodName() == FoodName.strawberry && ingredient.GetFoodStatus() == FoodStatus.cut) hasStrawberry = true;
+            else if (ingredient.GetFoodName() == FoodName.banana && ingredient.GetFoodStatus() == FoodStatus.cut) hasBanana = true;
 
             else if (ingredient.GetFoodName() == FoodName.apple && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlApple = true;
             else if (ingredient.GetFoodName() == FoodName.strawberry && ingredient.GetFoodStatus() == FoodStatus.bowled) hasBowlStrawberry = true;
@@ -194,8 +212,9 @@ public class MixIngredients : MonoBehaviour
         {
             if (utensil == null) continue;
 
-            if (utensil.GetUtensilName() == UtensilName.bowl) hasEmptyBowl = true;
-            else if (utensil.GetUtensilName() == UtensilName.kneader) hasEmptyKneader = true;
+            if (utensil.GetUtensilName() == UtensilName.bowl && utensil.GetUtensilStatus() == UtensilStatus.empty) hasEmptyBowl = true;
+
+            else if (utensil.GetUtensilName() == UtensilName.kneader && utensil.GetUtensilStatus() == UtensilStatus.empty) hasEmptyKneader = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderEgg) hasKneaderEgg = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderMilk) hasKneaderMilk = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderFlour) hasKneaderFlour = true;
@@ -203,6 +222,17 @@ public class MixIngredients : MonoBehaviour
             else if (utensil.GetUtensilName() == UtensilName.kneaderMixEggFlour) hasKneaderMixEggFlour = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderMixMilkFlour) hasKneaderMixMilkFlour = true;
             else if (utensil.GetUtensilName() == UtensilName.kneaderDough) hasKneaderDough = true;
+
+            else if (utensil.GetUtensilName() == UtensilName.mixer && utensil.GetUtensilStatus() == UtensilStatus.empty) hasEmptyMixer = true;
+            else if (utensil.GetUtensilName() == UtensilName.mixerMilk) hasMixerMilk = true;
+            else if (utensil.GetUtensilName() == UtensilName.mixerStrawberry) hasMixerStrawberry = true;
+            else if (utensil.GetUtensilName() == UtensilName.mixerBanana) hasMixerBanana = true;
+            else if (utensil.GetUtensilName() == UtensilName.mixerMixMilkStrawberry) hasMixerMixMilkStrawberry = true;
+            else if (utensil.GetUtensilName() == UtensilName.mixerMixMilkBanana) hasMixerMixMilkBanana = true;
+            else if (utensil.GetUtensilName() == UtensilName.mixerMixStrawberryBanana) hasMixerMixStrawberryBanana = true;
+            else if (utensil.GetUtensilName() == UtensilName.mixerSmoothie) hasMixerSmoothie = true;
+
+            else if (utensil.GetUtensilName() == UtensilName.glass && utensil.GetUtensilStatus() == UtensilStatus.empty) hasEmptyGlass = true;
         }
 
 
@@ -272,6 +302,41 @@ public class MixIngredients : MonoBehaviour
         else if ((hasBowlDough && hasApple) || (hasBowlApple && hasKneaderDough))
         {
             CreateIngredientsMixInHand(rawApplePiePrefab);
+        }
+
+        else if (hasEmptyMixer && hasMilk)
+        {
+            CreateIngredientsMix(mixerMilkPrefab);
+        }
+        else if (hasEmptyMixer && hasStrawberry)
+        {
+            CreateIngredientsMix(mixerStrawberryPrefab);
+        }
+        else if (hasEmptyMixer && hasBanana)
+        {
+            CreateIngredientsMix(mixerBananaPrefab);
+        }
+
+        else if ((hasMixerMilk && hasStrawberry) || (hasMixerStrawberry && hasMilk))
+        {
+            CreateIngredientsMix(mixerMixMilkStrawberryPrefab);
+        }
+        else if ((hasMixerMilk && hasBanana) || (hasMixerBanana && hasMilk))
+        {
+            CreateIngredientsMix(mixerMixMilkBananaPrefab);
+        }
+        else if ((hasMixerStrawberry && hasBanana) || (hasMixerBanana && hasStrawberry))
+        {
+            CreateIngredientsMix(mixerMixStrawberryBananaPrefab);
+        }
+
+        else if ((hasMixerMixMilkStrawberry && hasBanana) || (hasMixerMixMilkBanana && hasStrawberry) || (hasMixerMixStrawberryBanana && hasMilk))
+        {
+            CreateIngredientsMix(mixerNotMixSmoothiePrefab);
+        }
+        else if (hasMixerSmoothie && hasEmptyGlass)
+        {
+            CreateIngredientsMixInHand(fruitSmoothiePrefab);
         }
     }
 

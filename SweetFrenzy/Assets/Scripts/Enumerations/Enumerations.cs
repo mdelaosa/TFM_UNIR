@@ -59,7 +59,17 @@ public enum UtensilName
     kneaderNotMixDough,
     kneaderDough,
     bowl,
-    knife
+    knife,
+    glass,
+    mixer,
+    mixerMilk,
+    mixerStrawberry,
+    mixerBanana,
+    mixerMixMilkStrawberry,
+    mixerMixMilkBanana,
+    mixerMixStrawberryBanana,
+    mixerNotMixSmoothie,
+    mixerSmoothie
 }
 
 public enum UtensilStatus
@@ -68,6 +78,7 @@ public enum UtensilStatus
     full,
     preparedToWork,
     kneading,
+    mixing,
     finished,
     none
 }
