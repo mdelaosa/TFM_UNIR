@@ -44,11 +44,11 @@ public class IngredientBox : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!hasIngredient)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Hand"))
             {
                 isTouchingPlayer = true;
                 hasIngredient = true;
@@ -63,7 +63,7 @@ public class IngredientBox : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Hand"))
         {
             isTouchingPlayer = false;
         }

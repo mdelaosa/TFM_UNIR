@@ -15,6 +15,7 @@ TagManager:
   - BowlFruit
   - Mixer
   - Kneader
+  - Hand
   layers:
   - Default
   - TransparentFX
