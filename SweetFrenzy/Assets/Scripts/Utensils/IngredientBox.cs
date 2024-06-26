@@ -10,6 +10,8 @@ public class IngredientBox : MonoBehaviour
 
     [SerializeField] public GameObject ingredients;
     [SerializeField] private bool hasIngredient = false;
+    [SerializeField] private bool isTouchingPlayer = false;
+    [SerializeField] private bool isTouchingFruit = false;
 
     void Start()
     {
@@ -18,7 +20,7 @@ public class IngredientBox : MonoBehaviour
 
     void Update()
     {
-
+        checkFruitCounter();
     }
 
     private void ingredient()
@@ -29,22 +31,45 @@ public class IngredientBox : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void checkFruitCounter()
     {
-        if (!hasIngredient) {
+        if (!isTouchingPlayer)
+        {
+            hasIngredient = false;
+        }
+        else if (isTouchingPlayer && hasIngredient && Input.GetKeyDown(KeyCode.Space))
+        {
+            hasIngredient = true;
+            ingredient();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!hasIngredient)
+        {
             if (other.gameObject.CompareTag("Player"))
             {
+                isTouchingPlayer = true;
                 hasIngredient = true;
-                ingredient();
             }
+        }
+        if (other.gameObject.CompareTag("Food"))
+        {
+            hasIngredient = true;
+            isTouchingFruit = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Food") && other.gameObject.CompareTag("Player") && hasIngredient == true)
+        if (other.gameObject.CompareTag("Player"))
         {
-            hasIngredient = false;
+            isTouchingPlayer = false;
+        }
+        if (other.gameObject.CompareTag("Food"))
+        {
+            isTouchingFruit = false;
         }
     }
 
