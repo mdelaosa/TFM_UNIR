@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Bin.unity
+- path: Assets/Scenes/IngredientsBox.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
