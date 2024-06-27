@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal.VersionControl;
 using UnityEngine;
 
 public class PickupDropObject : MonoBehaviour
@@ -11,11 +9,6 @@ public class PickupDropObject : MonoBehaviour
     private GameObject pickedObject = null;
     [SerializeField] public bool hasObject = false;
     [SerializeField] private bool canDrop = false;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -76,10 +69,14 @@ public class PickupDropObject : MonoBehaviour
 
     IEnumerator PickupDropRoutine(Collider other)
     {
-        other.GetComponent<Rigidbody>().useGravity = false;
-        other.GetComponent<Rigidbody>().isKinematic = true;
+        Rigidbody otherRb = other.GetComponent<Rigidbody>();
+        if (otherRb != null)
+        {
+            otherRb.useGravity = false;
+            otherRb.isKinematic = true;
+        }
         other.transform.position = handPoint.transform.position;
-        other.gameObject.transform.SetParent(handPoint.gameObject.transform);
+        other.transform.SetParent(handPoint.transform);
 
         pickedObject = other.gameObject;
         hasObject = true;
@@ -90,7 +87,7 @@ public class PickupDropObject : MonoBehaviour
     IEnumerator DropObjectRoutine()
     {
         yield return null;
-        
+
         canDrop = true;
     }
 

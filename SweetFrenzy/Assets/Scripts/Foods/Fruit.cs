@@ -7,23 +7,24 @@ public class Fruit : Food
     [SerializeField] private GameObject fruitRaw;
     [SerializeField] private GameObject fruitIsBeingCut;
     [SerializeField] private GameObject fruitCut;
-     private float cutDelay;
 
     [Header("Progress Bar")]
     [SerializeField] private GameObject progressBar;
     [SerializeField] private GameObject progressBarVariable;
     private Vector3 initialScale;
     private Vector3 initialPosition;
-    private float timer = 0f;
     private float progress = 0f;
 
+    [Header("Timer")]
+    private float timer = 0f;
+    private float cutDelay;
     private Coroutine cutRoutine;
      
 
     private void Start()
     {
         foodType = FoodType.raw;
-        foodStatus = FoodStatus.raw;
+        //foodStatus = FoodStatus.raw;
         fruitRaw.SetActive(true);
         fruitCut.SetActive(false);
         progressBar.SetActive(false);

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public enum FoodStatus
 {
-    raw,            // crudo
-    cut,            // cortado
-    mixed,          // mezclado
-    kneaded,        // amasado
-    baked,          // horneado
-    ready,          // listo
+    raw,            
+    cut,            
+    mixed,          
+    kneaded,        
+    baked,          
+    ready,          
     bowled,
     served
 }
@@ -26,9 +26,9 @@ public enum FoodName
     apple,
     strawberry,
     banana,
-    mixedAppleBanana,
-    mixedAppleStrawberry,
-    mixedStrawberryBanana,
+    mixAppleBanana,
+    mixAppleStrawberry,
+    mixStrawberryBanana,
     egg,
     milk,
     flour,
@@ -59,13 +59,26 @@ public enum UtensilName
     kneaderNotMixDough,
     kneaderDough,
     bowl,
-    knife
+    knife,
+    glass,
+    mixer,
+    mixerMilk,
+    mixerStrawberry,
+    mixerBanana,
+    mixerMixMilkStrawberry,
+    mixerMixMilkBanana,
+    mixerMixStrawberryBanana,
+    mixerNotMixSmoothie,
+    mixerSmoothie
 }
 
 public enum UtensilStatus
 {
     empty,
     full,
+    preparedToWork,
     kneading,
+    mixing,
+    finished,
     none
 }

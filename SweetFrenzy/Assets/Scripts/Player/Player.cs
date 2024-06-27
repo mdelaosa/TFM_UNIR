@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isSprinting = false;
     [SerializeField] private bool canSprint = true;
     [SerializeField] private float sprintTimer = 0f;            
-    [SerializeField] private float sprintCooldownTimer = 0f;    
+    [SerializeField] private float sprintCooldownTimer = 0f;
 
     void Start()
     {
