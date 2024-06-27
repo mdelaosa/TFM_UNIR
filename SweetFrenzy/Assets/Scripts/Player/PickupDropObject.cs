@@ -65,6 +65,12 @@ public class PickupDropObject : MonoBehaviour
             {
                 StartCoroutine(PickupDropRoutine(other));
             }
+        }else if (other.gameObject.CompareTag("Bowl"))
+        {
+            if (pickupInput && !hasObject)
+            {
+                StartCoroutine(PickupDropRoutine(other));
+            }
         }
     }
 
