@@ -7,8 +7,8 @@ public class PickupDropObject : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] private GameObject handPoint;
     private GameObject pickedObject = null;
-    private bool hasObject = false;
-    private bool canDrop = false;
+    [SerializeField] public bool hasObject = false;
+    [SerializeField] private bool canDrop = false;
 
     void Update()
     {
@@ -30,19 +30,12 @@ public class PickupDropObject : MonoBehaviour
 
         if (dropInput && hasObject && canDrop)
         {
-            if (pickedObject != null)
-            {
-                Rigidbody pickedObjectRb = pickedObject.GetComponent<Rigidbody>();
-                if (pickedObjectRb != null)
-                {
-                    pickedObjectRb.useGravity = true;
-                    pickedObjectRb.isKinematic = false;
-                    pickedObject.transform.SetParent(null);
-                }
-                pickedObject = null;
-                hasObject = false;
-                canDrop = false;
-            }
+            pickedObject.GetComponent<Rigidbody>().useGravity = true;
+            pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+            pickedObject.gameObject.transform.SetParent(null);
+            pickedObject = null;
+            hasObject = false;
+            canDrop = false;
         }
     }
 
@@ -59,9 +52,18 @@ public class PickupDropObject : MonoBehaviour
             pickupInput = Input.GetKeyDown(KeyCode.RightControl);
         }
 
-        if ((other.gameObject.CompareTag("Food") || other.gameObject.CompareTag("BowlFruit") || other.gameObject.CompareTag("Bowl") || other.gameObject.CompareTag("Glass")) && pickupInput && !hasObject)
+        if (other.gameObject.CompareTag("Food"))
         {
-            StartCoroutine(PickupDropRoutine(other));
+            if (pickupInput && !hasObject)
+            {
+                StartCoroutine(PickupDropRoutine(other));
+            }
+        }else if (other.gameObject.CompareTag("Bowl"))
+        {
+            if (pickupInput && !hasObject)
+            {
+                StartCoroutine(PickupDropRoutine(other));
+            }
         }
     }
 
@@ -88,4 +90,11 @@ public class PickupDropObject : MonoBehaviour
 
         canDrop = true;
     }
+
+    #region Setters
+    public void SetHasObjectStatus(bool newHasObjectSatus)
+    {
+        hasObject = newHasObjectSatus;
+    }
+    #endregion
 }

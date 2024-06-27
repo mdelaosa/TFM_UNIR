@@ -15,8 +15,11 @@ TagManager:
   - BowlFruit
   - Mixer
   - Kneader
-  - Glass
   - Hand
+  - FoodBox
+  - Client
+  - BowlBox
+  - NewBowl
   layers:
   - Default
   - TransparentFX
