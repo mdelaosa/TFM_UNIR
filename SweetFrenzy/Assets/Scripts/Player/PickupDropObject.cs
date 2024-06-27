@@ -9,7 +9,7 @@ public class PickupDropObject : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] private GameObject handPoint;
     private GameObject pickedObject = null;
-    [SerializeField] private bool hasObject = false;
+    [SerializeField] public bool hasObject = false;
     [SerializeField] private bool canDrop = false;
 
     void Start()
@@ -87,4 +87,11 @@ public class PickupDropObject : MonoBehaviour
         
         canDrop = true;
     }
+
+    #region Setters
+    public void SetHasObjectStatus(bool newHasObjectSatus)
+    {
+        hasObject = newHasObjectSatus;
+    }
+    #endregion
 }
