@@ -21,12 +21,15 @@ public class Bin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Food"))
         {
-            Destroy(other.gameObject);
-
-            if (other.gameObject.CompareTag("Player"))
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+            foreach (Collider collider in colliders)
             {
-                other.gameObject.GetComponent<PickupDropObject>().SetHasObjectStatus(false);
+                if (collider.CompareTag("Hand"))
+                {
+                    collider.gameObject.GetComponent<PickupDropObject>().SetHasObjectStatus(false);
+                }
             }
+            Destroy(other.gameObject);
         }
     }
 }
