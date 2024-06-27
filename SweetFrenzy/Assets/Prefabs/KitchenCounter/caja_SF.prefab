@@ -79,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d8f214fa87cd664f9b88fac17da4a0b, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6809181340656279997}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d8f214fa87cd664f9b88fac17da4a0b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7970300859549663867}
   m_SourcePrefab: {fileID: 100100000, guid: 2d8f214fa87cd664f9b88fac17da4a0b, type: 3}
 --- !u!1 &7532748115957356512 stripped
 GameObject:
@@ -106,3 +109,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09949914, y: 0.05777073, z: 0.09951973}
   m_Center: {x: 0, y: 0.028903324, z: 0}
+--- !u!114 &7970300859549663867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532748115957356512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e51cb9a588d8144b63a6e6498546ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodName: 0
+  foodStatus: 0
+  foodType: 0
+  ingredients: {fileID: 0}
