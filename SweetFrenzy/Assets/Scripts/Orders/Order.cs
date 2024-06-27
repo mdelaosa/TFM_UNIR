@@ -9,6 +9,7 @@ public class Order : MonoBehaviour
     [SerializeField] private List<FoodName> ingredients = new List<FoodName>();
     [SerializeField] private int deliveryTime;
     [SerializeField] private int points;
+    [SerializeField] private Sprite image;
     [SerializeField] private bool isReady;
     private float timer;
     private GameManager gameManager;
@@ -49,6 +50,7 @@ public class Order : MonoBehaviour
             ingredients = recipeData["ingredients"] as List<FoodName>;
             deliveryTime = (int)recipeData["deliveryTime"];
             points = (int)recipeData["points"];
+            image = (Sprite)recipeData["image"];
         }
     }
 
@@ -127,6 +129,10 @@ public class Order : MonoBehaviour
         return deliveryTime;
     }
 
+    public Sprite GetImageRecipe()
+    {
+        return image;
+    }
     public void SetRecipeName(RecipeName newRecipeName)
     {
         recipeName = newRecipeName;

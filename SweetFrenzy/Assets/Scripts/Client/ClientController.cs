@@ -17,13 +17,18 @@ public class ClientController : MonoBehaviour
     private bool reachedEntrance;
     private bool reachedChair;
     private bool reachedEnd;
+    private bool ordered;
+
+    private OrderRecipe orderRecipe;
+    private Order orderedRecipe;
 
     private int customerSuccess;
     private float waitingTime;
     [SerializeField] private float maxWaitingTime;
 
     [SerializeField] private Canvas canvas; 
-    [SerializeField] private Image image;
+    [SerializeField] private Image imageFace;
+    [SerializeField] private Image imageOrder;
     [SerializeField] private Sprite happyFace;
     [SerializeField] private Sprite neutralFace;
     [SerializeField] private Sprite madFace;
@@ -36,9 +41,12 @@ public class ClientController : MonoBehaviour
         triggers = GameObject.FindGameObjectsWithTag("Trigger");
         triggers = triggers.OrderBy(triggers => triggers.name).ToArray();
 
+        orderRecipe = FindObjectOfType<OrderRecipe>();
+
         reachedEntrance = false;
         reachedChair = false;
         reachedEnd = false;
+        ordered = false;
 
         waitingTime = 0f;
         customerSuccess = 0;
@@ -52,17 +60,23 @@ public class ClientController : MonoBehaviour
             reachedEntrance = Move(transform.position, triggers[0].transform.position); //Se mueve hasta la entrada
         }
         
-        else if((reachedEntrance) && (!reachedChair)) //Está en la entrada pero no ha elegido silla
+        else if((reachedEntrance) & (!reachedChair)) //Está en la entrada pero no ha elegido silla
         {
             reachedChair = ChooseChair(); //Escoge silla
         }
 
-        else if ((reachedChair) & (customerSuccess == 0)) //Está sentado esperando su pedido
+        else if((reachedChair) & (!ordered)) //Está sentado y todavía no ha pedido
         {
-            //Mostrar qué pedido quiere
+            orderedRecipe = orderRecipe.Order();
+            maxWaitingTime = orderedRecipe.GetDeliveryTime();
+            ordered = true;
+        }
 
-            //Mostrar satisfacción
+        else if ((reachedChair) & (ordered) & (customerSuccess == 0)) //Está sentado esperando su pedido
+        {
+            //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
             canvas.gameObject.SetActive(true);
+            imageOrder.sprite = orderedRecipe.GetImageRecipe();
 
             //Esperar
             customerSuccess = Wait();
@@ -70,7 +84,7 @@ public class ClientController : MonoBehaviour
 
         else if(customerSuccess == 1) //El cliente ha recibido su pedido
         {
-
+            
         }
 
         else if (customerSuccess == 2) //El cliente se ha cansado de esperar y se va
@@ -158,15 +172,15 @@ public class ClientController : MonoBehaviour
     {
         if (waitTime <= maxWaitingTime / 3) //Si el tiempo de espera es menor que 1/3, es que lleva 2/3 esperando
         {
-            image.sprite = happyFace;
+            imageFace.sprite = happyFace;
         }
         else if ((waitTime > maxWaitingTime / 3) & (waitTime <= (2 * maxWaitingTime) / 3)) //Si el tiempo de espera es menor que 2/3 el tiempo máximo de espera, es que lleva 1/3 esperando
         {
-            image.sprite = neutralFace;
+            imageFace.sprite = neutralFace;
         }
         else if ((waitTime > (2 * maxWaitingTime) / 3) & (waitTime <= maxWaitingTime)) //Sino, es que lleva menos de 1/3 esperando
         {
-            image.sprite = madFace;
+            imageFace.sprite = madFace;
         }
     }
 }

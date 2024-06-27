@@ -23,7 +23,7 @@ public class ClientManager : MonoBehaviour
         {
             Instantiate(clientPrefab, transform.position, Quaternion.identity);
 
-            yield return new WaitForSeconds(25f);
+            yield return new WaitForSeconds(5f);
         }
     }
 }
