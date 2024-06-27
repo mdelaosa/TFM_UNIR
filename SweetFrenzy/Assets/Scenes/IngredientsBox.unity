@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fec8694e666c54da73e6ef0b7dcb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowls: {fileID: 5944726305347933317, guid: f3cad05b75b76954d8378288e261fe89, type: 3}
+  bowls: {fileID: 2827625427726269915, guid: 38889ca6f141f6e43ae0fdcc27032ca7, type: 3}
 --- !u!65 &1586933851
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1979,7 +1979,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586933849}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

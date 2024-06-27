@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9e37ebeb0e472004ebefa836e9dfb844, type: 2}
+      objectReference: {fileID: 2100000, guid: d7d5ba3b716f35b4ab0ce5b6bb0e82e9, type: 2}
     - target: {fileID: 919132149155446097, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
       propertyPath: m_Name
       value: bol_SF
@@ -150,5 +150,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 82
+  m_Constraints: 84
   m_CollisionDetection: 0
