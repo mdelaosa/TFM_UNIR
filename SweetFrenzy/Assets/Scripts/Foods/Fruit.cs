@@ -24,7 +24,7 @@ public class Fruit : Food
     private void Start()
     {
         foodType = FoodType.raw;
-        foodStatus = FoodStatus.raw;
+        //foodStatus = FoodStatus.raw;
         fruitRaw.SetActive(true);
         fruitCut.SetActive(false);
         progressBar.SetActive(false);

@@ -21,6 +21,7 @@ public class Mixer : Utensil
     private float mixingDelay;
     private Coroutine mixingRoutine;
 
+
     private void Start()
     {
         utensilName = UtensilName.mixerNotMixSmoothie;
@@ -28,7 +29,7 @@ public class Mixer : Utensil
         notMixedSmoothie.SetActive(true);
         smoothieMixing.SetActive(false);
         progressBar.SetActive(false);
-        mixingDelay = 3f; 
+        mixingDelay = 2f;
 
         initialScale = progressBarVariable.transform.localScale;
         initialPosition = progressBarVariable.transform.localPosition;

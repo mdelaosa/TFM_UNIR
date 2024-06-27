@@ -95,7 +95,7 @@ public class MixIngredients : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bowl") || other.CompareTag("Kneader") ||  other.CompareTag("Mixer") || other.CompareTag("Glass"))
+        if (other.CompareTag("Bowl") || other.CompareTag("Kneader") || other.CompareTag("Mixer") || other.CompareTag("Glass"))
         {
             isTouchingUtensil = true;
             Utensil utensil = other.GetComponent<Utensil>();
@@ -150,6 +150,7 @@ public class MixIngredients : MonoBehaviour
             StopMixing();
         }
     }
+
 
     private void StartMixing()
     {
@@ -342,22 +343,22 @@ public class MixIngredients : MonoBehaviour
 
     private void CreateIngredientsMix(GameObject mixPrefab)
     {
-        foreach (var ingredient in ingredients)
+        foreach (var ingredient in ingredients.ToList())
         {
             if (ingredient != null)
             {
                 Destroy(ingredient.gameObject);
+                ingredients.Remove(ingredient);
             }
         }
-        ingredients.Clear();
 
         foreach (var utensil in utensils.ToList())
         {
             if (utensil != null)
             {
                 Destroy(utensil.gameObject);
+                utensils.Remove(utensil);
             }
-            utensils.Remove(utensil);
         }
 
         if (mixPrefab != null)
@@ -371,14 +372,14 @@ public class MixIngredients : MonoBehaviour
 
     private void CreateIngredientsMixInHand(GameObject mixPrefab)
     {
-        foreach (var ingredient in ingredients)
+        foreach (var ingredient in ingredients.ToList())
         {
             if (ingredient != null)
             {
                 Destroy(ingredient.gameObject);
+                ingredients.Remove(ingredient);
             }
         }
-        ingredients.Clear();
 
         foreach (var utensil in utensils.ToList())
         {
@@ -393,8 +394,8 @@ public class MixIngredients : MonoBehaviour
                 {
                     Destroy(utensil.gameObject);
                 }
+                utensils.Remove(utensil);
             }
-            utensils.Remove(utensil);
         }
 
         if (mixPrefab != null)
@@ -406,6 +407,7 @@ public class MixIngredients : MonoBehaviour
 
         isMixing = false;
     }
+
 
     public void HandleUtensilDestruction(GameObject utensil)
     {

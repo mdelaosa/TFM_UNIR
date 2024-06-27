@@ -4,7 +4,7 @@ public class KneadDough: MonoBehaviour
 {
     [Header("Game Objects")]
     [SerializeField] private Player player;
-    [SerializeField] private Kneader kneader;
+    private Kneader kneader;
 
     [Header("Booleans")]
     [SerializeField] private bool isTouchingKneader = false;

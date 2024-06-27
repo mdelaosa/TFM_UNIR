@@ -16,6 +16,7 @@ TagManager:
   - Mixer
   - Kneader
   - Glass
+  - Hand
   layers:
   - Default
   - TransparentFX

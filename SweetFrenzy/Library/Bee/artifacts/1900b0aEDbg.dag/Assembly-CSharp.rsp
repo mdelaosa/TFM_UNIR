@@ -371,6 +371,7 @@
 "Assets/Scripts/Player/MixIngredients.cs"
 "Assets/Scripts/Player/PickupDropObject.cs"
 "Assets/Scripts/Player/Player.cs"
+"Assets/Scripts/Player/PrepareFruitSmoothie.cs"
 "Assets/Scripts/Pruebas - para borrar/PruebaCliente.cs"
 "Assets/Scripts/Recipes/Recipes.cs"
 "Assets/Scripts/Scene/SceneManager.cs"
