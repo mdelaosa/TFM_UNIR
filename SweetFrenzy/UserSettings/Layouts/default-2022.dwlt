@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2048
     height: 1068.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -375,7 +375,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 8afaffff
+      m_ExpandedIDs: 3ef6ffffe45d0000345e0000a65e0000aa5e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -491,7 +491,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -499,16 +499,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity\TFM_UNIR\SweetFrenzy
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 327.79993}
-    m_SelectedIDs: 025e0000
-    m_LastClickedID: 24066
-    m_ExpandedIDs: 00000000e05d0000e25d0000e45d0000e65d0000e85d0000ea5d0000f05d0000f45d0000f85d0000fa5d0000fc5d0000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e0000
+    scrollPos: {x: 0, y: 103.79993}
+    m_SelectedIDs: ea610000
+    m_LastClickedID: 25066
+    m_ExpandedIDs: 000000006a6100006c6100006e61000070610000726100007461000076610000786100007a6100007c6100007e6100008061000082610000866100008a6100008c610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -536,7 +536,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 877.7999}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e05d0000e25d0000e45d0000e65d0000e85d0000ea5d0000ec5d0000ee5d0000f05d0000f25d0000f45d0000f65d0000f85d0000fa5d0000fc5d0000fe5d0000005e0000025e0000045e0000065e0000085e00000a5e00000c5e0000
+    m_ExpandedIDs: 000000006a6100006c6100006e61000070610000726100007461000076610000786100007a6100007c6100007e61000080610000826100008461000086610000886100008a6100008c6100008e610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
       y: 21
       width: 1136.3999
       height: 459.20007
-    m_Scale: {x: 0.99999994, y: 0.99999994}
+    m_Scale: {x: 0.9999999, y: 0.99999994}
     m_Translation: {x: 568.19995, y: 229.60004}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -1109,11 +1109,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.011505795, y: -0.8628993, z: 0.019682659, w: 0.5050003}
     speed: 2
-    m_Value: {x: -0.011504991, y: 0.8628388, z: -0.01968128, w: -0.5049649}
+    m_Value: {x: 0.011504988, y: -0.8628388, z: 0.019681279, w: 0.5049649}
   m_Size:
-    m_Target: 6.0341
+    m_Target: 4.1748366
     speed: 2
-    m_Value: 5.7742586
+    m_Value: 4.1748366
   m_Ortho:
     m_Target: 1
     speed: 2

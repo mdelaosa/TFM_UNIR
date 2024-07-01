@@ -53,7 +53,7 @@ public class MixIngredients : MonoBehaviour
     [SerializeField] private bool isTouchingUtensil = false;
     [SerializeField] private bool isMixing = false;
 
-    private void Awake()
+    /*private void Awake()
     {
         if (Instance == null)
         {
@@ -63,7 +63,7 @@ public class MixIngredients : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 
     private void Update()
     {

@@ -1121,7 +1121,17 @@ MonoBehaviour:
   kneaderMixEggFlourPrefab: {fileID: 7954549608013582769, guid: 6c0512c2856518e469ba96453c37cac6, type: 3}
   kneaderMixMilkFlourPrefab: {fileID: 6341542622243350140, guid: 98ede204810783743bad7bc1e4cbddcf, type: 3}
   kneaderNotMixDoughPrefab: {fileID: 3930419073686710418, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
-  isTouchingBowl: 0
+  emptyMixerPrefab: {fileID: 0}
+  mixerMilkPrefab: {fileID: 0}
+  mixerStrawberryPrefab: {fileID: 0}
+  mixerBananaPrefab: {fileID: 0}
+  mixerMixMilkStrawberryPrefab: {fileID: 0}
+  mixerMixMilkBananaPrefab: {fileID: 0}
+  mixerMixStrawberryBananaPrefab: {fileID: 0}
+  mixerNotMixSmoothiePrefab: {fileID: 0}
+  mixerSmoothiePrefab: {fileID: 0}
+  fruitSmoothiePrefab: {fileID: 0}
+  isTouchingUtensil: 0
   isMixing: 0
 --- !u!114 &531991507
 MonoBehaviour:
@@ -2678,7 +2688,17 @@ MonoBehaviour:
   kneaderMixEggFlourPrefab: {fileID: 7954549608013582769, guid: 6c0512c2856518e469ba96453c37cac6, type: 3}
   kneaderMixMilkFlourPrefab: {fileID: 6341542622243350140, guid: 98ede204810783743bad7bc1e4cbddcf, type: 3}
   kneaderNotMixDoughPrefab: {fileID: 3930419073686710418, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
-  isTouchingBowl: 0
+  emptyMixerPrefab: {fileID: 0}
+  mixerMilkPrefab: {fileID: 0}
+  mixerStrawberryPrefab: {fileID: 0}
+  mixerBananaPrefab: {fileID: 0}
+  mixerMixMilkStrawberryPrefab: {fileID: 0}
+  mixerMixMilkBananaPrefab: {fileID: 0}
+  mixerMixStrawberryBananaPrefab: {fileID: 0}
+  mixerNotMixSmoothiePrefab: {fileID: 0}
+  mixerSmoothiePrefab: {fileID: 0}
+  fruitSmoothiePrefab: {fileID: 0}
+  isTouchingUtensil: 0
   isMixing: 0
 --- !u!114 &2111891824
 MonoBehaviour:

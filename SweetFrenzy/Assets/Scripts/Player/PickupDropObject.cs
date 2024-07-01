@@ -82,6 +82,7 @@ public class PickupDropObject : MonoBehaviour
         hasObject = true;
 
         yield return StartCoroutine(DropObjectRoutine());
+
     }
 
     IEnumerator DropObjectRoutine()
