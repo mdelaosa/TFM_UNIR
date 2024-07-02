@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KneadDough: MonoBehaviour
+public class KneadDough : MonoBehaviour
 {
     [Header("Game Objects")]
     [SerializeField] private Player player;
