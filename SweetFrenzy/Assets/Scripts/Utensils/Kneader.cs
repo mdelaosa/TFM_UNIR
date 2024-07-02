@@ -25,13 +25,18 @@ public class Kneader : Utensil
     {
         utensilName = UtensilName.kneaderNotMixDough;
         utensilStatus = UtensilStatus.preparedToWork;
-        notKneadedDough.SetActive(true);
-        doughKneading.SetActive(false);
-        progressBar.SetActive(false);
+
+        if (notKneadedDough != null) notKneadedDough.SetActive(true);
+        if (doughKneading != null) doughKneading.SetActive(false);
+        if (progressBar != null) progressBar.SetActive(false);
+
         kneadingDelay = 2f;
 
-        initialScale = progressBarVariable.transform.localScale;
-        initialPosition = progressBarVariable.transform.localPosition;
+        if (progressBarVariable != null)
+        {
+            initialScale = progressBarVariable.transform.localScale;
+            initialPosition = progressBarVariable.transform.localPosition;
+        }
     }
 
     public void StartKneading()
@@ -39,10 +44,13 @@ public class Kneader : Utensil
         if (utensilStatus != UtensilStatus.finished)
         {
             utensilStatus = UtensilStatus.kneading;
-            kneadingRoutine = StartCoroutine(KneadingRoutine());
-            notKneadedDough.SetActive(false);
-            doughKneading.SetActive(true);
-            progressBar.SetActive(true);
+            if (kneadingRoutine == null)
+            {
+                kneadingRoutine = StartCoroutine(KneadingRoutine());
+            }
+            if (notKneadedDough != null) notKneadedDough.SetActive(false);
+            if (doughKneading != null) doughKneading.SetActive(true);
+            if (progressBar != null) progressBar.SetActive(true);
         }
     }
 
@@ -52,16 +60,7 @@ public class Kneader : Utensil
         {
             StopCoroutine(kneadingRoutine);
             kneadingRoutine = null;
-        }
-        if (utensilStatus == UtensilStatus.finished)
-        {
-            doughKneading.SetActive(false);
-            progressBar.SetActive(false);
-
-            doughFinished = Instantiate(kneaderDoughPrefab);
-            doughFinished.transform.position = transform.position;
-
-            MixIngredients.Instance.HandleUtensilDestruction(gameObject);
+            utensilStatus = UtensilStatus.preparedToWork;
         }
     }
 
@@ -71,8 +70,11 @@ public class Kneader : Utensil
         {
             progress = timer / kneadingDelay;
 
-            progressBarVariable.transform.localScale = new Vector3(initialScale.x * progress, initialScale.y, initialScale.z);
-            progressBarVariable.transform.localPosition = new Vector3(initialPosition.x - initialScale.x * 0.5f * (1 - progress), initialPosition.y, initialPosition.z);
+            if (progressBarVariable != null)
+            {
+                progressBarVariable.transform.localScale = new Vector3(initialScale.x * progress, initialScale.y, initialScale.z);
+                progressBarVariable.transform.localPosition = new Vector3(initialPosition.x - initialScale.x * 0.5f * (1 - progress), initialPosition.y, initialPosition.z);
+            }
 
             yield return null;
             timer += Time.deltaTime;
@@ -82,5 +84,22 @@ public class Kneader : Utensil
         progressBarVariable.transform.localScale = initialScale;
         progressBarVariable.transform.localPosition = initialPosition;
         utensilStatus = UtensilStatus.finished;
+        kneadingRoutine = null;
+
+        if (doughKneading != null) doughKneading.SetActive(false);
+        if (progressBar != null) progressBar.SetActive(false);
+
+        if (kneaderDoughPrefab != null)
+        {
+            doughFinished = Instantiate(kneaderDoughPrefab);
+            doughFinished.transform.position = transform.position;
+        }
+
+        if (MixIngredients.Instance != null)
+        {
+            MixIngredients.Instance.HandleUtensilDestruction(gameObject);
+        }
+
+        Destroy(gameObject);
     }
 }

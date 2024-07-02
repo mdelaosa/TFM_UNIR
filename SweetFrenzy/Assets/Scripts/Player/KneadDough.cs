@@ -19,11 +19,7 @@ public class KneadDough : MonoBehaviour
     {
         if (!player.IsMoving() && isTouchingKneader && kneader != null && kneader.GetUtensilName() == UtensilName.kneaderNotMixDough)
         {
-            if (player.GetPlayerID() == PlayerID.player1 && Input.GetKey(KeyCode.E))
-            {
-                StartKneading();
-            }
-            else if (player.GetPlayerID() == PlayerID.player2 && Input.GetKey(KeyCode.Return))
+            if ((player.GetPlayerID() == PlayerID.player1 && Input.GetKey(KeyCode.E)) || (player.GetPlayerID() == PlayerID.player2 && Input.GetKey(KeyCode.Return)))
             {
                 StartKneading();
             }
