@@ -77,8 +77,7 @@ public enum UtensilStatus
     empty,
     full,
     preparedToWork,
-    kneading,
-    mixing,
+    working,
     finished,
     none
 }

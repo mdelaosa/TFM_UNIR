@@ -1,78 +1,23 @@
 using UnityEngine;
 
-public class KneadDough: MonoBehaviour
+public class KneadDough : BasePlayerInteraction
 {
-    [Header("Game Objects")]
-    [SerializeField] private Player player;
-    private Kneader kneader;
-
-    [Header("Booleans")]
-    [SerializeField] private bool isTouchingKneader = false;
-    [SerializeField] private bool isKneading = false;
-
-    void Update()
+    protected override void CheckInteraction()
     {
-        CheckKneading();
-    }
-
-    private void CheckKneading()
-    {
-        if (!player.IsMoving() && isTouchingKneader && kneader != null && kneader.GetUtensilName() == UtensilName.kneaderNotMixDough)
+        if (!player.IsMoving() && isTouchingUtensil && utensil != null && utensil.GetUtensilName() == UtensilName.kneaderNotMixDough)
         {
-            if (player.GetPlayerID() == PlayerID.player1 && Input.GetKey(KeyCode.E))
+            if ((player.GetPlayerID() == PlayerID.player1 && Input.GetKey(KeyCode.E)) || (player.GetPlayerID() == PlayerID.player2 && Input.GetKey(KeyCode.Return)))
             {
-                StartKneading();
-            }
-            else if (player.GetPlayerID() == PlayerID.player2 && Input.GetKey(KeyCode.Return))
-            {
-                StartKneading();
+                StartInteraction();
             }
             else
             {
-                StopKneading();
+                StopInteraction();
             }
         }
         else
         {
-            StopKneading();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Kneader"))
-        {
-            isTouchingKneader = true;
-            kneader = other.GetComponent<Kneader>();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Kneader"))
-        {
-            isTouchingKneader = false;
-            kneader = null;
-        }
-
-        StopKneading();
-    }
-
-    private void StartKneading()
-    {
-        if (!isKneading && kneader != null)
-        {
-            isKneading = true;
-            kneader.StartKneading();
-        }
-    }
-
-    private void StopKneading()
-    {
-        if (isKneading && kneader != null)
-        {
-            isKneading = false;
-            kneader.StopKneading();
+            StopInteraction();
         }
     }
 }
