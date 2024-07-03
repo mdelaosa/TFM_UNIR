@@ -53,18 +53,6 @@ public class MixIngredients : MonoBehaviour
     [SerializeField] private bool isTouchingUtensil = false;
     [SerializeField] private bool isMixing = false;
 
-    /*private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }*/
-
     private void Update()
     {
         Mix();
@@ -388,6 +376,11 @@ public class MixIngredients : MonoBehaviour
                 if (utensil.CompareTag("Kneader"))
                 {
                     GameObject emptyKneader = Instantiate(emptyKneaderPrefab, utensil.transform.position, utensil.transform.rotation);
+                    Destroy(utensil.gameObject);
+                }
+                else if (utensil.CompareTag("Mixer"))
+                {
+                    GameObject emptyMixer = Instantiate(emptyMixerPrefab, utensil.transform.position, utensil.transform.rotation);
                     Destroy(utensil.gameObject);
                 }
                 else
