@@ -6,7 +6,7 @@ public class PickupDropObject : MonoBehaviour
     [Header("Pick up/Drop object")]
     [SerializeField] Player player;
     [SerializeField] private GameObject handPoint;
-    private GameObject pickedObject = null;
+    public GameObject pickedObject = null; // Cambiar a public para acceso desde BakeApplePie
     [SerializeField] public bool hasObject = false;
     [SerializeField] private bool canDrop = false;
 
@@ -32,7 +32,7 @@ public class PickupDropObject : MonoBehaviour
         {
             pickedObject.GetComponent<Rigidbody>().useGravity = true;
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-            pickedObject.gameObject.transform.SetParent(null);
+            pickedObject.transform.SetParent(null);
             pickedObject = null;
             hasObject = false;
             canDrop = false;
@@ -76,20 +76,33 @@ public class PickupDropObject : MonoBehaviour
         hasObject = true;
 
         yield return StartCoroutine(DropObjectRoutine());
-
     }
 
     IEnumerator DropObjectRoutine()
     {
         yield return null;
-
         canDrop = true;
     }
 
-    #region Setters
+    public void PickupObject(GameObject obj)
+    {
+        pickedObject = obj;
+        obj.transform.position = handPoint.transform.position;
+        obj.transform.SetParent(handPoint.transform);
+        hasObject = true;
+        canDrop = false;
+    }
+
+    #region Getters and Setters
+    public GameObject GetPickedObject()
+    {
+        return pickedObject;
+    }
+    
     public void SetHasObjectStatus(bool newHasObjectSatus)
     {
         hasObject = newHasObjectSatus;
     }
+
     #endregion
 }

@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791911977766bed4cbc9c48a8389e145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: 8
-  foodStatus: 4
+  foodName: 11
+  foodStatus: 7
   foodType: 2
 --- !u!65 &4730695021575526906
 BoxCollider:

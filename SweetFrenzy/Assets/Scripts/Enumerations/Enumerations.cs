@@ -9,8 +9,9 @@ public enum FoodStatus
     mixed,          
     kneaded,        
     baked,          
-    ready,          
+    burnt,          
     bowled,
+    ready,
     served
 }
 
@@ -60,6 +61,7 @@ public enum UtensilName
     kneaderDough,
     bowl,
     knife,
+    oven,
     glass,
     mixer,
     mixerMilk,

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4049605741125028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.048}
+  m_LocalPosition: {x: -0, y: 0, z: 0.197}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2135614021022191874}
   handPoint: {fileID: 4049605741125028}
+  pickedObject: {fileID: 0}
   hasObject: 0
   canDrop: 0
 --- !u!114 &3106744510392894035

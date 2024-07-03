@@ -13,8 +13,8 @@ public abstract class BaseUtensil : MonoBehaviour
     private GameObject utensilFinished;
 
     [Header("Progress Bar")]
-    [SerializeField] private GameObject progressBar;
-    [SerializeField] private GameObject progressBarVariable;
+    [SerializeField] protected GameObject progressBar;
+    [SerializeField] protected GameObject progressBarVariable;
     private Vector3 initialScale;
     private Vector3 initialPosition;
     private float progress = 0f;
@@ -35,16 +35,6 @@ public abstract class BaseUtensil : MonoBehaviour
 
         if (notUtensilWorking != null) notUtensilWorking.SetActive(true);
         if (utensilWorking != null) utensilWorking.SetActive(false);
-    }
-
-    public void SetUtensilStatus(UtensilStatus newUtensilStatus)
-    {
-        utensilStatus = newUtensilStatus;
-    }
-
-    public UtensilStatus GetUtensilStatus()
-    {
-        return utensilStatus;
     }
 
     public UtensilName GetUtensilName()
