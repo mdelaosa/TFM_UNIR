@@ -1,0 +1,49 @@
+Base path: 'C:/Program Files/Unity 2022.3.11f1/Editor/Data', plugins path 'C:/Program Files/Unity 2022.3.11f1/Editor/Data/PlaybackEngines'
+Cmd: initializeCompiler
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=15 mask=6 insize=2286 outsize=3768 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=6058 outsize=8530 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=15 mask=6 insize=2102 outsize=3564 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=15 mask=6 insize=1950 outsize=3410 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=3410 outsize=4984 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=5074 outsize=7259 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=4766 outsize=6777 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=15 mask=6 insize=1582 outsize=2835 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=2522 outsize=4437 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=15 mask=6 insize=2366 outsize=3950 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=7222 outsize=10185 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=15 mask=6 insize=1798 outsize=3169 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=15 mask=6 insize=2482 outsize=4072 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=1986 outsize=3487 ok=1
+
+Cmd: disassembleShader
+ name=Standard platform=d3d11 type=17 mask=6 insize=2534 outsize=4258 ok=1
+
+Cmd: shutdown
