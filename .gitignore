@@ -537,3 +537,6 @@ SweetFrenzy/UserSettings/Layouts/default-2022.dwlt
 *.traceevents
 *.json
 *.digestcache
+/SweetFrenzy/Library
+/SweetFrenzy/Library/Artifacts
+/SweetFrenzy/Library/Bee
