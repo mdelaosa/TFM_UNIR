@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        UpdateAnimation();
     }
 
     private void Move()
@@ -55,13 +56,11 @@ public class Player : MonoBehaviour
         {
             horizontalInput = Input.GetAxis("Horizontal_P1");
             verticalInput = Input.GetAxis("Vertical_P1");
-            gameObject.GetComponent<Animator>().Play("Caminar");
         }
         else
         {
             horizontalInput = Input.GetAxis("Horizontal_P2");
             verticalInput = Input.GetAxis("Vertical_P2");
-            gameObject.GetComponent<Animator>().Play("Caminar");
         }
 
 
@@ -157,5 +156,22 @@ public class Player : MonoBehaviour
         return isMoving;
     }
 
+    #endregion
+
+    #region Animator
+    private void UpdateAnimation()
+    {
+        if(isMoving)
+        {
+            gameObject.GetComponent<Animator>().enabled = true;
+
+            gameObject.GetComponent<Animator>().Play("Caminar");
+
+        }else if (!isMoving)
+        {
+            gameObject.GetComponent<Animator>().enabled = false;
+        }
+
+    }
     #endregion
 }
