@@ -529,3 +529,11 @@ SweetFrenzy/Logs/shadercompiler-UnityShaderCompiler.exe8.log
 SweetFrenzy/Logs/shadercompiler-UnityShaderCompiler.exe9.log
 SweetFrenzy/UserSettings/Layouts/default-2022.dwlt
 /SweetFrenzy/Library/Artifacts
+*.digestcache
+*.traceevents
+*.json
+*.dag_fsmtime
+*.dll
+*.traceevents
+*.json
+*.digestcache

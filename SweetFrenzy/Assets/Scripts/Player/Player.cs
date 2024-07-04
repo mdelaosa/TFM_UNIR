@@ -55,11 +55,13 @@ public class Player : MonoBehaviour
         {
             horizontalInput = Input.GetAxis("Horizontal_P1");
             verticalInput = Input.GetAxis("Vertical_P1");
+            gameObject.GetComponent<Animator>().Play("Caminar");
         }
         else
         {
             horizontalInput = Input.GetAxis("Horizontal_P2");
             verticalInput = Input.GetAxis("Vertical_P2");
+            gameObject.GetComponent<Animator>().Play("Caminar");
         }
 
 
