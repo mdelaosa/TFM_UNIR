@@ -20,6 +20,10 @@ TagManager:
   - Client
   - BowlBox
   - NewBowl
+  - Glass
+  - ProgressBar
+  - BurnBar
+  - Oven
   layers:
   - Default
   - TransparentFX

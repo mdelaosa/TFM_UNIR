@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1252340495317721331}
   m_Father: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791911977766bed4cbc9c48a8389e145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: 7
-  foodStatus: 3
+  foodName: 10
+  foodStatus: 0
   foodType: 1
 --- !u!65 &6348411150784268704
 BoxCollider:
@@ -69,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8935616, y: 0.6023653, z: 1.4959271}
-  m_Center: {x: 0, y: 0.27477005, z: -0.011169264}
+  m_Size: {x: 1.8935616, y: 0.6023653, z: 0.86176753}
+  m_Center: {x: 0, y: 0.27477005, z: 0.0065557957}
 --- !u!54 &6284029364113266182
 Rigidbody:
   m_ObjectHideFlags: 0

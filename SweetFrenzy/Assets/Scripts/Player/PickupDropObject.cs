@@ -6,7 +6,7 @@ public class PickupDropObject : MonoBehaviour
     [Header("Pick up/Drop object")]
     [SerializeField] Player player;
     [SerializeField] private GameObject handPoint;
-    private GameObject pickedObject = null;
+    private GameObject pickedObject = null; 
     [SerializeField] public bool hasObject = false;
     [SerializeField] private bool canDrop = false;
 
@@ -32,7 +32,7 @@ public class PickupDropObject : MonoBehaviour
         {
             pickedObject.GetComponent<Rigidbody>().useGravity = true;
             pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-            pickedObject.gameObject.transform.SetParent(null);
+            pickedObject.transform.SetParent(null);
             pickedObject = null;
             hasObject = false;
             canDrop = false;
@@ -52,7 +52,7 @@ public class PickupDropObject : MonoBehaviour
             pickupInput = Input.GetKeyDown(KeyCode.RightControl);
         }
 
-        if ((other.gameObject.CompareTag("Food")) || (other.gameObject.CompareTag("Bowl")) || (other.gameObject.CompareTag("Glass")))
+        if ((other.gameObject.CompareTag("Food")) || (other.gameObject.CompareTag("Bowl")) || (other.gameObject.CompareTag("Glass")) || (other.gameObject.CompareTag("BowlFruit")))
         {
             if (pickupInput && !hasObject)
             {
@@ -76,20 +76,51 @@ public class PickupDropObject : MonoBehaviour
         hasObject = true;
 
         yield return StartCoroutine(DropObjectRoutine());
-
     }
 
     IEnumerator DropObjectRoutine()
     {
         yield return null;
-
         canDrop = true;
     }
 
-    #region Setters
+    public void PickupObject(GameObject obj)
+    {
+        GameObject instance = Instantiate(obj);
+        pickedObject = instance;
+        instance.transform.position = handPoint.transform.position;
+        instance.transform.SetParent(handPoint.transform);
+
+        Rigidbody instanceRb = instance.GetComponent<Rigidbody>();
+        if (instanceRb != null)
+        {
+            instanceRb.useGravity = false;
+            instanceRb.isKinematic = true;
+        }
+        instance.transform.position = handPoint.transform.position;
+        instance.transform.SetParent(handPoint.transform);
+
+        pickedObject = instance.gameObject;
+        hasObject = true;
+
+        StartCoroutine(DropObjectRoutine());
+    }
+
+    #region Getters and Setters
+    public GameObject GetPickedObject()
+    {
+        return pickedObject;
+    }
+
+    public bool GetHasObjectStatus()
+    {
+        return hasObject;
+    }
+
     public void SetHasObjectStatus(bool newHasObjectSatus)
     {
         hasObject = newHasObjectSatus;
     }
+
     #endregion
 }
