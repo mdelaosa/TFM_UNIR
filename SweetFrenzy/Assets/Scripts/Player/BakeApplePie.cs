@@ -1,69 +1,127 @@
 using UnityEngine;
 
-public class BakeApplePie : BasePlayerInteraction
+public class BakeApplePie : MonoBehaviour
 {
-    private PickupDropObject pickupDropObject;
+    [Header("Game Objects")]
+    [SerializeField] protected Player player;
+    [SerializeField] private Oven utensil;
+
+    [Header("Booleans")]
+    [SerializeField] protected bool isTouchingUtensil = false;
+    [SerializeField] protected bool isProcessing = false;
+
+    [Header("PickupDropObject")]
+    [SerializeField] private PickupDropObject pickupDropObject;
 
     private void Start()
     {
-        pickupDropObject = player.GetComponent<PickupDropObject>();
+        if (pickupDropObject == null)
+        {
+            Debug.LogError("PickupDropObject component is missing from the player.");
+        }
     }
 
-    protected override void CheckInteraction()
+    private void Update()
+    {
+        CheckInteraction();
+    }
+
+    private void CheckInteraction()
     {
         if (!player.IsMoving() && isTouchingUtensil && utensil != null && utensil.GetUtensilName() == UtensilName.oven)
         {
-            if ((player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.E)) || (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.Return)))
-            {
-                AttemptToBake();
-            }
-
             if ((player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.LeftControl)) || (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.RightControl)))
             {
-                AttemptToTakeOut();
-            }
-        }
-    }
-
-    private void AttemptToBake()
-    {
-        if (utensil is Oven oven && oven.GetUtensilStatus() == UtensilStatus.empty && pickupDropObject.hasObject)
-        {
-            GameObject applePie = pickupDropObject.GetPickedObject();
-            Food applePieFood = applePie.GetComponent<Food>();
-            if (applePieFood != null && applePieFood.GetFoodName() == FoodName.rawApplePie)
-            {
-                oven.InsertFood(applePie); // Insertar el pastel de manzana en el horno
-                pickupDropObject.SetHasObjectStatus(false); // Actualizar el estado del jugador
-                applePie.transform.SetParent(null); // Desvincular el objeto de la mano del jugador
-            }
-        }
-    }
-
-    private void AttemptToTakeOut()
-    {
-        if (utensil is Oven oven && oven.GetUtensilStatus() == UtensilStatus.finished)
-        {
-            // Sacar el pastel de manzana del horno
-            GameObject applePie = oven.TakeOutFood();
-            if (applePie != null)
-            {
-                // Realizar acciones con el pastel de manzana obtenido
-                Food applePieFood = applePie.GetComponent<Food>();
-                if (applePieFood != null)
+                if (utensil.GetUtensilStatus() == UtensilStatus.empty)
                 {
-                    if (applePieFood.GetFoodStatus() == FoodStatus.ready)
-                    {
-                        Debug.Log("¡Pastel de manzana listo para servir!");
-                    }
-                    else if (applePieFood.GetFoodStatus() == FoodStatus.burnt)
-                    {
-                        Debug.Log("¡El pastel de manzana se ha quemado!");
-                    }
+                    PutRawApplePieInOven();
                 }
-                // Aquí puedes decidir si el jugador recoge automáticamente el pastel o simplemente lo deja en el horno
-                // pickupDropObject.PickupObject(applePie); // Ejemplo de recolección automática (necesitarías implementar este método)
+                else if (utensil.GetUtensilStatus() == UtensilStatus.finished)
+                {
+                    TakeApplePieOfOven();
+                }
             }
+
+            if ((player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.E)) || (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.Return)))
+            {
+                if (utensil.GetUtensilStatus() == UtensilStatus.preparedToWork)
+                {
+                    TurnOnOven();
+                }
+                else if (utensil.GetUtensilStatus() == UtensilStatus.burning)
+                {
+                    TurnOffOven();
+                }
+            }
+        }
+    }
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        utensil = other.GetComponent<Oven>();
+        if (utensil != null)
+        {
+            isTouchingUtensil = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Oven>() == utensil)
+        {
+            isTouchingUtensil = false;
+            utensil = null;
+        }
+    }
+
+    private void PutRawApplePieInOven()
+    {
+        if (pickupDropObject == null)
+        {
+            Debug.LogError("pickupDropObject is not initialized.");
+            return;
+        }
+
+        if (utensil != null && utensil.GetUtensilStatus() == UtensilStatus.empty && pickupDropObject.GetHasObjectStatus())
+        {
+            GameObject rawApplePieObject = pickupDropObject.GetPickedObject();
+
+            if (rawApplePieObject == null)
+            {
+                Debug.LogError("No object picked up by the player.");
+                return;
+            }
+
+            Food rawApplePieFood = rawApplePieObject.GetComponent<Food>();
+            if (rawApplePieFood.GetFoodName() == FoodName.rawApplePie)
+            {
+                utensil.InsertFood(); 
+                pickupDropObject.SetHasObjectStatus(false);
+                Destroy(rawApplePieObject);
+            }
+            else
+            {
+                Debug.LogError("Picked object is not a raw apple pie.");
+            }
+        }
+    }
+
+    private void TurnOnOven()
+    {
+        utensil.TurnOnOven();
+    }
+
+    private void TurnOffOven()
+    {
+        utensil.TurnOffOven();
+    }
+
+    private void TakeApplePieOfOven()
+    {
+        if (utensil.GetUtensilStatus() == UtensilStatus.finished)
+        {
+            GameObject applePie = utensil.TakeOutFood();
+            pickupDropObject.PickupObject(applePie);
         }
     }
 }

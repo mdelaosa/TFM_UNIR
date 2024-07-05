@@ -1,11 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class BaseUtensil : MonoBehaviour
+public abstract class BaseUtensil : Utensil
 {
-    [SerializeField] protected UtensilName utensilName;
-    [SerializeField] protected UtensilStatus utensilStatus;
-
     [Header("Utensil Working States")]
     protected GameObject notUtensilWorking;
     protected GameObject utensilWorking;
@@ -35,11 +32,6 @@ public abstract class BaseUtensil : MonoBehaviour
 
         if (notUtensilWorking != null) notUtensilWorking.SetActive(true);
         if (utensilWorking != null) utensilWorking.SetActive(false);
-    }
-
-    public UtensilName GetUtensilName()
-    {
-        return utensilName;
     }
 
     public void StartProcess()

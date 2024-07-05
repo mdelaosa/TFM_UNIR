@@ -80,6 +80,7 @@ public enum UtensilStatus
     full,
     preparedToWork,
     working,
+    burning,
     finished,
     none
 }

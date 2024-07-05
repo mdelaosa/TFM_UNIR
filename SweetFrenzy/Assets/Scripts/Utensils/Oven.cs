@@ -1,91 +1,82 @@
 using System.Collections;
+using System.Data;
 using UnityEngine;
 
-public class Oven : BaseUtensil
+public class Oven : Utensil
 {
-    [Header("Burn bar")]
+    [Header("Progress Bar")]
+    [SerializeField] protected GameObject progressBar;
+    [SerializeField] protected GameObject progressBarVariable;
+
+    [Header("Burn Bar")]
     [SerializeField] private GameObject burnBar;
     [SerializeField] private GameObject burnBarVariable;
+    [SerializeField] Vector3 initialScale;
+    [SerializeField] Vector3 initialPosition;
+
+    [Header("Apple Pie")]
+    [SerializeField] private GameObject rawApplePieIcon;
+    [SerializeField] private GameObject burnApplePieIcon;
+    [SerializeField] private GameObject applePieIcon;
+    [SerializeField] private GameObject applePiePrefab;
 
     [Header("Oven Settings")]
-    [SerializeField] private FoodName allowedFoodType = FoodName.rawApplePie; // Tipo de comida permitido en el horno
-    [SerializeField] private float bakingTime = 5f; // Tiempo de horneado en segundos
-    [SerializeField] private float burnTime = 3f; // Tiempo de enfriamiento antes de quemarse en segundos
-    
+    [SerializeField] private bool isBaking = false;
+    [SerializeField] private bool isBurning = false;
+    [SerializeField] private bool isApplePieBurnt = false;
 
-    private bool isBaking = false;
-    private bool isBurning = false;
-    private float bakingTimer = 0f;
-    private float burnTimer = 0f;
-    private Coroutine bakingCoroutine;
+    [Header("Timer")]
+    [SerializeField] private float bakingTimer = 0f;
+    [SerializeField] private float burnTimer = 0f;
+    [SerializeField] private float bakingProgress = 0f;
+    [SerializeField] private float burnProgress = 0f;
+    private float bakingProcessDelay = 5f;
+    private float burnProcessDelay = 5f;
 
-    private GameObject foodObject; // Objeto de comida que está en el horno
+    private Coroutine processRoutine;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         utensilName = UtensilName.oven;
         utensilStatus = UtensilStatus.empty;
+
+        initialScale = progressBarVariable.transform.localScale;
+        initialPosition = progressBarVariable.transform.localPosition;
+
         UpdateUtensilState();
     }
 
-    void Update()
+    #region 1º step -> Put apple pie in the oven
+    public void InsertFood()
     {
-        if (isBaking)
+        if (utensilStatus == UtensilStatus.empty)
         {
-            bakingTimer += Time.deltaTime;
-            float progress = bakingTimer / bakingTime;
-            UpdateProgressBar(progressBarVariable, progress);
-
-            if (bakingTimer >= bakingTime)
-            {
-                FinishBaking();
-            }
-        }
-        else if (isBurning)
-        {
-            burnTimer += Time.deltaTime;
-            float progress = burnTimer / burnTime;
-            UpdateProgressBar(burnBarVariable, progress);
-
-            if (burnTimer >= burnTime)
-            {
-                BurnFood();
-            }
+            utensilStatus = UtensilStatus.preparedToWork;
+            UpdateUtensilState();
         }
     }
+    #endregion
 
-    public void InsertFood(GameObject food)
+    #region 2º step -> turn on the oven
+    public void TurnOnOven()
     {
-        if (utensilStatus == UtensilStatus.empty && food.GetComponent<Food>().GetFoodName() == allowedFoodType)
+        if (!isBaking && !isBurning)
         {
-            foodObject = food;
+            isBaking = true;
+            bakingTimer = 0f;
+            progressBar.SetActive(true);
+            processRoutine = StartCoroutine(ProcessRoutine(progressBar, progressBarVariable, bakingTimer, bakingProcessDelay, bakingProgress));
             utensilStatus = UtensilStatus.working;
             UpdateUtensilState();
         }
     }
 
-    public GameObject TakeOutFood()
+    private void FinishBaking()
     {
-        if (utensilStatus == UtensilStatus.finished && foodObject != null)
-        {
-            GameObject finishedFood = foodObject;
-            foodObject = null;
-            utensilStatus = UtensilStatus.empty;
-            UpdateUtensilState();
-            return finishedFood;
-        }
-        return null;
-    }
-
-    public void StartBaking()
-    {
-        if (!isBaking && !isBurning && foodObject != null)
-        {
-            isBaking = true;
-            progressBar.SetActive(true);
-            bakingCoroutine = StartCoroutine(BakingRoutine());
-        }
+        StopBaking();
+        StartBurn();
+        utensilStatus = UtensilStatus.burning;
+        UpdateUtensilState();
     }
 
     public void StopBaking()
@@ -93,10 +84,10 @@ public class Oven : BaseUtensil
         if (isBaking)
         {
             isBaking = false;
-            if (bakingCoroutine != null)
+            if (processRoutine != null)
             {
-                StopCoroutine(bakingCoroutine);
-                bakingCoroutine = null;
+                StopCoroutine(processRoutine);
+                processRoutine = null;
             }
             progressBar.SetActive(false);
         }
@@ -104,104 +95,161 @@ public class Oven : BaseUtensil
 
     private void StartBurn()
     {
-        if (!isBurning && isBaking)
+        if (!isBurning && !isBaking)
         {
             isBurning = true;
+            burnTimer = 0f;
             burnBar.SetActive(true);
+            utensilStatus = UtensilStatus.burning;
+            processRoutine = StartCoroutine(ProcessRoutine(burnBar, burnBarVariable, burnTimer, burnProcessDelay, burnProgress));            
+            UpdateUtensilState();
         }
     }
+    #endregion
 
-    private void StopBurn()
+    #region 3º step -> turn off the oven
+    public void TurnOffOven()
     {
-        if (isBurning)
+        if (isBurning && (utensilStatus == UtensilStatus.burning))
         {
             isBurning = false;
-            burnTimer = 0f;
-            burnBar.SetActive(false);
-            if (foodObject != null)
+            processRoutine = null;
+            utensilStatus = UtensilStatus.finished;
+            UpdateUtensilState();
+            if (isApplePieBurnt)
             {
-                Food foodItem = foodObject.GetComponent<Food>();
-                if (foodItem != null)
-                {
-                    foodItem.SetFoodStatus(FoodStatus.ready);
-                }
+                burnApplePieIcon.SetActive(true);
+            }
+            else
+            {
+                applePieIcon.SetActive(true);
             }
         }
     }
 
-    private IEnumerator BakingRoutine()
+    
+    #endregion
+
+    #region 4º step -> Take apple pie out of the oven
+    public GameObject TakeOutFood()
     {
-        while (bakingTimer < bakingTime)
-        {
-            yield return null;
+        if (utensilStatus == UtensilStatus.finished && applePiePrefab != null)
+        {            
+            utensilStatus = UtensilStatus.empty;
+            UpdateUtensilState();
+            ResetTimers();
+
+            if (isApplePieBurnt)
+            {
+                TransformFood(FoodStatus.burnt);
+            }
+            else
+            {
+                TransformFood(FoodStatus.ready);
+            }
+            applePiePrefab.SetActive(true);
+
+            return applePiePrefab;
         }
-
-        FinishBaking();
+        return null;
     }
 
-    private void FinishBaking()
+    private void TransformFood(FoodStatus newStatus)
     {
-        StopBaking();
-        StartBurn();
-        utensilStatus = UtensilStatus.finished;
-        UpdateUtensilState();
-    }
-
-    private void BurnFood()
-    {
-        StopBurn();
-        if (foodObject != null)
+        if (applePiePrefab != null)
         {
-            Food foodItem = foodObject.GetComponent<Food>();
+            Food foodItem = applePiePrefab.GetComponent<Food>();
             if (foodItem != null)
             {
-                foodItem.SetFoodStatus(FoodStatus.burnt);
+                foodItem.SetFoodStatus(newStatus);
             }
         }
-        foodObject = null;
-        utensilStatus = UtensilStatus.empty;
-        UpdateUtensilState();
     }
+
+    private void ResetTimers()
+    {
+        bakingTimer = 0f;
+        burnTimer = 0f;
+        bakingProgress = 0f;
+        burnProgress = 0f;
+    }
+    #endregion
 
     private void UpdateUtensilState()
     {
-        switch (utensilStatus)
+        if (utensilStatus == UtensilStatus.empty)
         {
-            case UtensilStatus.empty:
-                progressBar.SetActive(false);
-                burnBar.SetActive(false);
-                break;
-            case UtensilStatus.working:
-                progressBar.SetActive(true);
-                burnBar.SetActive(false);
-                break;
-            case UtensilStatus.finished:
-                progressBar.SetActive(false);
-                burnBar.SetActive(true);
-                break;
+            rawApplePieIcon.SetActive(false);
+            progressBar.SetActive(false);
+            burnBar.SetActive(false);
+            applePieIcon.SetActive(false);
+            burnApplePieIcon.SetActive(false);
+        }
+        else if (utensilStatus == UtensilStatus.preparedToWork)
+        {
+            rawApplePieIcon.SetActive(true);
+            progressBar.SetActive(false);
+            burnBar.SetActive(false);
+            applePieIcon.SetActive(false);
+            burnApplePieIcon.SetActive(false);
+        }
+        else if (utensilStatus == UtensilStatus.working)
+        {
+            rawApplePieIcon.SetActive(false);
+            progressBar.SetActive(true);
+            burnBar.SetActive(false);
+            applePieIcon.SetActive(false);
+            burnApplePieIcon.SetActive(false);
+            burnApplePieIcon.SetActive(false);
+        }
+        else if (utensilStatus == UtensilStatus.burning)
+        {
+            rawApplePieIcon.SetActive(false);
+            progressBar.SetActive(false);
+            burnBar.SetActive(true);
+            applePieIcon.SetActive(false);
+            burnApplePieIcon.SetActive(false);
+        }
+        else if (utensilStatus == UtensilStatus.finished)
+        {
+            rawApplePieIcon.SetActive(false);
+            progressBar.SetActive(false);
+            burnBar.SetActive(false);
         }
     }
 
-    private void UpdateProgressBar(GameObject progressBarObject, float progress)
+
+    private IEnumerator ProcessRoutine(GameObject bar, GameObject barVariable, float timer, float processDelay, float progress)
     {
-        if (progressBarObject != null)
+        while (timer < processDelay)
         {
-            Transform barTransform = progressBarObject.transform.Find("Bar");
-            if (barTransform != null)
+            progress = timer / processDelay;
+            if (barVariable != null)
             {
-                RectTransform rectTransform = barTransform.GetComponent<RectTransform>();
-                if (rectTransform != null)
-                {
-                    rectTransform.localScale = new Vector3(progress, 1f, 1f);
-                }
+                
+                barVariable.transform.localScale = new Vector3(initialScale.x * progress, initialScale.y, initialScale.z);
+                barVariable.transform.localPosition = new Vector3(initialPosition.x - initialScale.x * 0.5f * (1 - progress), initialPosition.y, initialPosition.z);
             }
+            yield return null;
+            timer += Time.deltaTime;
+        }
+
+        processRoutine = null;
+
+        if (barVariable != null)
+        {
+            barVariable.transform.localScale = initialScale;
+            barVariable.transform.localPosition = initialPosition;
+        }
+
+        if (bar.CompareTag("ProgressBar"))
+        {
+            bar.SetActive(false);
+            FinishBaking();
+        }
+        else if (bar.CompareTag("BurnBar"))
+        {
+            isApplePieBurnt = true;
         }
     }
-
-    #region Getters and Setters
-    public UtensilStatus GetUtensilStatus()
-    {
-        return utensilStatus;
-    }
-    #endregion
 }

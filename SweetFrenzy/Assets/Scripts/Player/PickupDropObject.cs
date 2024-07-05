@@ -6,7 +6,7 @@ public class PickupDropObject : MonoBehaviour
     [Header("Pick up/Drop object")]
     [SerializeField] Player player;
     [SerializeField] private GameObject handPoint;
-    public GameObject pickedObject = null; // Cambiar a public para acceso desde BakeApplePie
+    private GameObject pickedObject = null; 
     [SerializeField] public bool hasObject = false;
     [SerializeField] private bool canDrop = false;
 
@@ -52,7 +52,7 @@ public class PickupDropObject : MonoBehaviour
             pickupInput = Input.GetKeyDown(KeyCode.RightControl);
         }
 
-        if ((other.gameObject.CompareTag("Food")) || (other.gameObject.CompareTag("Bowl")) || (other.gameObject.CompareTag("Glass")))
+        if ((other.gameObject.CompareTag("Food")) || (other.gameObject.CompareTag("Bowl")) || (other.gameObject.CompareTag("Glass")) || (other.gameObject.CompareTag("BowlFruit")))
         {
             if (pickupInput && !hasObject)
             {
@@ -86,11 +86,24 @@ public class PickupDropObject : MonoBehaviour
 
     public void PickupObject(GameObject obj)
     {
-        pickedObject = obj;
-        obj.transform.position = handPoint.transform.position;
-        obj.transform.SetParent(handPoint.transform);
+        GameObject instance = Instantiate(obj);
+        pickedObject = instance;
+        instance.transform.position = handPoint.transform.position;
+        instance.transform.SetParent(handPoint.transform);
+
+        Rigidbody instanceRb = instance.GetComponent<Rigidbody>();
+        if (instanceRb != null)
+        {
+            instanceRb.useGravity = false;
+            instanceRb.isKinematic = true;
+        }
+        instance.transform.position = handPoint.transform.position;
+        instance.transform.SetParent(handPoint.transform);
+
+        pickedObject = instance.gameObject;
         hasObject = true;
-        canDrop = false;
+
+        StartCoroutine(DropObjectRoutine());
     }
 
     #region Getters and Setters
@@ -98,7 +111,12 @@ public class PickupDropObject : MonoBehaviour
     {
         return pickedObject;
     }
-    
+
+    public bool GetHasObjectStatus()
+    {
+        return hasObject;
+    }
+
     public void SetHasObjectStatus(bool newHasObjectSatus)
     {
         hasObject = newHasObjectSatus;
