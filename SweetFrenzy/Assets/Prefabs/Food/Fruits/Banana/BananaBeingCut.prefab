@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4954517833620440545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2544326680315141517}
+  m_Layer: 0
+  m_Name: BananaBeingCut
+  m_TagString: Food
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2544326680315141517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4954517833620440545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7235184397336993917}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7197368606718756758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2544326680315141517}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 25.802263
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 28.439844
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4300399
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.56920576
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.56130725
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.41952908
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 408789802a5b8b144a7d93e5c01f8b13, type: 2}
+    - target: {fileID: 919132149155446097, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+      propertyPath: m_Name
+      value: "Pl\xE1tano cortado texturizado"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+--- !u!4 &7235184397336993917 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d18da45600cfe6043af9249bcbfe3c4b, type: 3}
+  m_PrefabInstance: {fileID: 7197368606718756758}
+  m_PrefabAsset: {fileID: 0}
