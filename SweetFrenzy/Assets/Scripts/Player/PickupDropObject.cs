@@ -67,7 +67,7 @@ public class PickupDropObject : MonoBehaviour
         if (otherRb != null)
         {
             otherRb.useGravity = false;
-            otherRb.isKinematic = true;
+            /*otherRb.isKinematic = true;*/
         }
         other.transform.position = handPoint.transform.position;
         other.transform.SetParent(handPoint.transform);

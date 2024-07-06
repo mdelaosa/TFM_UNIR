@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5614627824293527006}
   - component: {fileID: 5700119003744456521}
   - component: {fileID: 2012612853838529711}
-  - component: {fileID: 1679542624125915277}
+  - component: {fileID: 7549182396187769012}
   m_Layer: 0
   m_Name: Bowl
   m_TagString: Bowl
@@ -30,7 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 639765783600636265}
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0570523, y: 0.48241365, z: 1.0430506}
   m_Center: {x: 0.0041300654, y: 0.22470683, z: -0.0071004033}
---- !u!54 &1679542624125915277
+--- !u!54 &7549182396187769012
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,11 +78,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6864793984866781306}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaTensor: {x: 0, y: 0, z: 0}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
@@ -95,7 +95,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1001 &1110804618562651778
 PrefabInstance:
@@ -168,6 +168,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
       propertyPath: m_Name
       value: bol_SF
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb9a0e6397aea6f4097a491f3b716c15, type: 3}
+      propertyPath: m_TagString
+      value: Bowl
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
