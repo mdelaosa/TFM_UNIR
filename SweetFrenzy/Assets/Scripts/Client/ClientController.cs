@@ -128,7 +128,7 @@ public class ClientController : MonoBehaviour
             if (!ChairOccupied(chair))
             {
                 //Move(transform.position, chair.transform.position);
-                transform.position = chair.transform.position;
+                transform.position = new Vector3(chair.transform.position.x, -0.77f, chair.transform.position.z);
                 return true;
             }
         }
