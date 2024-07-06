@@ -128,8 +128,7 @@ public class ClientController : MonoBehaviour
             if (!ChairOccupied(chair))
             {
                 //Move(transform.position, chair.transform.position);
-                transform.position = chair.transform.position;
-                return true;
+                transform.position = new Vector3(chair.transform.position.x, -0.77f, chair.transform.position.z); return true;
             }
         }
         return false;
@@ -140,7 +139,7 @@ public class ClientController : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(chair.transform.position, 1f);
         foreach(Collider collider in colliders)
         {
-            if (collider.CompareTag("Client") || collider.CompareTag("Plate")) //Si no hay una persona ni un plato
+            if (collider.CompareTag("Client") || collider.CompareTag("Bowl")) //Si no hay una persona ni un plato
             {
                 return true; //La silla está ocupada
             }

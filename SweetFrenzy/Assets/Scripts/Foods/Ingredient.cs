@@ -5,9 +5,10 @@ using UnityEngine;
 public class Ingredient : Food
 {
     [SerializeField] public GameObject ingredients;
+    [SerializeField] private GameObject posIngredient;
 
     public void GetIngredient()
     {
-        Instantiate(ingredients, transform.position, Quaternion.identity);
+        Instantiate(ingredients, posIngredient.transform.position, Quaternion.identity);
     }
 }
