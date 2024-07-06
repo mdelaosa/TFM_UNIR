@@ -5,9 +5,10 @@ using UnityEngine;
 public class Bowl : MonoBehaviour
 {
     [SerializeField] public GameObject bowls;
+    [SerializeField] private GameObject posBowl;
 
     public void GetBowl()
     {
-        Instantiate(bowls, transform.position, Quaternion.identity);
+        Instantiate(bowls, posBowl.transform.position, Quaternion.identity);
     }
 }
