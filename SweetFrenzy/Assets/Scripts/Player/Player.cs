@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     [Header("Player settings")]
     [SerializeField] private PlayerID playerID;
     [SerializeField] private bool isMoving = false;
+    private float horizontalInput;
+    private float verticalInput;
+    private Rigidbody rb;
+    [SerializeField] private float forceMovement;
 
     [Header("Movement settings")]
     [SerializeField] private float speed = 5f;                   
@@ -30,7 +34,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -49,8 +53,6 @@ public class Player : MonoBehaviour
     #region Movement and rotation
     private void Movement()
     {
-        float horizontalInput;
-        float verticalInput;
 
         if (playerID == PlayerID.player1)
         {
@@ -87,6 +89,20 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movementDirection), rotationSpeed * Time.deltaTime);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(new Vector3(horizontalInput, 0, verticalInput).normalized * forceMovement, ForceMode.Force);
+        LimitMovement();
+    }
+
+    private void LimitMovement()
+    {
+        Vector3 planeMovement = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        Vector3 limitMovement = Vector3.ClampMagnitude(planeMovement, speed);
+        rb.velocity = new Vector3(limitMovement.x, rb.velocity.y, limitMovement.z);
+
     }
 
     #endregion
