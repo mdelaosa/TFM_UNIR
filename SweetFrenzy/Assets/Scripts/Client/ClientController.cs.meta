@@ -3,7 +3,13 @@ guid: bd0b6a84c9bbaf04e848c4d13501b6d5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - canvas: {instanceID: 0}
+  - imageFace: {instanceID: 0}
+  - imageOrder: {instanceID: 0}
+  - happyFace: {fileID: 21300000, guid: 32acf25bd1064ee4e9103591d83b64f3, type: 3}
+  - neutralFace: {fileID: 21300000, guid: 018fb2a1130dc2b43a394467a3e8917a, type: 3}
+  - madFace: {fileID: 21300000, guid: 7f828ed5ea32ad143ab6ee07355b9149, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
