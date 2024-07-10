@@ -27,7 +27,7 @@ How to prepare the recipes...?
 - Steps:
 	- 1. Cut apple.
 	- 2. Make the dough with the ingredients: egg, milk and flour, and using the kneader.
-	- 3. Mix the dough and the apple pie in a bowl, obtaining the raw apple pie.
+	- 3. Mix the dough and the cut apple in a bowl, obtaining the raw apple pie.
 	- 4. Put the raw apple pie in the oven.
 	- 5. Take off the apple pie from the oven.
 
@@ -87,5 +87,5 @@ How to use the utensil...?
 - Ingredients that can be manipulated on the cutting board: *strawberry*, *banana* and *apple*.
 - Steps:
 	- 1. To put the strawberry, banana or apple on the cutting board, the player will have to hold one of these ingredients, approach the cutting board and press: `Left Ctrl` or `Right Ctrl`.
-	- 2. To cut: press the `E` or `Enter` keys. The keys must be pressed until the kneading process is completed. A blue progress bar will appear indicating the time remaining for the process to complete. If the player does not finish the process, they can continue mixing at any time.
+	- 2. To cut: press the `E` or `Enter` keys. The keys must be pressed until the cutting process is completed. A blue progress bar will appear indicating the time remaining for the process to complete. If the player does not finish the process, they can continue cutting at any time.
 	- 3. To get the cut fruit, the player can go with an empty bowl or without anything, approach the cutting board and press the keys: `Left Ctrl` or `Right Ctrl`.
