@@ -9,6 +9,10 @@ using System.Linq;
 
 public class ClientController : MonoBehaviour
 {
+    private GameObject mainCamera;
+
+    private Animator animator;
+
     private GameObject[] chairs;
     private GameObject[] triggers;
 
@@ -36,6 +40,10 @@ public class ClientController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+        animator = GetComponent<Animator>();
+
         speed = 5f;
 
         triggers = GameObject.FindGameObjectsWithTag("Trigger");
@@ -76,6 +84,7 @@ public class ClientController : MonoBehaviour
         {
             //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
             canvas.gameObject.SetActive(true);
+            canvas.transform.LookAt(mainCamera.transform);
             imageOrder.sprite = orderedRecipe.GetImageRecipe();
 
             //Esperar
@@ -128,7 +137,10 @@ public class ClientController : MonoBehaviour
             if (!ChairOccupied(chair))
             {
                 //Move(transform.position, chair.transform.position);
-                transform.position = new Vector3(chair.transform.position.x, -0.77f, chair.transform.position.z); return true;
+                transform.position = new Vector3(chair.transform.position.x, -0.77f, chair.transform.position.z); 
+                transform.rotation = chair.transform.rotation;
+                animator.SetBool("sit", true);
+                return true;
             }
         }
         return false;
