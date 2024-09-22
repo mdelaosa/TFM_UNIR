@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int numOrders = 0; // Número de órdenes completadas
-    private int points = 0; // Puntos acumulados
-    private bool isGameOver; // Estado del juego
+    private int numOrders = 0;
+    private int points = 0; 
+    private bool isGameOver; 
 
     // Puntuación mínima para ganar
     private const int winningScore = 50;

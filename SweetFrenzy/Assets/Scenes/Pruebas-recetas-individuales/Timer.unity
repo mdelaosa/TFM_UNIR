@@ -403,8 +403,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c51df132faccb34a904875304f0a37c, type: 2}
-  m_sharedMaterial: {fileID: 2373901219763549644, guid: 3c51df132faccb34a904875304f0a37c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 39af9820ff5c2e84ca79e05573782df0, type: 2}
+  m_sharedMaterial: {fileID: 2373901219763549644, guid: 39af9820ff5c2e84ca79e05573782df0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
