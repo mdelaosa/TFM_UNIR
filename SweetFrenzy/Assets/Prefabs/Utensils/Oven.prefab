@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 986964540043875796}
   - component: {fileID: 8015791246061799096}
   m_Layer: 0
-  m_Name: MadFace
+  m_Name: Fuego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b2d06f6a8edf6a944af811317d6e74bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f4d7d14694a91343913767a582f1040, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
