@@ -361,6 +361,7 @@
 "Assets/Scripts/Foods/Food.cs"
 "Assets/Scripts/Foods/Fruit.cs"
 "Assets/Scripts/Manager/GameManager.cs"
+"Assets/Scripts/Manager/GameOverManager.cs"
 "Assets/Scripts/Menu/SettingsMenu.cs"
 "Assets/Scripts/Orders/Order.cs"
 "Assets/Scripts/Orders/OrderGenerator.cs"

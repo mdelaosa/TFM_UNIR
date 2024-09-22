@@ -12,9 +12,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private Color warningColor = Color.yellow;
     [SerializeField] private Color dangerColor = Color.red;
 
-    private float timeRemaining; // Tiempo restante
-    private bool isGameOver = false;
-    private GameManager gameManager; // Referencia al GameManager
+    private float timeRemaining; 
+    private GameManager gameManager; 
 
     void Start()
     {
@@ -48,7 +47,6 @@ public class Timer : MonoBehaviour
             yield return null;
         }
 
-        isGameOver = true;
         timerText.text = "0:00";
         yield return new WaitForSeconds(endGameDelay);
 

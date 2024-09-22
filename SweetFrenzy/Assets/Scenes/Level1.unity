@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94411349986243f4f8b5d56ebebe5a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime: 10
+  initialTime: 120
   endGameDelay: 1
   timerText: {fileID: 114209100}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1169,6 +1169,7 @@ Transform:
   - {fileID: 439820588}
   - {fileID: 1736636179}
   - {fileID: 3040677}
+  - {fileID: 2144886909}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &302357795 stripped
@@ -2812,11 +2813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045a7d769aea664597f9808cb718f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 1886228834}
-  winScreen: {fileID: 183649895}
-  loseScreen: {fileID: 1487550989}
   pointsTextUI: {fileID: 1462177971}
-  pointsTextGameOver: {fileID: 354175776}
+  gameOverManager: {fileID: 2144886910}
 --- !u!4 &746749793
 Transform:
   m_ObjectHideFlags: 0
@@ -10235,6 +10233,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 33.83, y: 0, z: 0}
+--- !u!1 &2144886908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2144886909}
+  - component: {fileID: 2144886910}
+  m_Layer: 0
+  m_Name: GameOverManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2144886909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144886908}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 270782356}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2144886910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144886908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d87593989bae14bbc3b6f907604a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 1886228834}
+  winScreen: {fileID: 183649895}
+  loseScreen: {fileID: 1487550989}
+  pointsTextGameOver: {fileID: 354175776}
 --- !u!1001 &2145907844
 PrefabInstance:
   m_ObjectHideFlags: 0
