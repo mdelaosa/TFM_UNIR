@@ -41,7 +41,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7899839976446184347}
   - component: {fileID: 4701359350499475754}
-  - component: {fileID: 8993065314293946576}
+  - component: {fileID: 7925680979680261488}
+  - component: {fileID: 2725117466289986174}
+  - component: {fileID: 3888475081690251847}
+  - component: {fileID: 3718856493017930465}
+  - component: {fileID: 7786909853147695038}
+  - component: {fileID: 9067544971077763922}
   m_Layer: 0
   m_Name: HandPrickle
   m_TagString: Hand
@@ -86,7 +91,99 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.45654067, y: 0.6015291, z: 0.25535092}
   m_Center: {x: -0.01599284, y: 0.34451726, z: 0.37232456}
---- !u!114 &8993065314293946576
+--- !u!114 &7925680979680261488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679096481446371313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5a1a848b7227943939a2aec1b330d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5169456524109245508}
+  isTouchingUtensil: 0
+  isProcessing: 0
+  pickupDropObject: {fileID: 0}
+--- !u!114 &2725117466289986174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679096481446371313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08119379d9b2131468fc4c20ce6e2d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5169456524109245508}
+  isTouchingUtensil: 0
+  isTouchingFruit: 0
+  isCutting: 0
+--- !u!114 &3888475081690251847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679096481446371313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3fff767f3c58d41abc20355195393d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5169456524109245508}
+  isTouchingUtensil: 0
+  isProcessing: 0
+--- !u!114 &3718856493017930465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679096481446371313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65058c626d55df94790649b8542a393b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5169456524109245508}
+  ingredients: []
+  utensils: []
+  handPoint: {fileID: 7522345050421464883}
+  bowlApplePrefab: {fileID: 2715909322775024890, guid: 65582a27fffe494428c0e123dbec689b, type: 3}
+  bowlStrawberryPrefab: {fileID: 4753852118854174362, guid: f874350fdc5851b4f8f0882f96e06e10, type: 3}
+  bowlBananaPrefab: {fileID: 7914425758633737494, guid: 05094813a6e7e7444abdab1b404b869b, type: 3}
+  bowlMixAppleBananaPrefab: {fileID: 7032585963848500927, guid: 74bf1a4bbeb10bc4bb782b85b1f8f94e, type: 3}
+  bowlMixAppleStrawberryPrefab: {fileID: 9075776946285251728, guid: 301368008adaef24fa673f47f979f8f0, type: 3}
+  bowlMixStrawberryBananaPrefab: {fileID: 3957508392824460059, guid: 412f46abd5432284ab4f4085614f6a1c, type: 3}
+  fruitBowlPrefab: {fileID: 1726109502636653020, guid: 1b0be6dee32bcae418e842bff400ba27, type: 3}
+  bowlDoughPrefab: {fileID: 2715909322775024890, guid: b7ff2dead692a2d4cbbca00a185a559a, type: 3}
+  rawApplePiePrefab: {fileID: 4261491787157793033, guid: e7c8e4a6c632b37438281799fa16e509, type: 3}
+  emptyKneaderPrefab: {fileID: 8246200518387579263, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+  kneaderEggPrefab: {fileID: 2528933342087249566, guid: 6d08f25393e29154fb9ffca8a9b6b2ee, type: 3}
+  kneaderMilkPrefab: {fileID: 536981508466293009, guid: bfba4de016e7165438bb56d7fca34f7f, type: 3}
+  kneaderFlourPrefab: {fileID: 8564399101026483183, guid: 9cde78544869da640bf1783c34ca652a, type: 3}
+  kneaderMixEggMilkPrefab: {fileID: 2888480292922500038, guid: efe109d5c2e2eed4fb346ac03e06308f, type: 3}
+  kneaderMixEggFlourPrefab: {fileID: 7954549608013582769, guid: 6c0512c2856518e469ba96453c37cac6, type: 3}
+  kneaderMixMilkFlourPrefab: {fileID: 6341542622243350140, guid: 98ede204810783743bad7bc1e4cbddcf, type: 3}
+  kneaderNotMixDoughPrefab: {fileID: 6063413311322007565, guid: d48f5906d21765c4299ddcf43b09fe73, type: 3}
+  emptyMixerPrefab: {fileID: 2968282760274296773, guid: 9bf98d81e06239746b1b16b503363947, type: 3}
+  mixerMilkPrefab: {fileID: 5052950441643769536, guid: c1c8221a5908d2d4e9482588bb4c1a54, type: 3}
+  mixerStrawberryPrefab: {fileID: 7809493254133350318, guid: 65ce05522c353da40b45b21ea49c2d61, type: 3}
+  mixerBananaPrefab: {fileID: 1756172739626531858, guid: e2a6354703c089347bf842ec53ccbfa9, type: 3}
+  mixerMixMilkStrawberryPrefab: {fileID: 2616918651505574391, guid: 3424499089c9eff43bcd5a2f8d3253c9, type: 3}
+  mixerMixMilkBananaPrefab: {fileID: 6595018557145345604, guid: 989146d87f85aed4397ac68020c8d871, type: 3}
+  mixerMixStrawberryBananaPrefab: {fileID: 2737856359476270432, guid: a4d15e6752aef374cb85846277d23bad, type: 3}
+  mixerNotMixSmoothiePrefab: {fileID: 6817964653486396364, guid: 956d8226085494b4595be1fb39476e77, type: 3}
+  mixerSmoothiePrefab: {fileID: 7809493254133350318, guid: 6227dfa542196864baf1bfc48d2da283, type: 3}
+  fruitSmoothiePrefab: {fileID: 3945204721481177657, guid: 87854dc16d04601478c88bed97bf4cde, type: 3}
+  isTouchingUtensil: 0
+  isMixing: 0
+--- !u!114 &7786909853147695038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,10 +195,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b7079cf029cdd49ae671b54e2166db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5169456524109245508}
   handPoint: {fileID: 4161556931564135737}
   hasObject: 0
   canDrop: 0
+--- !u!114 &9067544971077763922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679096481446371313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144d71586594ea042a4f6b9f580226ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5169456524109245508}
+  isTouchingUtensil: 0
+  isProcessing: 0
 --- !u!1001 &6897928863495955234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,6 +359,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3448f8c089ed69242bf5acac787e36c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5204264556909978442}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3448f8c089ed69242bf5acac787e36c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7513455083380936012}
   m_SourcePrefab: {fileID: 100100000, guid: 3448f8c089ed69242bf5acac787e36c1, type: 3}
 --- !u!1 &6015458974073757299 stripped
 GameObject:
@@ -381,6 +496,22 @@ MonoBehaviour:
   hasBowl: 0
   isTouchingPlayer: 0
   isTouchingBowl: 0
+--- !u!114 &7513455083380936012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015458974073757299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9718fb831ec5b43b4174926c336a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5169456524109245508}
+  hasGlass: 0
+  isTouchingPlayer: 0
+  isTouchingGlass: 0
 --- !u!4 &6354830571736810697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3448f8c089ed69242bf5acac787e36c1, type: 3}
