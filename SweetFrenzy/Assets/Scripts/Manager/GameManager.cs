@@ -27,14 +27,8 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver)
         {
-            if (points >= winningScore)
-            {
-                gameOverManager.PlayerWon(points);
-            }
-            else
-            {
-                gameOverManager.PlayerLost(points);
-            }
+            bool hasWon = points >= winningScore;
+            gameOverManager.ShowFinishedMessageAndBackground(hasWon, points);
         }
     }
     #endregion
@@ -43,14 +37,12 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int addedPoints)
     {
         points += addedPoints;
-        Debug.Log("Total points: " + points);
         UpdatePointsUI();
     }
 
     public void AddOrder()
     {
         numOrders++;
-        Debug.Log("Total orders: " + numOrders);
     }
 
     public int GetNumOrders()
@@ -69,6 +61,7 @@ public class GameManager : MonoBehaviour
 
         if (isGameOver)
         {
+            pointsTextUI.gameObject.SetActive(false);
             CheckGameResult();
         }
     }
@@ -79,7 +72,7 @@ public class GameManager : MonoBehaviour
     {
         if (pointsTextUI != null)
         {
-            pointsTextUI.text = "Puntos: " + points;
+            pointsTextUI.text = "Points: " + points;
         }
     }
     #endregion

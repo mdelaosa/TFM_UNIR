@@ -16,11 +16,15 @@ D:/TFM/SweetFrenzy
 Logs/AssetImportWorker0.log
 -srvPort
 <<<<<<< HEAD
+58188
+=======
+<<<<<<< HEAD
 57862
 Successfully changed project path to: C:/Users/sandy/Documents/TFM/TFM_UNIR/SweetFrenzy
 C:/Users/sandy/Documents/TFM/TFM_UNIR/SweetFrenzy
 =======
 54376
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 Successfully changed project path to: D:/TFM/SweetFrenzy
 D:/TFM/SweetFrenzy
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
@@ -56,6 +60,9 @@ D:/TFM/SweetFrenzy
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
 <<<<<<< HEAD
+Player connection [2580] Host "[IP] 192.168.1.150 [Port] 0 [Flags] 2 [Guid] 4223831780 [EditorId] 4223831780 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F42VP8R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+=======
+<<<<<<< HEAD
 Unable to join player connection multicast group (err: 10013).
 Player connection [23820] Host "[IP] 172.17.32.1 [Port] 0 [Flags] 2 [Guid] 3014890164 [EditorId] 3014890164 [Version] 1048832 [Id] WindowsEditor(7,Chikimiskis) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
@@ -63,12 +70,17 @@ Player connection [23820] Host "[IP] 172.17.32.1 [Port] 0 [Flags] 2 [Guid] 30148
 Refreshing native plugins compatible for Editor in 6.74 ms, found 3 plugins.
 =======
 Player connection [22420] Host "[IP] 192.168.1.150 [Port] 0 [Flags] 2 [Guid] 1026976679 [EditorId] 1026976679 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F42VP8R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 
-Player connection [22420] Host "[IP] 192.168.1.150 [Port] 0 [Flags] 2 [Guid] 1026976679 [EditorId] 1026976679 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F42VP8R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [2580] Host "[IP] 192.168.1.150 [Port] 0 [Flags] 2 [Guid] 4223831780 [EditorId] 4223831780 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F42VP8R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+<<<<<<< HEAD
+Refreshing native plugins compatible for Editor in 10.72 ms, found 3 plugins.
+=======
 Refreshing native plugins compatible for Editor in 10.52 ms, found 3 plugins.
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.11f1 (d00248457e15)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -85,14 +97,22 @@ Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Manage
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/etc'
 <<<<<<< HEAD
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56924
+=======
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56840
 =======
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56792
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+<<<<<<< HEAD
+Registered in 0.012815 seconds.
+- Loaded All Assemblies, in  0.604 seconds
+=======
 <<<<<<< HEAD
 Registered in 0.007076 seconds.
 - Loaded All Assemblies, in  0.313 seconds
@@ -100,10 +120,16 @@ Registered in 0.007076 seconds.
 Registered in 0.013190 seconds.
 - Loaded All Assemblies, in  0.736 seconds
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 517 ms
+Android Extension - Scanning For ADB Devices 426 ms
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
+- Finished resetting the current domain, in  0.998 seconds
+Domain Reload Profiling: 1600ms
+	BeginReloadAssembly (187ms)
+=======
 <<<<<<< HEAD
 - Finished resetting the current domain, in  0.279 seconds
 Domain Reload Profiling: 592ms
@@ -113,10 +139,19 @@ Domain Reload Profiling: 592ms
 Domain Reload Profiling: 1961ms
 	BeginReloadAssembly (211ms)
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (100ms)
+	LoadAllAssembliesAndSetupDomain (240ms)
+		LoadAssemblies (184ms)
+=======
 		CreateAndSetChildDomain (1ms)
 <<<<<<< HEAD
 	RebuildCommonClasses (29ms)
@@ -147,24 +182,31 @@ Domain Reload Profiling: 1961ms
 	initialDomainReloadingComplete (110ms)
 	LoadAllAssembliesAndSetupDomain (303ms)
 		LoadAssemblies (208ms)
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (299ms)
-			TypeCache.Refresh (296ms)
-				TypeCache.ScanAssembly (268ms)
+		AnalyzeDomain (236ms)
+			TypeCache.Refresh (234ms)
+				TypeCache.ScanAssembly (215ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (1229ms)
+	FinalizeReload (999ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1099ms)
+		SetupLoadedEditorAssemblies (891ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (766ms)
-			SetLoadedEditorAssemblies (8ms)
+			InitializePlatformSupportModulesInManaged (628ms)
+			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
+<<<<<<< HEAD
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (171ms)
+			ProcessInitializeOnLoadMethodAttributes (81ms)
+=======
 			BeforeProcessingInitializeOnLoad (4ms)
 			ProcessInitializeOnLoadAttributes (232ms)
 			ProcessInitializeOnLoadMethodAttributes (88ms)
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -173,12 +215,17 @@ Domain Reload Profiling: 1961ms
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 <<<<<<< HEAD
+- Loaded All Assemblies, in  1.153 seconds
+Refreshing native plugins compatible for Editor in 5.21 ms, found 3 plugins.
+=======
+<<<<<<< HEAD
 - Loaded All Assemblies, in  0.534 seconds
 Refreshing native plugins compatible for Editor in 2.27 ms, found 3 plugins.
 =======
 - Loaded All Assemblies, in  1.612 seconds
 Refreshing native plugins compatible for Editor in 3.50 ms, found 3 plugins.
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Package Manager log level set to [2]
@@ -186,6 +233,11 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
+- Finished resetting the current domain, in  1.232 seconds
+Domain Reload Profiling: 2382ms
+	BeginReloadAssembly (254ms)
+=======
 <<<<<<< HEAD
 - Finished resetting the current domain, in  0.504 seconds
 Domain Reload Profiling: 1036ms
@@ -236,44 +288,45 @@ AssetImportParameters requested are different than current active one (requested
 - Finished resetting the current domain, in  1.212 seconds
 Domain Reload Profiling: 2822ms
 	BeginReloadAssembly (458ms)
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (16ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (56ms)
-	RebuildCommonClasses (120ms)
-	RebuildNativeTypeToScriptingClass (33ms)
-	initialDomainReloadingComplete (99ms)
-	LoadAllAssembliesAndSetupDomain (897ms)
-		LoadAssemblies (846ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (63ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (73ms)
+	LoadAllAssembliesAndSetupDomain (740ms)
+		LoadAssemblies (510ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (339ms)
-			TypeCache.Refresh (301ms)
-				TypeCache.ScanAssembly (273ms)
-			ScanForSourceGeneratedMonoScriptInfo (25ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (1213ms)
+		AnalyzeDomain (376ms)
+			TypeCache.Refresh (336ms)
+				TypeCache.ScanAssembly (308ms)
+			ScanForSourceGeneratedMonoScriptInfo (28ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1233ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (909ms)
+		SetupLoadedEditorAssemblies (887ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (51ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (44ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (186ms)
-			ProcessInitializeOnLoadAttributes (615ms)
-			ProcessInitializeOnLoadMethodAttributes (39ms)
-			AfterProcessingInitializeOnLoad (11ms)
+			BeforeProcessingInitializeOnLoad (162ms)
+			ProcessInitializeOnLoadAttributes (628ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
+			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (12ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 3.71 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 2.46 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3143 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 31 unused Assets / (29.6 KB). Loaded Objects now: 3627.
-Memory consumption went from 141.5 MB to 141.5 MB.
-Total: 4.976300 ms (FindLiveObjects: 0.345200 ms CreateObjectMapping: 0.314400 ms MarkObjects: 4.231000 ms  DeleteObjects: 0.084500 ms)
+Memory consumption went from 141.3 MB to 141.3 MB.
+Total: 3.649300 ms (FindLiveObjects: 0.299500 ms CreateObjectMapping: 0.321200 ms MarkObjects: 2.949600 ms  DeleteObjects: 0.077400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -288,6 +341,14 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< HEAD
+========================================================================
+Received Import Request.
+  Time since last request: 462029.978869 seconds.
+  path: Assets/Art Assets/00Delete/assets_SF1.fbx
+  artifactKey: Guid(c342ad1f5a968b74994318df23ec59d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/00Delete/assets_SF1.fbx using Guid(c342ad1f5a968b74994318df23ec59d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86e269940a6bed42ca76a12c5741f24f') in 0.712979 seconds
+=======
   custom:scripting/precompiled-assembly-types:Assembly-CSharp: a572888a4af92f0f2a5e7dbbb85e7dfd -> 68e090ad2f0bbe5a30dd7d6017c3aa6d
   custom:scripting/monoscript/fileName/GameOverManager.cs:  -> 0f56a8035be897d9d4312b932cf2e84a
 ========================================================================
@@ -376,11 +437,15 @@ Refreshing native plugins compatible for Editor in 2.50 ms, found 3 plugins.
   path: Assets/Scripts/Manager/GameOverManager.cs
   artifactKey: Guid(24d87593989bae14bbc3b6f907604a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scripts/Manager/GameOverManager.cs using Guid(24d87593989bae14bbc3b6f907604a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '320871230db102f6fdcd9d2e610c779b') in 0.032243 seconds
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 209
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
+<<<<<<< HEAD
+- Loaded All Assemblies, in  0.566 seconds
+=======
 - Loaded All Assemblies, in  0.649 seconds
 Refreshing native plugins compatible for Editor in 2.57 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
@@ -1120,6 +1185,7 @@ AssetImportParameters requested are different than current active one (requested
 Received Prepare
 Begin MonoManager ReloadAssembly
 - Loaded All Assemblies, in  0.585 seconds
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 Refreshing native plugins compatible for Editor in 2.91 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
@@ -1127,47 +1193,54 @@ Native extension for Android target not found
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.590 seconds
-Domain Reload Profiling: 2174ms
-	BeginReloadAssembly (194ms)
+- Finished resetting the current domain, in  1.517 seconds
+Domain Reload Profiling: 2082ms
+	BeginReloadAssembly (190ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (47ms)
-	RebuildCommonClasses (43ms)
-	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (41ms)
-	LoadAllAssembliesAndSetupDomain (289ms)
-		LoadAssemblies (376ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (279ms)
+		LoadAssemblies (367ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (17ms)
-			TypeCache.Refresh (8ms)
+		AnalyzeDomain (15ms)
+			TypeCache.Refresh (7ms)
 				TypeCache.ScanAssembly (0ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (7ms)
-	FinalizeReload (1591ms)
+	FinalizeReload (1518ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (966ms)
+		SetupLoadedEditorAssemblies (885ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (38ms)
+			InitializePlatformSupportModulesInManaged (34ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (166ms)
-			ProcessInitializeOnLoadAttributes (695ms)
+			BeforeProcessingInitializeOnLoad (138ms)
+			ProcessInitializeOnLoadAttributes (647ms)
 			ProcessInitializeOnLoadMethodAttributes (47ms)
-			AfterProcessingInitializeOnLoad (13ms)
-			EditorAssembliesLoaded (1ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (14ms)
-Refreshing native plugins compatible for Editor in 4.12 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 2.40 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+<<<<<<< HEAD
+Unloading 3121 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3673.
+Memory consumption went from 138.1 MB to 138.1 MB.
+Total: 4.120800 ms (FindLiveObjects: 0.380600 ms CreateObjectMapping: 0.325900 ms MarkObjects: 3.359600 ms  DeleteObjects: 0.053800 ms)
+=======
 Unloading 3122 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3657.
 Memory consumption went from 155.3 MB to 155.3 MB.
 Total: 6.368000 ms (FindLiveObjects: 0.426000 ms CreateObjectMapping: 0.375100 ms MarkObjects: 5.494900 ms  DeleteObjects: 0.070700 ms)
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -3703,6 +3776,8 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< HEAD
+=======
 ========================================================================
 Received Import Request.
 <<<<<<< HEAD
@@ -4778,3 +4853,4 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+>>>>>>> e0b4e1f8ebfe016d36447ecf64208fc22e16f3b9
