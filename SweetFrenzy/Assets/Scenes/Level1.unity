@@ -2425,6 +2425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045a7d769aea664597f9808cb718f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointsTextUI: {fileID: 0}
 --- !u!4 &746749793
 Transform:
   m_ObjectHideFlags: 0
@@ -4162,7 +4163,7 @@ SpriteRenderer:
   m_Size: {x: 16, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1117460327
@@ -6631,10 +6632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientsPrefab:
-  - {fileID: 4253416701345399023, guid: f44e82d6409d80242b81760ef2510082, type: 3}
   - {fileID: 6408274658550953730, guid: 8cbfb778f6e673149a628663ebd6f6c3, type: 3}
   - {fileID: 4253416701345399023, guid: f44e82d6409d80242b81760ef2510082, type: 3}
-  - {fileID: 6408274658550953730, guid: 8cbfb778f6e673149a628663ebd6f6c3, type: 3}
 --- !u!4 &1736636179
 Transform:
   m_ObjectHideFlags: 0
