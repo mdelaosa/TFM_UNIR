@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClientManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] clientsPrefab;
+    [SerializeField] GameObject clientPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +21,8 @@ public class ClientManager : MonoBehaviour
     {
         while (true)
         {
-            int random = Random.Range(0, clientsPrefab.Length);
+            Instantiate(clientPrefab, transform.position, Quaternion.identity);
 
-            Instantiate(clientsPrefab[random], transform.position, Quaternion.identity);
-   
             yield return new WaitForSeconds(5f);
         }
     }
