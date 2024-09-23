@@ -2814,7 +2814,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsTextUI: {fileID: 1462177971}
-  gameOverManager: {fileID: 2144886910}
 --- !u!4 &746749793
 Transform:
   m_ObjectHideFlags: 0
