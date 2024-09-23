@@ -126,6 +126,7 @@ public class ClientController : MonoBehaviour
 
         transform.position = newPosition;
         return true;
+
     }
 
     private bool ChooseChair()
