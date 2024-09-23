@@ -16,14 +16,17 @@ D:/TFM/SweetFrenzy
 Logs/AssetImportWorker0.log
 -srvPort
 <<<<<<< HEAD
+<<<<<<< HEAD
 57862
 Successfully changed project path to: C:/Users/sandy/Documents/TFM/TFM_UNIR/SweetFrenzy
 C:/Users/sandy/Documents/TFM/TFM_UNIR/SweetFrenzy
 =======
 54376
+=======
+58188
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 Successfully changed project path to: D:/TFM/SweetFrenzy
 D:/TFM/SweetFrenzy
->>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -56,6 +59,7 @@ D:/TFM/SweetFrenzy
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
 <<<<<<< HEAD
+<<<<<<< HEAD
 Unable to join player connection multicast group (err: 10013).
 Player connection [23820] Host "[IP] 172.17.32.1 [Port] 0 [Flags] 2 [Guid] 3014890164 [EditorId] 3014890164 [Version] 1048832 [Id] WindowsEditor(7,Chikimiskis) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
@@ -63,12 +67,19 @@ Player connection [23820] Host "[IP] 172.17.32.1 [Port] 0 [Flags] 2 [Guid] 30148
 Refreshing native plugins compatible for Editor in 6.74 ms, found 3 plugins.
 =======
 Player connection [22420] Host "[IP] 192.168.1.150 [Port] 0 [Flags] 2 [Guid] 1026976679 [EditorId] 1026976679 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F42VP8R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+=======
+Player connection [2580] Host "[IP] 192.168.1.150 [Port] 0 [Flags] 2 [Guid] 4223831780 [EditorId] 4223831780 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F42VP8R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 
 Player connection [22420] Host "[IP] 192.168.1.150 [Port] 0 [Flags] 2 [Guid] 1026976679 [EditorId] 1026976679 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-F42VP8R) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 10.52 ms, found 3 plugins.
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+=======
+Refreshing native plugins compatible for Editor in 10.72 ms, found 3 plugins.
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.11f1 (d00248457e15)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -85,14 +96,19 @@ Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Manage
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/etc'
 <<<<<<< HEAD
+<<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56840
 =======
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56792
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56924
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+<<<<<<< HEAD
 <<<<<<< HEAD
 Registered in 0.007076 seconds.
 - Loaded All Assemblies, in  0.313 seconds
@@ -100,10 +116,15 @@ Registered in 0.007076 seconds.
 Registered in 0.013190 seconds.
 - Loaded All Assemblies, in  0.736 seconds
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+=======
+Registered in 0.012815 seconds.
+- Loaded All Assemblies, in  0.604 seconds
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Android Extension - Scanning For ADB Devices 517 ms
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 <<<<<<< HEAD
 - Finished resetting the current domain, in  0.279 seconds
 Domain Reload Profiling: 592ms
@@ -113,10 +134,16 @@ Domain Reload Profiling: 592ms
 Domain Reload Profiling: 1961ms
 	BeginReloadAssembly (211ms)
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+=======
+- Finished resetting the current domain, in  0.998 seconds
+Domain Reload Profiling: 1600ms
+	BeginReloadAssembly (187ms)
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 		CreateAndSetChildDomain (1ms)
 <<<<<<< HEAD
 	RebuildCommonClasses (29ms)
@@ -147,6 +174,14 @@ Domain Reload Profiling: 1961ms
 	initialDomainReloadingComplete (110ms)
 	LoadAllAssembliesAndSetupDomain (303ms)
 		LoadAssemblies (208ms)
+=======
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (100ms)
+	LoadAllAssembliesAndSetupDomain (240ms)
+		LoadAssemblies (184ms)
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 		RebuildTransferFunctionScriptingTraits (0ms)
 		AnalyzeDomain (299ms)
 			TypeCache.Refresh (296ms)
@@ -161,10 +196,16 @@ Domain Reload Profiling: 1961ms
 			InitializePlatformSupportModulesInManaged (766ms)
 			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
+<<<<<<< HEAD
 			BeforeProcessingInitializeOnLoad (4ms)
 			ProcessInitializeOnLoadAttributes (232ms)
 			ProcessInitializeOnLoadMethodAttributes (88ms)
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+=======
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (171ms)
+			ProcessInitializeOnLoadMethodAttributes (81ms)
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -173,12 +214,17 @@ Domain Reload Profiling: 1961ms
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Loaded All Assemblies, in  0.534 seconds
 Refreshing native plugins compatible for Editor in 2.27 ms, found 3 plugins.
 =======
 - Loaded All Assemblies, in  1.612 seconds
 Refreshing native plugins compatible for Editor in 3.50 ms, found 3 plugins.
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+=======
+- Loaded All Assemblies, in  1.153 seconds
+Refreshing native plugins compatible for Editor in 5.21 ms, found 3 plugins.
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Package Manager log level set to [2]
@@ -186,6 +232,7 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 <<<<<<< HEAD
 - Finished resetting the current domain, in  0.504 seconds
 Domain Reload Profiling: 1036ms
@@ -236,6 +283,11 @@ AssetImportParameters requested are different than current active one (requested
 - Finished resetting the current domain, in  1.212 seconds
 Domain Reload Profiling: 2822ms
 	BeginReloadAssembly (458ms)
+=======
+- Finished resetting the current domain, in  1.232 seconds
+Domain Reload Profiling: 2382ms
+	BeginReloadAssembly (254ms)
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (16ms)
 		BackupInstance (0ms)
@@ -288,6 +340,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< HEAD
   custom:scripting/precompiled-assembly-types:Assembly-CSharp: a572888a4af92f0f2a5e7dbbb85e7dfd -> 68e090ad2f0bbe5a30dd7d6017c3aa6d
   custom:scripting/monoscript/fileName/GameOverManager.cs:  -> 0f56a8035be897d9d4312b932cf2e84a
 ========================================================================
@@ -376,11 +429,20 @@ Refreshing native plugins compatible for Editor in 2.50 ms, found 3 plugins.
   path: Assets/Scripts/Manager/GameOverManager.cs
   artifactKey: Guid(24d87593989bae14bbc3b6f907604a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scripts/Manager/GameOverManager.cs using Guid(24d87593989bae14bbc3b6f907604a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '320871230db102f6fdcd9d2e610c779b') in 0.032243 seconds
+=======
+========================================================================
+Received Import Request.
+  Time since last request: 462029.978869 seconds.
+  path: Assets/Art Assets/00Delete/assets_SF1.fbx
+  artifactKey: Guid(c342ad1f5a968b74994318df23ec59d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art Assets/00Delete/assets_SF1.fbx using Guid(c342ad1f5a968b74994318df23ec59d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86e269940a6bed42ca76a12c5741f24f') in 0.712979 seconds
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
+<<<<<<< HEAD
 - Loaded All Assemblies, in  0.649 seconds
 Refreshing native plugins compatible for Editor in 2.57 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
@@ -1120,6 +1182,9 @@ AssetImportParameters requested are different than current active one (requested
 Received Prepare
 Begin MonoManager ReloadAssembly
 - Loaded All Assemblies, in  0.585 seconds
+=======
+- Loaded All Assemblies, in  0.566 seconds
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 Refreshing native plugins compatible for Editor in 2.91 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
@@ -1163,17 +1228,22 @@ Domain Reload Profiling: 2174ms
 		AwakeInstancesAfterBackupRestoration (14ms)
 Refreshing native plugins compatible for Editor in 4.12 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+<<<<<<< HEAD
 Unloading 3122 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 23 unused Assets / (31.2 KB). Loaded Objects now: 3657.
 Memory consumption went from 155.3 MB to 155.3 MB.
 Total: 6.368000 ms (FindLiveObjects: 0.426000 ms CreateObjectMapping: 0.375100 ms MarkObjects: 5.494900 ms  DeleteObjects: 0.070700 ms)
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
+=======
+Unloading 3121 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (31.1 KB). Loaded Objects now: 3673.
+Memory consumption went from 138.1 MB to 138.1 MB.
+Total: 4.120800 ms (FindLiveObjects: 0.380600 ms CreateObjectMapping: 0.325900 ms MarkObjects: 3.359600 ms  DeleteObjects: 0.053800 ms)
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-<<<<<<< HEAD
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
@@ -1185,6 +1255,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< HEAD
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
@@ -4778,3 +4849,5 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+=======
+>>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
