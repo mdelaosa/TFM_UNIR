@@ -6,22 +6,14 @@ public class Timer : MonoBehaviour
 {
     [Header("Timer configuration")]
     [SerializeField] private float initialTime = 120f;
-<<<<<<< HEAD
-=======
     [SerializeField] private float endGameDelay = 2f;
->>>>>>> main
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Color defaultColor = Color.white;
     [SerializeField] private Color warningColor = Color.yellow;
     [SerializeField] private Color dangerColor = Color.red;
 
-<<<<<<< HEAD
-    private float timeRemaining;
-    private GameManager gameManager;
-=======
     private float timeRemaining; 
     private GameManager gameManager; 
->>>>>>> main
 
     void Start()
     {
