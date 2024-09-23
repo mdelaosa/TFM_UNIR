@@ -7,6 +7,7 @@ public class Fruit : Food
     [SerializeField] private GameObject fruitRaw;
     [SerializeField] private GameObject fruitIsBeingCut;
     [SerializeField] private GameObject fruitCut;
+    [SerializeField] private GameObject cloudCutting;
 
     [Header("Progress Bar")]
     [SerializeField] private GameObject progressBar;
@@ -40,6 +41,7 @@ public class Fruit : Food
         {
             cutRoutine = StartCoroutine(CutFruitRoutine());
             progressBar.SetActive(true);
+            cloudCutting.SetActive(true);
         }
     }
 
@@ -54,6 +56,7 @@ public class Fruit : Food
             {
                 progressBar.SetActive(false);
             }
+            cloudCutting.SetActive(false);
         }
     }
 
