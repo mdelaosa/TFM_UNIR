@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using Unity.VisualScripting;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 
 public class ClientController : MonoBehaviour
 {
@@ -44,7 +43,6 @@ public class ClientController : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         animator = GetComponent<Animator>();
-        animator.applyRootMotion = false;
 
         speed = 5f;
 
@@ -119,8 +117,6 @@ public class ClientController : MonoBehaviour
         while (Vector3.Distance(startPosition, newPosition) >= 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
-            transform.LookAt(newPosition);
-            animator.SetBool("sit", false);
             return false;
         }
 
@@ -140,10 +136,9 @@ public class ClientController : MonoBehaviour
         {
             if (!ChairOccupied(chair))
             {
-                Vector3 offset = new Vector3(0.7f, 0f, 0f);
-                transform.position = chair.transform.position + chair.transform.rotation * offset;
-                transform.rotation = chair.transform.rotation * Quaternion.Euler(0, -90, 0);
-                
+                //Move(transform.position, chair.transform.position);
+                transform.position = new Vector3(chair.transform.position.x, -0.77f, chair.transform.position.z); 
+                transform.rotation = chair.transform.rotation;
                 animator.SetBool("sit", true);
                 return true;
             }
@@ -180,7 +175,6 @@ public class ClientController : MonoBehaviour
         else //Cuando ha llegado al tiempo máximo de espera, se va enfadado
         {
             transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
-            canvas.gameObject.SetActive(false);
             return 2;
         }
     }
