@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "pid": 19564, "tid": -1, "ph": "M", "name": "process_name", "args": { "name": "BeeDriver" } },
 { "pid": 19564, "tid": -1, "ph": "M", "name": "process_sort_index", "args": { "sort_index": "-2" } },
 { "pid": 19564, "tid": 3172, "ph": "M", "name": "thread_name", "args": { "name": "Thread Pool Worker" } },
@@ -1129,6 +1130,8 @@
 { "pid": 19564, "tid": 3172, "ts": 1727020701319680, "dur": 1920, "ph": "X", "name": "backend1.traceevents", "args": {} },
 { "pid": 19564, "tid": 3172, "ts": 1727020701312390, "dur": 9963, "ph": "X", "name": "Write chrome-trace events", "args": {} },
 =======
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 { "pid": 21956, "tid": -1, "ph": "M", "name": "process_name", "args": { "name": "BeeDriver" } },
@@ -2372,6 +2375,7 @@
 { "pid": 21956, "tid": 175, "ts": 1727030922542071, "dur": 3919, "ph": "X", "name": "backend1.traceevents", "args": {} },
 { "pid": 21956, "tid": 175, "ts": 1727030922533170, "dur": 12885, "ph": "X", "name": "Write chrome-trace events", "args": {} },
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 =======
 { "pid": 16784, "tid": -1, "ph": "M", "name": "process_name", "args": { "name": "BeeDriver" } },
@@ -3461,6 +3465,8 @@
 { "pid": 16784, "tid": 8, "ts": 1727095862132369, "dur": 2604, "ph": "X", "name": "backend1.traceevents", "args": {} },
 { "pid": 16784, "tid": 8, "ts": 1727095862116620, "dur": 19772, "ph": "X", "name": "Write chrome-trace events", "args": {} },
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 {}

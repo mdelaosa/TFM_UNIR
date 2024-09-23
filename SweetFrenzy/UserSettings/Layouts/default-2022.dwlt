@@ -251,6 +251,7 @@ MonoBehaviour:
   m_MaxSize: {x: 0, y: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -431,6 +432,8 @@ MonoBehaviour:
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -449,9 +452,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 521.6
     y: 0
     width: 939.2001
+=======
+    x: 654.4
+    y: 0
+    width: 806.4
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
     x: 654.4
     y: 0
@@ -462,7 +471,11 @@ MonoBehaviour:
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 107
+=======
+  controlID: 115
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
   controlID: 115
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
@@ -512,12 +525,15 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 475
     height: 751
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
 =======
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
     width: 806.4
@@ -750,6 +766,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/Prefabs
 =======
     - Assets/Scripts/Player
@@ -757,6 +774,9 @@ MonoBehaviour:
 =======
     - Assets/Scenes
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+    - Assets/Scripts/Player
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
     - Assets/Scripts/Player
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
@@ -770,6 +790,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Assets/Prefabs
 =======
   - Assets/Scripts/Player
@@ -777,6 +798,9 @@ MonoBehaviour:
 =======
   - Assets/Scenes
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+  - Assets/Scripts/Player
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
   - Assets/Scripts/Player
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
@@ -791,12 +815,15 @@ MonoBehaviour:
     m_LastClickedID: 27490
     m_ExpandedIDs: 00000000fa6a0000fc6a0000fe6a0000006b0000026b0000046b0000066b0000086b00000a6b00000c6b00000e6b0000106b0000126b0000146b0000166b0000186b00001a6b0000506b000000ca9a3b
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 =======
     m_SelectedIDs: 6c6b0000
     m_LastClickedID: 27500
     m_ExpandedIDs: 00000000186b00001a6b00001c6b00001e6b0000206b0000226b0000246b0000266b0000286b00002a6b00002c6b00002e6b0000306b0000326b0000346b0000366b0000386b00006e6b000000ca9a3b
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
     m_RenameOverlay:
@@ -829,10 +856,13 @@ MonoBehaviour:
 <<<<<<< HEAD
     m_ExpandedIDs: 00000000fa6a0000fc6a0000fe6a0000006b0000026b0000046b0000066b0000086b00000a6b00000c6b00000e6b0000106b0000126b0000146b0000166b0000186b00001a6b0000
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 =======
     m_ExpandedIDs: 00000000186b00001a6b00001c6b00001e6b0000206b0000226b0000246b0000266b0000286b00002a6b00002c6b00002e6b0000306b0000326b0000346b0000366b0000386b0000
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
     m_RenameOverlay:
@@ -864,11 +894,15 @@ MonoBehaviour:
 <<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedInstanceIDs: 6e700000
 =======
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 40a700007e680000
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+    m_ExpandedInstanceIDs: 40a700007e680000
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
     m_ExpandedInstanceIDs: 40a700007e680000
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
@@ -1020,11 +1054,14 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 437
     y: 81
     width: 998
     height: 356
 =======
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
     x: 2190.4
@@ -1382,6 +1419,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 24.127134, y: -2.0691829, z: -7.387169}
     speed: 2
     m_Value: {x: 11.544548, y: 3.9133193, z: -7.180362}
@@ -1395,6 +1433,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 502.75, y: 283, z: 0}
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+    m_Target: {x: -0.53421664, y: 0.11701965, z: 0.34962177}
+    speed: 2
+    m_Value: {x: 124.75, y: 479, z: 0}
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
     m_Target: {x: -0.53421664, y: 0.11701965, z: 0.34962177}
     speed: 2
@@ -1454,10 +1497,13 @@ MonoBehaviour:
 <<<<<<< HEAD
     m_Value: 103.077644
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 =======
     m_Value: 8.657034
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
   m_Ortho:

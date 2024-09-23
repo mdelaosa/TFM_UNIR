@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 { "pid": 35942, "tid": 1, "ts": 1726936112707137, "dur": 178414, "ph": "X", "name": "BuildProgram", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1726936112708096, "dur": 48281, "ph": "X", "name": "BuildProgramContextConstructor", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1726936112861382, "dur": 3490, "ph": "X", "name": "OutputData.Write", "args": {} },
@@ -14,6 +15,8 @@
 =======
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 { "pid": 35942, "tid": 1, "ts": 1727030560604560, "dur": 568130, "ph": "X", "name": "BuildProgram", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1727030560607344, "dur": 188136, "ph": "X", "name": "BuildProgramContextConstructor", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1727030561096189, "dur": 11390, "ph": "X", "name": "OutputData.Write", "args": {} },
@@ -21,6 +24,7 @@
 { "pid": 35942, "tid": 1, "ts": 1727030561112119, "dur": 53724, "ph": "X", "name": "JsonToString", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1727030561192403, "dur": 2881, "ph": "X", "name": "", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1727030561191422, "dur": 4366, "ph": "X", "name": "Write chrome-trace events", "args": {} },
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 =======
@@ -32,5 +36,7 @@
 { "pid": 35942, "tid": 1, "ts": 1727088125332855, "dur": 1660, "ph": "X", "name": "", "args": {} },
 { "pid": 35942, "tid": 1, "ts": 1727088125332045, "dur": 2746, "ph": "X", "name": "Write chrome-trace events", "args": {} },
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 =======
 >>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
