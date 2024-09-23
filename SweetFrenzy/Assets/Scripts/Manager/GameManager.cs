@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,35 +8,36 @@ public class GameManager : MonoBehaviour
     private int points = 0;
     private bool isGameOver;
 
-    private const int winningScore = 50;
-
-    [Header("UI Elements")]
-    [SerializeField] private TextMeshProUGUI pointsTextUI;
-    private GameOverManager gameOverManager;
-
+    // Start is called before the first frame update
     void Start()
     {
-        gameOverManager = FindObjectOfType<GameOverManager>();
         isGameOver = false;
-        UpdatePointsUI();
     }
 
-    #region Game Over Functions
-    public void CheckGameResult()
+    // Update is called once per frame
+    void Update()
     {
+<<<<<<< HEAD
         if (isGameOver)
         {
             bool hasWon = points >= winningScore;
             gameOverManager.ShowFinishedMessageAndBackground(hasWon, points);
         }
+=======
+        
+>>>>>>> parent of f78ca840 (Resolve merge conflict by incorporating both suggestions)
     }
-    #endregion
 
     #region Getters and Setters
     public void AddPoints(int addedPoints)
     {
+<<<<<<< HEAD
         points += addedPoints;
         UpdatePointsUI();
+=======
+        points = points + addedPoints;
+        Debug.Log("Total points: " + points);
+>>>>>>> parent of f78ca840 (Resolve merge conflict by incorporating both suggestions)
     }
 
     public void AddOrder()
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         return isGameOver;
     }
 
+<<<<<<< HEAD
     public void SetGameOver(bool gameOver)
     {
         isGameOver = gameOver;
@@ -75,5 +76,7 @@ public class GameManager : MonoBehaviour
             pointsTextUI.text = "Points: " + points;
         }
     }
+=======
+>>>>>>> parent of f78ca840 (Resolve merge conflict by incorporating both suggestions)
     #endregion
 }
