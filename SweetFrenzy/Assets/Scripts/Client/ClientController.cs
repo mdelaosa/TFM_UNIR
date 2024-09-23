@@ -6,9 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using Unity.VisualScripting;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 
 public class ClientController : MonoBehaviour
 {
+    private GameObject mainCamera;
+
+    private Animator animator;
+
     private GameObject[] chairs;
     private GameObject[] triggers;
 
@@ -36,6 +41,11 @@ public class ClientController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+        animator = GetComponent<Animator>();
+        animator.applyRootMotion = false;
+
         speed = 5f;
 
         triggers = GameObject.FindGameObjectsWithTag("Trigger");
@@ -76,6 +86,7 @@ public class ClientController : MonoBehaviour
         {
             //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
             canvas.gameObject.SetActive(true);
+            canvas.transform.LookAt(mainCamera.transform);
             imageOrder.sprite = orderedRecipe.GetImageRecipe();
 
             //Esperar
@@ -108,6 +119,8 @@ public class ClientController : MonoBehaviour
         while (Vector3.Distance(startPosition, newPosition) >= 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
+            transform.LookAt(newPosition);
+            animator.SetBool("sit", false);
             return false;
         }
 
@@ -127,8 +140,12 @@ public class ClientController : MonoBehaviour
         {
             if (!ChairOccupied(chair))
             {
-                //Move(transform.position, chair.transform.position);
-                transform.position = new Vector3(chair.transform.position.x, -0.77f, chair.transform.position.z); return true;
+                Vector3 offset = new Vector3(0.7f, 0f, 0f);
+                transform.position = chair.transform.position + chair.transform.rotation * offset;
+                transform.rotation = chair.transform.rotation * Quaternion.Euler(0, -90, 0);
+                
+                animator.SetBool("sit", true);
+                return true;
             }
         }
         return false;
@@ -163,6 +180,7 @@ public class ClientController : MonoBehaviour
         else //Cuando ha llegado al tiempo máximo de espera, se va enfadado
         {
             transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
+            canvas.gameObject.SetActive(false);
             return 2;
         }
     }
