@@ -6,7 +6,6 @@ public class Timer : MonoBehaviour
 {
     [Header("Timer configuration")]
     [SerializeField] private float initialTime = 120f;
-    [SerializeField] private float endGameDelay = 0;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Color defaultColor = Color.white;
     [SerializeField] private Color warningColor = Color.yellow;
@@ -14,7 +13,6 @@ public class Timer : MonoBehaviour
 
     private float timeRemaining;
     private GameManager gameManager;
-    private GameOverManager gameOverManager;
 
     void Start()
     {
@@ -22,7 +20,6 @@ public class Timer : MonoBehaviour
         timerText.color = defaultColor;
 
         gameManager = FindObjectOfType<GameManager>();
-        gameOverManager = FindObjectOfType<GameOverManager>();
 
         StartCoroutine(StartTimer());
     }
