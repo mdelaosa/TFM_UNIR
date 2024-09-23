@@ -356,6 +356,9 @@
 {"msg":"inputSignatureChanged","annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","index":346,"changes":[{"key":"FileList","value":["Library\\Bee\\artifacts\\1900b0aEDbg.dag\\Assembly-CSharp.dll"],"oldvalue":[],"dependency":"explicit"}]}
 {"msg":"runNodeAction","annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","displayName":"Copying Assembly-CSharp.dll","index":346}
 {"msg":"noderesult","processed_node_count":345,"number_of_nodes_ever_queued":347,"annotation":"CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll","index":346,"exitcode":0,"outputfile":"Library\\ScriptAssemblies\\Assembly-CSharp.dll"}
+<<<<<<< HEAD
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 =======
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)

@@ -1,6 +1,7 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ,{ "pid":12345, "tid":0, "ts":1727020701055193, "dur":2000, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1727020701057204, "dur":341, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1727020701057629, "dur":385, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
@@ -691,6 +692,8 @@
 ,{ "pid":12345, "tid":12, "ts":1727020701114892, "dur":177389, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1727020701297219, "dur":1838, "ph":"X", "name": "ProfilerWriteOutput" }
 =======
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 ,{ "pid":12345, "tid":0, "ts":1727030922166156, "dur":1746, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1727030922167917, "dur":481, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1727030922168501, "dur":371, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
@@ -1372,6 +1375,7 @@
 ,{ "pid":12345, "tid":8, "ts":1727030922296017, "dur":1966, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":8, "ts":1727030922297984, "dur":222922, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1727030922526219, "dur":3913, "ph":"X", "name": "ProfilerWriteOutput" }
+<<<<<<< HEAD
 >>>>>>> 5ca3b840355133a2ab6f693edc4118ed3e681fb0
 =======
 ,{ "pid":12345, "tid":0, "ts":1727095861921520, "dur":1846, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
@@ -2059,4 +2063,6 @@
 ,{ "pid":12345, "tid":8, "ts":1727095861979610, "dur":109545, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
 ,{ "pid":12345, "tid":0, "ts":1727095862094411, "dur":3038, "ph":"X", "name": "ProfilerWriteOutput" }
 >>>>>>> parent of e8f9c872 (Resolve merge conflict by incorporating both suggestions)
+=======
+>>>>>>> parent of e0b4e1f8 (Merge pull request #26 from mdelaosa/feature/fixingClients)
 ,
