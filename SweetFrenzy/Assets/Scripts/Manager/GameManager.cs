@@ -15,11 +15,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pointsTextUI;
     private GameOverManager gameOverManager;
 
+    [Header("Player")]
+    [SerializeField] private GameObject player1Prefab;
+    [SerializeField] private GameObject player2Prefab;
+    private Vector3 player1SpawnPoint;
+    private Vector3 player2SpawnPoint;
+
     void Start()
     {
         gameOverManager = FindObjectOfType<GameOverManager>();
         isGameOver = false;
         UpdatePointsUI();
+
+        player1SpawnPoint = new Vector3(0.310000002f, -1.65999997f, -6.28999996f);
+        player2SpawnPoint = new Vector3(5.51000023f, -1.65999997f, -6.67999983f);
+        SpawnPlayers();
     }
 
     #region Game Over Functions
@@ -80,6 +90,20 @@ public class GameManager : MonoBehaviour
         if (pointsTextUI != null)
         {
             pointsTextUI.text = "Puntos: " + points;
+        }
+    }
+    #endregion
+
+    #region Spawn Players Function
+    private void SpawnPlayers()
+    {
+        int playerCount = PlayerPrefs.GetInt("playersCount", 1);  // Obtener el número de jugadores (por defecto, 1)
+        Debug.Log(playerCount);
+        Instantiate(player1Prefab, player1SpawnPoint, Quaternion.identity);
+
+        if (playerCount == 2)
+        {
+            Instantiate(player2Prefab, player2SpawnPoint, Quaternion.identity);
         }
     }
     #endregion
