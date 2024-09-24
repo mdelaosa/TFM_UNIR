@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - applePieSprite: {fileID: 21300000, guid: 098230f8651059746a456506ecdcdd84, type: 3}
-  - fruitBowlSprite: {fileID: 21300000, guid: 098230f8651059746a456506ecdcdd84, type: 3}
-  - fruitSmoothieSprite: {fileID: 21300000, guid: 98f6689738252ac41ba579f1c9bfc4cd, type: 3}
+  - applePieSprite: {fileID: 21300000, guid: 922116afa0a05a14fb69a3bc019b424f, type: 3}
+  - fruitBowlSprite: {fileID: 21300000, guid: b8ad94efc821d204ca8d8fb478d69bc0, type: 3}
+  - fruitSmoothieSprite: {fileID: 21300000, guid: 90959495e28003648ac0cc7478d875a0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
