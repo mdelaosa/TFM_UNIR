@@ -794,6 +794,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1455786443}
     m_Modifications:
+    - target: {fileID: 2143868324798837982, guid: 665ce21dc3f0bd14db1f0419a6ed5464, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0632
+      objectReference: {fileID: 0}
     - target: {fileID: 2379712171768488528, guid: 665ce21dc3f0bd14db1f0419a6ed5464, type: 3}
       propertyPath: m_Name
       value: CajaFresa
@@ -2477,7 +2481,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 597819193420436008, guid: 1a3f920fa7c443846ab5ba49d664f376, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2511262206582240398, guid: 1a3f920fa7c443846ab5ba49d664f376, type: 3}
       propertyPath: m_Name
@@ -6855,7 +6859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 597819193420436008, guid: 1a3f920fa7c443846ab5ba49d664f376, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2511262206582240398, guid: 1a3f920fa7c443846ab5ba49d664f376, type: 3}
       propertyPath: m_Name
@@ -7584,7 +7588,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 597819193420436008, guid: 1a3f920fa7c443846ab5ba49d664f376, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2511262206582240398, guid: 1a3f920fa7c443846ab5ba49d664f376, type: 3}
       propertyPath: m_Name
@@ -8593,6 +8597,10 @@ PrefabInstance:
     - target: {fileID: 2966065945325333987, guid: 4030cb57992c95e4584dd9cbdab49350, type: 3}
       propertyPath: m_Name
       value: CajaPlatano
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098993774181935673, guid: 4030cb57992c95e4584dd9cbdab49350, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0632
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

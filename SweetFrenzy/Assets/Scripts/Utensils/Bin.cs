@@ -18,7 +18,7 @@ public class Bin : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Food"))
+        if (other.gameObject.CompareTag("Food") || other.gameObject.CompareTag("Bowl") || other.gameObject.CompareTag("Glass"))
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
             foreach (Collider collider in colliders)
