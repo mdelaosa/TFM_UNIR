@@ -20,7 +20,7 @@ public class SceneManagement : MonoBehaviour
 
     public void StartGame() //Cargar la pantalla de selección de niveles
     {
-        SceneManager.LoadScene("LevelSelection");
+        SceneManager.LoadScene("PlayerModeScene");
     }
 
     public void ContinueGame() //Continuar desde el último punto de guardado
