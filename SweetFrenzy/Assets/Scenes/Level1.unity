@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5163,6 +5163,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 131567546}
     m_Modifications:
+    - target: {fileID: 452783588117796003, guid: 9df1987b074bb3144b9f7238d1267a4a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3924163013104133128, guid: 9df1987b074bb3144b9f7238d1267a4a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.75
@@ -5244,6 +5248,10 @@ PrefabInstance:
     - target: {fileID: 2968282760274296773, guid: 9bf98d81e06239746b1b16b503363947, type: 3}
       propertyPath: m_Name
       value: Mixer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018998876013986253, guid: 9bf98d81e06239746b1b16b503363947, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7049096309420573836, guid: 9bf98d81e06239746b1b16b503363947, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6160,6 +6168,10 @@ PrefabInstance:
     - target: {fileID: 2968282760274296773, guid: 9bf98d81e06239746b1b16b503363947, type: 3}
       propertyPath: m_Name
       value: Mixer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018998876013986253, guid: 9bf98d81e06239746b1b16b503363947, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7049096309420573836, guid: 9bf98d81e06239746b1b16b503363947, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7680,6 +7692,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 131567546}
     m_Modifications:
+    - target: {fileID: 5597248747250254342, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8731222
@@ -7750,6 +7766,10 @@ PrefabInstance:
     - target: {fileID: 452783588117796003, guid: 9df1987b074bb3144b9f7238d1267a4a, type: 3}
       propertyPath: m_Constraints
       value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 452783588117796003, guid: 9df1987b074bb3144b9f7238d1267a4a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3924163013104133128, guid: 9df1987b074bb3144b9f7238d1267a4a, type: 3}
       propertyPath: m_LocalScale.x
@@ -8259,6 +8279,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 131567546}
     m_Modifications:
+    - target: {fileID: 5597248747250254342, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6039226417921784292, guid: 91b80798d70e13f48931d50467ea288d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.000001

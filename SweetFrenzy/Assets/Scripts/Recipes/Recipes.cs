@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class Recipes : MonoBehaviour
 {
-    public Sprite applePieSprite;
-    public Sprite fruitBowlSprite;
-    public Sprite fruitSmoothieSprite;
-
     private static Dictionary<RecipeName, Dictionary<string, object>> recipes = new Dictionary<RecipeName, Dictionary<string, object>>()
     {
         {
@@ -17,7 +13,7 @@ public class Recipes : MonoBehaviour
                 { "ingredients", new List<FoodName> { FoodName.apple, FoodName.milk, FoodName.flour, FoodName.egg } },
                 { "deliveryTime", 10 },
                 { "points", 50 },
-                { "image", Resources.Load<Sprite>("Sprites/applePie") }
+                { "image", Resources.Load<Sprite>("Sprites/applePieIcon") }
             }
         },
         {
@@ -26,7 +22,7 @@ public class Recipes : MonoBehaviour
                 { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.apple, FoodName.banana } },
                 { "deliveryTime", 10 },
                 { "points", 10 },
-                { "image", Resources.Load<Sprite>("Sprites/fruitBowl") }
+                { "image", Resources.Load<Sprite>("Sprites/fruitBowlIcon") }
             }
         },
         {
@@ -35,7 +31,7 @@ public class Recipes : MonoBehaviour
                 { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.banana, FoodName.milk } },
                 { "deliveryTime", 10 },
                 { "points", 20 },
-                { "image", Resources.Load<Sprite>("Sprites/fruitSmoothie")}
+                { "image", Resources.Load<Sprite>("Sprites/smoothieIcon")}
             }
         }
     };
