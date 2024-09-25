@@ -7,9 +7,10 @@ public class Timer : MonoBehaviour
     [Header("Timer configuration")]
     [SerializeField] private float initialTime = 120f;
     [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private Color defaultColor = Color.white;
-    [SerializeField] private Color warningColor = Color.yellow;
-    [SerializeField] private Color dangerColor = Color.red;
+    [SerializeField] private GameObject timerImage;
+    [SerializeField] private Color defaultColor = new Color32(165, 125, 159, 255);   // A57D9F
+    [SerializeField] private Color warningColor = new Color32(244, 185, 96, 255);    // F4B960
+    [SerializeField] private Color dangerColor = new Color32(233, 72, 74, 255);      // E9484A
 
     private float timeRemaining;
     private GameManager gameManager;
@@ -25,6 +26,8 @@ public class Timer : MonoBehaviour
 
     IEnumerator StartTimer()
     {
+        Vector3 originalPosition = timerText.transform.localPosition;
+
         while (timeRemaining > 0)
         {
             int minutes = Mathf.FloorToInt(timeRemaining / 60);
@@ -45,6 +48,7 @@ public class Timer : MonoBehaviour
             yield return null;
         }
 
+        timerText.transform.localPosition = originalPosition;
         EndGame();
     }
 
@@ -53,6 +57,7 @@ public class Timer : MonoBehaviour
         if (gameManager != null)
         {
             timerText.gameObject.SetActive(false);
+            timerImage.SetActive(false);
             gameManager.SetGameOver(true);
         }
     }

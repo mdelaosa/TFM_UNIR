@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI pointsTextUI;
+    [SerializeField] private GameObject pointsImageUI;
     private GameOverManager gameOverManager;
 
     void Start()
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
         if (isGameOver)
         {
             pointsTextUI.gameObject.SetActive(false);
+            pointsImageUI.SetActive(false);
             CheckGameResult();
         }
     }
