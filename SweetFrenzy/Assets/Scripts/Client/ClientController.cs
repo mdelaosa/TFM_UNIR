@@ -26,7 +26,7 @@ public class ClientController : MonoBehaviour
     private OrderRecipe orderRecipe;
     private Order orderedRecipe;
 
-    private int customerSuccess;
+    private string customerSuccess;
     private float waitingTime;
     [SerializeField] private float maxWaitingTime;
 
@@ -36,6 +36,9 @@ public class ClientController : MonoBehaviour
     [SerializeField] private Sprite happyFace;
     [SerializeField] private Sprite neutralFace;
     [SerializeField] private Sprite madFace;
+
+    [SerializeField] private bool receivedOrder;
+    [SerializeField] private bool correctOrder;
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +60,7 @@ public class ClientController : MonoBehaviour
         ordered = false;
 
         waitingTime = 0f;
-        customerSuccess = 0;
+        customerSuccess = "waiting";
     }
 
     // Update is called once per frame
@@ -80,7 +83,7 @@ public class ClientController : MonoBehaviour
             ordered = true;
         }
 
-        else if ((reachedChair) & (ordered) & (customerSuccess == 0)) //Está sentado esperando su pedido
+        else if ((reachedChair) & (ordered) & (customerSuccess.Equals("waiting"))) //Está sentado esperando su pedido
         {
             //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
             canvas.gameObject.SetActive(true);
@@ -91,15 +94,26 @@ public class ClientController : MonoBehaviour
             customerSuccess = Wait();
         }
 
-        else if(customerSuccess == 1) //El cliente ha recibido su pedido
+        else if(customerSuccess.Equals("received")) //El cliente ha recibido su pedido
         {
-            
+            if (correctOrder)
+            {
+                Debug.Log("Estoy feliz");
+                PutHappyFace();
+            }
+            else
+            {
+                PutMadFace();
+            }
+            transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
+            customerSuccess = "exiting";
         }
 
-        else if (customerSuccess == 2) //El cliente se ha cansado de esperar y se va
+        else if (customerSuccess.Equals("exiting")) //El cliente se va
         {
             if (!reachedEnd) //No ha llegado a irse
             {
+                canvas.transform.LookAt(mainCamera.transform);
                 reachedEnd = Move(transform.position, triggers[2].transform.position); //Se mueve hasta la salida
             }
             else //Se ha ido
@@ -111,7 +125,7 @@ public class ClientController : MonoBehaviour
 
     }
 
-
+    #region Move, ChooseChair, ChairOccupied and Wait Logics
     private bool Move(Vector3 startPosition, Vector3 newPosition)
     {
         while (Vector3.Distance(startPosition, newPosition) >= 0.01f)
@@ -163,40 +177,66 @@ public class ClientController : MonoBehaviour
         return false; //La silla está libre
     }
 
-    IEnumerator Delay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-    }
-
-    private int Wait() //Si devuelve 0 sigue esperando, si devuelve 1 le ha llegado el pedido, si devuelve 2 el tiempo de espera se ha agotado
+    private string Wait() //Si devuelve 0 sigue esperando, si devuelve 1 le ha llegado el pedido, si devuelve 2 el tiempo de espera se ha agotado
     {
         if (waitingTime <= maxWaitingTime) //Mientras el tiempo que lleva esperando sea menor que el tiempo máximo de espera, espera
         {
             waitingTime += Time.deltaTime;
             UpdateWaitingImage(waitingTime);
-            return 0;
+
+            if(receivedOrder) //Si mientras está esperando llega su pedido
+            {
+                return "received"; //1 = recibido pedido
+            }
+
+            return "waiting"; //Sino, sigue esperando 0 = waiting
         }
         else //Cuando ha llegado al tiempo máximo de espera, se va enfadado
         {
             transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
-            canvas.gameObject.SetActive(false);
-            return 2;
+            return "exiting"; // 2 = Se va
         }
     }
+    #endregion
 
+
+    #region Update Canvas Logics
     private void UpdateWaitingImage(float waitTime)
     {
         if (waitTime <= maxWaitingTime / 3) //Si el tiempo de espera es menor que 1/3, es que lleva 2/3 esperando
         {
-            imageFace.sprite = happyFace;
+            PutHappyFace();
         }
         else if ((waitTime > maxWaitingTime / 3) & (waitTime <= (2 * maxWaitingTime) / 3)) //Si el tiempo de espera es menor que 2/3 el tiempo máximo de espera, es que lleva 1/3 esperando
         {
-            imageFace.sprite = neutralFace;
+            PutNeutralFace();
         }
         else if ((waitTime > (2 * maxWaitingTime) / 3) & (waitTime <= maxWaitingTime)) //Sino, es que lleva menos de 1/3 esperando
         {
-            imageFace.sprite = madFace;
+            PutMadFace();
         }
     }
+
+    private void PutHappyFace()
+    {
+        imageFace.sprite = happyFace;
+    }
+
+    private void PutNeutralFace()
+    {
+        imageFace.sprite = neutralFace;
+    }
+
+    private void PutMadFace()
+    {
+        imageFace.sprite = madFace;
+    }
+    #endregion
+
+    #region Delay Function
+    IEnumerator Delay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
+    #endregion
 }
