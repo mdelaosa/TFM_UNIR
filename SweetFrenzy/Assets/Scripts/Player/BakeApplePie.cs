@@ -4,7 +4,6 @@ public class BakeApplePie : MonoBehaviour
 {
     [Header("Game Objects")]
     [SerializeField] protected Player player;
-    [SerializeField] private Oven utensil;
 
     [Header("Booleans")]
     [SerializeField] protected bool isTouchingUtensil = false;
@@ -13,12 +12,11 @@ public class BakeApplePie : MonoBehaviour
     [Header("PickupDropObject")]
     [SerializeField] private PickupDropObject pickupDropObject;
 
+    private Oven oven;
+
     private void Start()
     {
-        if (pickupDropObject == null)
-        {
-            Debug.LogError("PickupDropObject component is missing from the player.");
-        }
+
     }
 
     private void Update()
@@ -28,15 +26,15 @@ public class BakeApplePie : MonoBehaviour
 
     private void CheckInteraction()
     {
-        if (!player.IsMoving() && isTouchingUtensil && utensil != null && utensil.GetUtensilName() == UtensilName.oven)
+        if (!player.IsMoving() && isTouchingUtensil && oven != null && oven.GetUtensilName() == UtensilName.oven)
         {
             if ((player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.LeftControl)) || (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.RightControl)))
             {
-                if (utensil.GetUtensilStatus() == UtensilStatus.empty)
+                if (oven.GetUtensilStatus() == UtensilStatus.empty)
                 {
                     PutRawApplePieInOven();
                 }
-                else if (utensil.GetUtensilStatus() == UtensilStatus.finished)
+                else if (oven.GetUtensilStatus() == UtensilStatus.finished)
                 {
                     TakeApplePieOfOven();
                 }
@@ -44,11 +42,11 @@ public class BakeApplePie : MonoBehaviour
 
             if ((player.GetPlayerID() == PlayerID.player1 && Input.GetKeyDown(KeyCode.E)) || (player.GetPlayerID() == PlayerID.player2 && Input.GetKeyDown(KeyCode.Return)))
             {
-                if (utensil.GetUtensilStatus() == UtensilStatus.preparedToWork)
+                if (oven.GetUtensilStatus() == UtensilStatus.preparedToWork)
                 {
                     TurnOnOven();
                 }
-                else if (utensil.GetUtensilStatus() == UtensilStatus.burning)
+                else if (oven.GetUtensilStatus() == UtensilStatus.burning)
                 {
                     TurnOffOven();
                 }
@@ -58,8 +56,8 @@ public class BakeApplePie : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        utensil = other.GetComponent<Oven>();
-        if (utensil != null)
+        oven = other.GetComponent<Oven>();
+        if (oven != null)
         {
             isTouchingUtensil = true;
         }
@@ -67,10 +65,10 @@ public class BakeApplePie : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Oven>() == utensil)
+        if (other.GetComponent<Oven>() == oven)
         {
             isTouchingUtensil = false;
-            utensil = null;
+            oven = null;
         }
     }
 
@@ -82,7 +80,7 @@ public class BakeApplePie : MonoBehaviour
             return;
         }
 
-        if (utensil != null && utensil.GetUtensilStatus() == UtensilStatus.empty && pickupDropObject.GetHasObjectStatus())
+        if (oven != null && oven.GetUtensilStatus() == UtensilStatus.empty && pickupDropObject.GetHasObjectStatus())
         {
             GameObject rawApplePieObject = pickupDropObject.GetPickedObject();
 
@@ -95,7 +93,7 @@ public class BakeApplePie : MonoBehaviour
             Food rawApplePieFood = rawApplePieObject.GetComponent<Food>();
             if (rawApplePieFood.GetFoodName() == FoodName.rawApplePie)
             {
-                utensil.InsertFood(); 
+                oven.InsertFood(); 
                 pickupDropObject.SetHasObjectStatus(false);
                 Destroy(rawApplePieObject);
             }
@@ -108,19 +106,19 @@ public class BakeApplePie : MonoBehaviour
 
     private void TurnOnOven()
     {
-        utensil.TurnOnOven();
+        oven.TurnOnOven();
     }
 
     private void TurnOffOven()
     {
-        utensil.TurnOffOven();
+        oven.TurnOffOven();
     }
 
     private void TakeApplePieOfOven()
     {
-        if (utensil.GetUtensilStatus() == UtensilStatus.finished)
+        if (oven.GetUtensilStatus() == UtensilStatus.finished)
         {
-            GameObject applePie = utensil.TakeOutFood();
+            GameObject applePie = oven.TakeOutFood();
             pickupDropObject.PickupObject(applePie);
         }
     }

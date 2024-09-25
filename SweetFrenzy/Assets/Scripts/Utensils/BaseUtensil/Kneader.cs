@@ -13,7 +13,7 @@ public class Kneader : BaseUtensil
         utensilWorking = kneaderWorking;
         utensilFinishedPrefab = kneaderDoughPrefab;
         base.Start();
-        utensilName = UtensilName.kneaderNotMixDough;
-        utensilStatus = UtensilStatus.preparedToWork;
+        utensilName = UtensilName.kneader;
+        utensilStatus = UtensilStatus.empty;
     }
 }

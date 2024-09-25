@@ -14,11 +14,14 @@ public class Oven : Utensil
     [SerializeField] Vector3 initialScale;
     [SerializeField] Vector3 initialPosition;
 
-    [Header("Apple Pie")]
+    [Header("Apple Pie Icons")]
     [SerializeField] private GameObject rawApplePieIcon;
-    [SerializeField] private GameObject burnApplePieIcon;
     [SerializeField] private GameObject applePieIcon;
+    [SerializeField] private GameObject burntApplePieIcon;
+
+    [Header("Apple Pie Prefabs")]
     [SerializeField] private GameObject applePiePrefab;
+    [SerializeField] private GameObject burntApplePiePrefab;
 
     [Header("Oven Settings")]
     [SerializeField] private bool isBaking = false;
@@ -118,7 +121,7 @@ public class Oven : Utensil
             UpdateUtensilState();
             if (isApplePieBurnt)
             {
-                burnApplePieIcon.SetActive(true);
+                burntApplePieIcon.SetActive(true);
             }
             else
             {
@@ -139,17 +142,21 @@ public class Oven : Utensil
             UpdateUtensilState();
             ResetTimers();
 
+            GameObject applePie;
+
             if (isApplePieBurnt)
             {
+                applePie = Instantiate(burntApplePiePrefab);
                 TransformFood(FoodStatus.burnt);
             }
             else
             {
+                applePie = Instantiate(applePiePrefab);
                 TransformFood(FoodStatus.ready);
             }
-            applePiePrefab.SetActive(true);
+            // applePiePrefab.SetActive(true);
 
-            return applePiePrefab;
+            return applePie;
         }
         return null;
     }
@@ -183,7 +190,7 @@ public class Oven : Utensil
             progressBar.SetActive(false);
             burnBar.SetActive(false);
             applePieIcon.SetActive(false);
-            burnApplePieIcon.SetActive(false);
+            burntApplePieIcon.SetActive(false);
         }
         else if (utensilStatus == UtensilStatus.preparedToWork)
         {
@@ -191,7 +198,7 @@ public class Oven : Utensil
             progressBar.SetActive(false);
             burnBar.SetActive(false);
             applePieIcon.SetActive(false);
-            burnApplePieIcon.SetActive(false);
+            burntApplePieIcon.SetActive(false);
         }
         else if (utensilStatus == UtensilStatus.working)
         {
@@ -199,8 +206,7 @@ public class Oven : Utensil
             progressBar.SetActive(true);
             burnBar.SetActive(false);
             applePieIcon.SetActive(false);
-            burnApplePieIcon.SetActive(false);
-            burnApplePieIcon.SetActive(false);
+            burntApplePieIcon.SetActive(false);
         }
         else if (utensilStatus == UtensilStatus.burning)
         {
@@ -208,7 +214,7 @@ public class Oven : Utensil
             progressBar.SetActive(false);
             burnBar.SetActive(true);
             applePieIcon.SetActive(false);
-            burnApplePieIcon.SetActive(false);
+            burntApplePieIcon.SetActive(false);
         }
         else if (utensilStatus == UtensilStatus.finished)
         {
