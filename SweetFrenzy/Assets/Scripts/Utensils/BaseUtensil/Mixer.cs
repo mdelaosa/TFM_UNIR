@@ -13,7 +13,7 @@ public class Mixer : BaseUtensil
         utensilWorking = mixerWorking;
         utensilFinishedPrefab = mixerSmoothiePrefab;
         base.Start();
-        utensilName = UtensilName.mixerNotMixSmoothie;
-        utensilStatus = UtensilStatus.preparedToWork;
+        utensilName = UtensilName.mixer;
+        utensilStatus = UtensilStatus.empty;
     }
 }
