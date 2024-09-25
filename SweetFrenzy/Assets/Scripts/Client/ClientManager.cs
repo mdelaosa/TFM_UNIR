@@ -5,10 +5,13 @@ using UnityEngine;
 public class ClientManager : MonoBehaviour
 {
     [SerializeField] GameObject[] clientsPrefab;
+    [SerializeField]  private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(InstantiateClient());
+        //gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -19,7 +22,7 @@ public class ClientManager : MonoBehaviour
 
     IEnumerator InstantiateClient()
     {
-        while (true)
+        while (true && !gameManager.IsGameOver())
         {
             int random = Random.Range(0, clientsPrefab.Length);
 
