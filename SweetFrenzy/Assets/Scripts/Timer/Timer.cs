@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
 
     private float timeRemaining;
     private GameManager gameManager;
+    private int lastDisplayedSeconds;
 
     void Start()
     {
@@ -32,19 +33,32 @@ public class Timer : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(timeRemaining / 60);
             int seconds = Mathf.FloorToInt(timeRemaining % 60);
-            timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-            if (timeRemaining <= 10f)
+            if (seconds != lastDisplayedSeconds)
+            {
+                timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+                lastDisplayedSeconds = seconds;
+            }
+
+            if (timeRemaining < 11)
             {
                 timerText.color = dangerColor;
-                timerText.transform.localScale = Vector3.one * (1 + Mathf.Sin(Time.time * 10) * 0.1f);
+
+                float scaleModifier = 1 + Mathf.Sin((10 - timeRemaining) * Mathf.PI * 2) * 0.1f;
+                timerText.transform.localScale = Vector3.one * scaleModifier;
             }
-            else if (timeRemaining <= 30f)
+            else if (timeRemaining < 31)
             {
                 timerText.color = warningColor;
             }
+            else
+            {
+                timerText.color = defaultColor;
+                timerText.transform.localScale = Vector3.one;
+            }
 
             timeRemaining -= Time.deltaTime;
+
             yield return null;
         }
 

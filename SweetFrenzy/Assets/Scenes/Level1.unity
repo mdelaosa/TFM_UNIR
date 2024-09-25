@@ -8368,7 +8368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94411349986243f4f8b5d56ebebe5a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime: 10
+  initialTime: 15
   timerText: {fileID: 70862680}
   timerImage: {fileID: 2010429142}
   defaultColor: {r: 0.64705884, g: 0.49019608, b: 0.62352943, a: 1}
