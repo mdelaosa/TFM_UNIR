@@ -9,6 +9,8 @@ using System.Linq;
 
 public class ClientController : MonoBehaviour
 {
+    private GameManager gameManager;
+
     private GameObject mainCamera;
 
     private Animator animator;
@@ -40,6 +42,8 @@ public class ClientController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         animator = GetComponent<Animator>();
@@ -63,52 +67,54 @@ public class ClientController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!reachedEntrance) //No ha llegado a la entrada
+        if (!gameManager.IsGameOver())
         {
-            reachedEntrance = Move(transform.position, triggers[0].transform.position); //Se mueve hasta la entrada
-        }
-        
-        else if((reachedEntrance) & (!reachedChair)) //Está en la entrada pero no ha elegido silla
-        {
-            reachedChair = ChooseChair(); //Escoge silla
-        }
-
-        else if((reachedChair) & (!ordered)) //Está sentado y todavía no ha pedido
-        {
-            orderedRecipe = orderRecipe.Order();
-            maxWaitingTime = orderedRecipe.GetDeliveryTime();
-            ordered = true;
-        }
-
-        else if ((reachedChair) & (ordered) & (customerSuccess == 0)) //Está sentado esperando su pedido
-        {
-            //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
-            canvas.gameObject.SetActive(true);
-            canvas.transform.LookAt(mainCamera.transform);
-            imageOrder.sprite = orderedRecipe.GetImageRecipe();
-
-            //Esperar
-            customerSuccess = Wait();
-        }
-
-        else if(customerSuccess == 1) //El cliente ha recibido su pedido
-        {
-            
-        }
-
-        else if (customerSuccess == 2) //El cliente se ha cansado de esperar y se va
-        {
-            if (!reachedEnd) //No ha llegado a irse
+            if (!reachedEntrance) //No ha llegado a la entrada
             {
-                reachedEnd = Move(transform.position, triggers[2].transform.position); //Se mueve hasta la salida
-            }
-            else //Se ha ido
-            {
-                Destroy(gameObject);
+                reachedEntrance = Move(transform.position, triggers[0].transform.position); //Se mueve hasta la entrada
             }
 
-        }
+            else if ((reachedEntrance) & (!reachedChair)) //Está en la entrada pero no ha elegido silla
+            {
+                reachedChair = ChooseChair(); //Escoge silla
+            }
 
+            else if ((reachedChair) & (!ordered)) //Está sentado y todavía no ha pedido
+            {
+                orderedRecipe = orderRecipe.Order();
+                maxWaitingTime = orderedRecipe.GetDeliveryTime();
+                ordered = true;
+            }
+
+            else if ((reachedChair) & (ordered) & (customerSuccess == 0)) //Está sentado esperando su pedido
+            {
+                //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
+                canvas.gameObject.SetActive(true);
+                canvas.transform.LookAt(mainCamera.transform);
+                imageOrder.sprite = orderedRecipe.GetImageRecipe();
+
+                //Esperar
+                customerSuccess = Wait();
+            }
+
+            else if (customerSuccess == 1) //El cliente ha recibido su pedido
+            {
+
+            }
+
+            else if (customerSuccess == 2) //El cliente se ha cansado de esperar y se va
+            {
+                if (!reachedEnd) //No ha llegado a irse
+                {
+                    reachedEnd = Move(transform.position, triggers[2].transform.position); //Se mueve hasta la salida
+                }
+                else //Se ha ido
+                {
+                    Destroy(gameObject);
+                }
+
+            }
+        }
     }
 
 
