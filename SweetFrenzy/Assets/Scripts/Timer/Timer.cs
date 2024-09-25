@@ -14,12 +14,20 @@ public class Timer : MonoBehaviour
 
     private float timeRemaining;
     private GameManager gameManager;
-    private int lastDisplayedSeconds;
+    private AudioSource audioSource;                
+    private bool audioStarted = false;              
 
     void Start()
     {
         timeRemaining = initialTime;
         timerText.color = defaultColor;
+
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            Debug.LogError("No se encontró AudioSource en el GameObject.");
+        }
 
         gameManager = FindObjectOfType<GameManager>();
         StartCoroutine(StartTimer());
@@ -33,18 +41,19 @@ public class Timer : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(timeRemaining / 60);
             int seconds = Mathf.FloorToInt(timeRemaining % 60);
-
-            if (seconds != lastDisplayedSeconds)
-            {
-                timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
-                lastDisplayedSeconds = seconds;
-            }
+            timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
 
             if (timeRemaining < 11)
             {
+                if (!audioStarted)
+                {
+                    PlayCountdownSound();
+                    audioStarted = true;
+                }
+
                 timerText.color = dangerColor;
 
-                float scaleModifier = 1 + Mathf.Sin((10 - timeRemaining) * Mathf.PI * 2) * 0.1f;
+                float scaleModifier = 1 + Mathf.Sin((10 - timeRemaining) * Mathf.PI * 2) * 0.1f;  
                 timerText.transform.localScale = Vector3.one * scaleModifier;
             }
             else if (timeRemaining < 31)
@@ -54,16 +63,32 @@ public class Timer : MonoBehaviour
             else
             {
                 timerText.color = defaultColor;
-                timerText.transform.localScale = Vector3.one;
+                timerText.transform.localScale = Vector3.one; 
             }
 
             timeRemaining -= Time.deltaTime;
-
             yield return null;
         }
 
+        StopCountdownSound();
         timerText.transform.localPosition = originalPosition;
         EndGame();
+    }
+
+    private void PlayCountdownSound()
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
+
+    private void StopCountdownSound()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     void EndGame()

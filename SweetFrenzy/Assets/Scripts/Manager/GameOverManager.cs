@@ -14,11 +14,17 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private TextMeshProUGUI pointsTextGameOver;
 
+    [Header("Audio Clips")]
+    [SerializeField] private AudioClip finishedAudioClip;  
+    [SerializeField] private AudioClip winAudioClip;       
+    [SerializeField] private AudioClip loseAudioClip;      
+
+    private AudioSource audioSource;                      
     private float finishedMessageDuration = 2f;
 
     void Start()
     {
-        Debug.Log("GameOverManager Start: Iniciando...");
+        audioSource = GetComponent<AudioSource>();
 
         if (gameOverScreen != null) gameOverScreen.SetActive(false);
         if (winScreen != null) winScreen.SetActive(false);
@@ -29,15 +35,11 @@ public class GameOverManager : MonoBehaviour
 
     public void ShowFinishedMessageAndBackground(bool hasWon, int points)
     {
-        Debug.Log("ShowFinishedMessageAndBackground: Iniciando la animación del mensaje 'Finished'");
-
         StartCoroutine(ShowFinishedAnimation(hasWon, points));
     }
 
     private IEnumerator ShowFinishedAnimation(bool hasWon, int points)
     {
-        Debug.Log("ShowFinishedAnimation: Activando el texto 'Finished' y el fondo borroso.");
-
         if (finishedText != null && bluerBackground != null)
         {
             finishedText.SetActive(true);
@@ -46,6 +48,12 @@ public class GameOverManager : MonoBehaviour
         else
         {
             Debug.LogError("ShowFinishedAnimation: El finishedText o bluerBackground no están asignados correctamente.");
+        }
+
+        if (audioSource != null && finishedAudioClip != null)
+        {
+            audioSource.clip = finishedAudioClip;
+            audioSource.Play();
         }
 
         Vector3 originalPosition = finishedText.transform.localPosition;
@@ -68,7 +76,12 @@ public class GameOverManager : MonoBehaviour
 
         finishedText.transform.localPosition = originalPosition;
 
-        yield return new WaitForSeconds(0.5f); // Esperar medio segundo antes de ocultar
+        yield return new WaitForSeconds(0.5f); 
+
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
 
         if (finishedText != null && bluerBackground != null)
         {
@@ -76,14 +89,11 @@ public class GameOverManager : MonoBehaviour
             bluerBackground.SetActive(false);
         }
 
-        Debug.Log("ShowFinishedAnimation: Mostrando la pantalla de Game Over.");
         ShowGameOverScreen(hasWon, points);
     }
 
     private void ShowGameOverScreen(bool hasWon, int points)
     {
-        Debug.Log("ShowGameOverScreen: Activando la pantalla de Game Over");
-
         if (gameOverScreen != null)
         {
             gameOverScreen.SetActive(true);
@@ -96,31 +106,38 @@ public class GameOverManager : MonoBehaviour
 
         if (hasWon)
         {
-            Debug.Log("ShowGameOverScreen: Activando la pantalla de victoria.");
             if (winScreen != null)
             {
                 winScreen.SetActive(true);
+                PlaySound(winAudioClip);  
             }
         }
         else
         {
-            Debug.Log("ShowGameOverScreen: Activando la pantalla de derrota.");
             if (loseScreen != null)
             {
                 loseScreen.SetActive(true);
+                PlaySound(loseAudioClip);  
             }
         }
     }
 
     public void PlayerWon(int points)
     {
-        Debug.Log("PlayerWon: El jugador ha ganado con " + points + " puntos.");
         ShowFinishedMessageAndBackground(true, points);
     }
 
     public void PlayerLost(int points)
     {
-        Debug.Log("PlayerLost: El jugador ha perdido con " + points + " puntos.");
         ShowFinishedMessageAndBackground(false, points);
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
     }
 }

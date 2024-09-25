@@ -5,16 +5,17 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private int numOrders = 0;
-    private int points = 0;
-    private bool isGameOver;
-
-    private const int winningScore = 50;
-
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI pointsTextUI;
     [SerializeField] private GameObject pointsImageUI;
     private GameOverManager gameOverManager;
+
+    [Header("Game")]
+    [SerializeField] private int numOrders = 0;
+    [SerializeField] private int points = 0;
+    [SerializeField] private bool isGameOver;
+
+    private const int winningScore = 50;
 
     void Start()
     {
