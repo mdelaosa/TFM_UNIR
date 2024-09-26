@@ -32,15 +32,21 @@ public class Player : MonoBehaviour
     [SerializeField] private float sprintTimer = 0f;            
     [SerializeField] private float sprintCooldownTimer = 0f;
 
+    private GameManager gameManager;
+
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        Move();
-        UpdateAnimation();
+        if (!gameManager.IsGameOver())
+        {
+            Move();
+            UpdateAnimation();
+        }
     }
 
     private void Move()
