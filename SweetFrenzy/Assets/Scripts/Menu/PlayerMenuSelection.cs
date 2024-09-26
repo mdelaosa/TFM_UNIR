@@ -32,4 +32,9 @@ public class PlayerMenuSelection : MonoBehaviour
         PlayerPrefs.SetInt("playersCount", 2);
         SceneManager.LoadScene("Level1");
     }
+    public void BackMenu()
+    {
+        Debug.Log("Menu");
+        SceneManager.LoadScene("MainMenu");
+    }
 }
