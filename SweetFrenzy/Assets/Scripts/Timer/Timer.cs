@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float initialTime = 120f;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private GameObject timerImage;
-    [SerializeField] private Color defaultColor = new Color32(165, 125, 159, 255);   // A57D9F
+    [SerializeField] private Color defaultColor = new Color32(239, 82, 137, 255);    // EF5289
     [SerializeField] private Color warningColor = new Color32(244, 185, 96, 255);    // F4B960
     [SerializeField] private Color dangerColor = new Color32(233, 72, 74, 255);      // E9484A
 
