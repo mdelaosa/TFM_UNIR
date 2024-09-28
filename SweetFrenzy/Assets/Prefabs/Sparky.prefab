@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: 916104251150883869}
   - component: {fileID: 4434802355903247756}
   - component: {fileID: 3739843861508335873}
+  - component: {fileID: 8907146544596575010}
+  - component: {fileID: 2120187267194717305}
+  - component: {fileID: 779688982734746200}
   m_Layer: 0
   m_Name: HandSparky
   m_TagString: Hand
@@ -183,6 +186,54 @@ MonoBehaviour:
   player: {fileID: 1909978528798926629}
   isTouchingUtensil: 0
   isProcessing: 0
+--- !u!114 &8907146544596575010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823586712408599959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6e5cc132ffc1c499f4300837ed2624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1909978528798926629}
+  hasIngredient: 0
+  isTouchingPlayer: 0
+  isTouchingFruit: 0
+--- !u!114 &2120187267194717305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823586712408599959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1721eae70b9a7084aa4092789fbae10d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1909978528798926629}
+  hasBowl: 0
+  isTouchingPlayer: 0
+  isTouchingBowl: 0
+--- !u!114 &779688982734746200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823586712408599959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9718fb831ec5b43b4174926c336a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1909978528798926629}
+  hasGlass: 0
+  isTouchingPlayer: 0
+  isTouchingGlass: 0
 --- !u!1 &6363503846029582106
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,15 +396,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 399d6835cf3ba014f8bf73881ddb6608, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8824218217107909955}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 399d6835cf3ba014f8bf73881ddb6608, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 312348708087839014}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 399d6835cf3ba014f8bf73881ddb6608, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7664516571624699979}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 399d6835cf3ba014f8bf73881ddb6608, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5355549456279447000}
   m_SourcePrefab: {fileID: 100100000, guid: 399d6835cf3ba014f8bf73881ddb6608, type: 3}
 --- !u!4 &8289976348916818562 stripped
 Transform:
@@ -461,51 +503,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &312348708087839014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664988620087883832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e6e5cc132ffc1c499f4300837ed2624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1909978528798926629}
-  hasIngredient: 0
-  isTouchingPlayer: 0
-  isTouchingFruit: 0
---- !u!114 &7664516571624699979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664988620087883832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1721eae70b9a7084aa4092789fbae10d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1909978528798926629}
-  hasBowl: 0
-  isTouchingPlayer: 0
-  isTouchingBowl: 0
---- !u!114 &5355549456279447000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664988620087883832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9718fb831ec5b43b4174926c336a66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1909978528798926629}
-  hasGlass: 0
-  isTouchingPlayer: 0
-  isTouchingGlass: 0
