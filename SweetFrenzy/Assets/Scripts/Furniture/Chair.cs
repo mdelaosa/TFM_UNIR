@@ -1,13 +1,5 @@
 using UnityEngine;
 
-public enum ChairID
-{
-    chair1 = 1,
-    chair2 = 2,
-    chair3 = 3,
-    chair4 = 4
-}
-
 public class Chair : MonoBehaviour
 {
     [SerializeField] private ChairID chairID;

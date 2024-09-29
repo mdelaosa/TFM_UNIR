@@ -1,11 +1,5 @@
 using UnityEngine;
 
-public enum TableID
-{
-    table1 = 1,
-    table2 = 2
-}
-
 public class Table : MonoBehaviour // Cambié Utensil a MonoBehaviour para este ejemplo
 {
     [SerializeField] private TableID tableID; // ID de la mesa

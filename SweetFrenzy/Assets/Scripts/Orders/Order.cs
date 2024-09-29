@@ -11,6 +11,10 @@ public class Order : MonoBehaviour
     [SerializeField] private int points;
     [SerializeField] private Sprite image;
     [SerializeField] private bool isReady;
+
+    // Nueva variable para almacenar la receta
+    private Dictionary<string, object> recipe; // Aquí se guardará la receta
+
     private float timer;
     private GameManager gameManager;
     private OrderManager orderManager;
@@ -46,11 +50,14 @@ public class Order : MonoBehaviour
         var recipes = Recipes.GetRecipes();
         if (recipes.ContainsKey(recipeName))
         {
-            var recipeData = recipes[recipeName];
-            ingredients = recipeData["ingredients"] as List<FoodName>;
-            deliveryTime = (int)recipeData["deliveryTime"];
-            points = (int)recipeData["points"];
-            image = (Sprite)recipeData["image"];
+            // Guardar la receta en la variable global
+            recipe = recipes[recipeName];
+
+            // Asignar los valores desde la receta
+            ingredients = recipe["ingredients"] as List<FoodName>;
+            deliveryTime = (int)recipe["deliveryTime"];
+            points = (int)recipe["points"];
+            image = (Sprite)recipe["image"];
         }
     }
 
@@ -133,10 +140,17 @@ public class Order : MonoBehaviour
     {
         return image;
     }
+
     public void SetRecipeName(RecipeName newRecipeName)
     {
         recipeName = newRecipeName;
         AssignRecipe();
     }
+
+    public Dictionary<string, object> GetRecipe()
+    {
+        return recipe;
+    }
+
     #endregion
 }

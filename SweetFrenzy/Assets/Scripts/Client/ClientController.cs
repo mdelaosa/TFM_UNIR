@@ -15,6 +15,7 @@ public class ClientController : MonoBehaviour
 
     private GameObject[] chairs;
     private GameObject[] triggers;
+    private Chair chair;
 
     [SerializeField] private float speed;
 
@@ -149,21 +150,21 @@ public class ClientController : MonoBehaviour
             chairs = GameObject.FindGameObjectsWithTag("Chair");
         }
 
-        foreach (GameObject chair in chairs)
+        foreach (GameObject freeChair in chairs)
         {
-            if (!ChairOccupied(chair))
+            if (!ChairOccupied(freeChair))
             {
                 Vector3 offset = new Vector3(0.7f, 0f, 0f);
-                transform.position = chair.transform.position + chair.transform.rotation * offset;
-                transform.rotation = chair.transform.rotation * Quaternion.Euler(0, -90, 0);
+                transform.position = freeChair.transform.position + freeChair.transform.rotation * offset;
+                transform.rotation = freeChair.transform.rotation * Quaternion.Euler(0, -90, 0);
 
                 animator.SetBool("sit", true);
 
                 // Asignar el cliente a la silla
-                Chair chairComponent = chair.GetComponent<Chair>();
-                if (chairComponent != null)
+                chair = freeChair.GetComponent<Chair>();
+                if (chair != null)
                 {
-                    chairComponent.SetClient(this); // Registramos el cliente en la silla
+                    chair.SetClient(this); // Registramos el cliente en la silla
                 }
 
                 return true;
@@ -243,8 +244,6 @@ public class ClientController : MonoBehaviour
 
     private void ClearChair()
     {
-        // Asegúrate de que el cliente se levanta de la silla
-        Chair chair = FindObjectOfType<Chair>(); // Aquí debes encontrar la silla correcta en la que estaba sentado
         chair.ClearClient();
     }
 
@@ -253,19 +252,24 @@ public class ClientController : MonoBehaviour
     #region Update Canvas Logics
     private void UpdateWaitingImage(float waitTime)
     {
-        if (waitTime <= maxWaitingTime / 3) //Si el tiempo de espera es menor que 1/3, es que lleva 2/3 esperando
-        {
-            PutHappyFace();
-        }
-        else if ((waitTime > maxWaitingTime / 3) & (waitTime <= (2 * maxWaitingTime) / 3)) //Si el tiempo de espera es menor que 2/3 el tiempo máximo de espera, es que lleva 1/3 esperando
-        {
-            PutNeutralFace();
-        }
-        else if ((waitTime > (2 * maxWaitingTime) / 3) & (waitTime <= maxWaitingTime)) //Sino, es que lleva menos de 1/3 esperando
+        float totalPercentageTime = 6;
+        float partPercentagetime = 3; 
+
+        if ((maxWaitingTime - waitTime) <= 10)
         {
             PutMadFace();
         }
+        else if (waitTime > ((partPercentagetime * maxWaitingTime) / totalPercentageTime))
+        {
+            PutNeutralFace();
+        }
+        else
+        {
+            PutHappyFace();
+        }
     }
+
+
 
     private void PutHappyFace()
     {
