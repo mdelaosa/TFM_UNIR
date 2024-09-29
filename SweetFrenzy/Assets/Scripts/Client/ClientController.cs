@@ -158,11 +158,20 @@ public class ClientController : MonoBehaviour
                 transform.rotation = chair.transform.rotation * Quaternion.Euler(0, -90, 0);
 
                 animator.SetBool("sit", true);
+
+                // Asignar el cliente a la silla
+                Chair chairComponent = chair.GetComponent<Chair>();
+                if (chairComponent != null)
+                {
+                    chairComponent.SetClient(this); // Registramos el cliente en la silla
+                }
+
                 return true;
             }
         }
         return false;
     }
+
 
     private bool ChairOccupied(GameObject chair)
     {
@@ -197,8 +206,49 @@ public class ClientController : MonoBehaviour
             return "exiting"; // 2 = Se va
         }
     }
+
+    private void Exit()
+    {
+        transform.position = triggers[1].transform.position; // Mover a la salida
+        Destroy(gameObject); // Eliminar al cliente de la escena
+    }
+
     #endregion
 
+    #region Consume food
+    private void OnOrderReceived()
+    {
+        if (correctOrder)
+        {
+            PutHappyFace();
+        }
+        else
+        {
+            PutMadFace();
+        }
+
+        // Consume el postre
+        StartCoroutine(ConsumeFood());
+    }
+
+    private IEnumerator ConsumeFood()
+    {
+        // Tiempo de consumo de 2 segundos
+        yield return new WaitForSeconds(2f);
+
+        // Una vez consumido, el cliente se levanta y se va
+        ClearChair();
+        Exit();
+    }
+
+    private void ClearChair()
+    {
+        // Asegúrate de que el cliente se levanta de la silla
+        Chair chair = FindObjectOfType<Chair>(); // Aquí debes encontrar la silla correcta en la que estaba sentado
+        chair.ClearClient();
+    }
+
+    #endregion
 
     #region Update Canvas Logics
     private void UpdateWaitingImage(float waitTime)
