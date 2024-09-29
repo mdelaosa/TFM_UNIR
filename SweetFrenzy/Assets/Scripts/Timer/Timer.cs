@@ -5,7 +5,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [Header("Timer configuration")]
-    [SerializeField] private float initialTime = 120f;
+    [SerializeField] private float initialTime = 180f;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private GameObject timerImage;
     [SerializeField] private Color defaultColor = new Color32(239, 82, 137, 255);    // EF5289

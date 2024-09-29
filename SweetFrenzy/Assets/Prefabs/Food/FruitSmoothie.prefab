@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodName: 13
-  foodStatus: 5
+  foodStatus: 7
   foodType: 2
 --- !u!65 &2760212760380026331
 BoxCollider:
