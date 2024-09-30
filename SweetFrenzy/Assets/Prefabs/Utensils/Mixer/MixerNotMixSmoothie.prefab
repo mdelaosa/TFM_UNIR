@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408a0552595d3bb458ccd1eab4884f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  utensilName: 20
+  utensilName: 21
   utensilStatus: 2
   progressBar: {fileID: 9085432897852359584}
   progressBarVariable: {fileID: 1141349260256718197}

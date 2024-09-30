@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e51cb9a588d8144b63a6e6498546ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodName: 0
+  foodName: 2
   foodStatus: 0
   foodType: 0
   ingredients: {fileID: 1856507789031549538, guid: 61b44972e84d411488172fb216414ce7, type: 3}

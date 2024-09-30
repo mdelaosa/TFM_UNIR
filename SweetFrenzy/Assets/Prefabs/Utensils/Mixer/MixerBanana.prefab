@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcff70587c358641a300c9bd0278596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  utensilName: 16
+  utensilName: 17
   utensilStatus: 1
 --- !u!65 &9146840880713026492
 BoxCollider:

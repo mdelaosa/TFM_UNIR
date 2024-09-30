@@ -196,6 +196,7 @@ public class ClientController : MonoBehaviour
 
             if(receivedOrder) 
             {
+                correctOrder = true;
                 return "received"; 
             }
 

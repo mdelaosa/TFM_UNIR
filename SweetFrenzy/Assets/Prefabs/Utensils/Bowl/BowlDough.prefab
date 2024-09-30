@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 464232695529443653}
   - component: {fileID: 7925526529850160034}
+  - component: {fileID: 1490697777479233667}
   - component: {fileID: 7735897762512490151}
   - component: {fileID: 4144085342884646112}
-  - component: {fileID: 1490697777479233667}
   m_Layer: 0
   m_Name: BowlDough
   m_TagString: Bowl
@@ -51,6 +51,20 @@ MonoBehaviour:
   foodName: 9
   foodStatus: 6
   foodType: 0
+--- !u!114 &1490697777479233667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2715909322775024890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcff70587c358641a300c9bd0278596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  utensilName: 10
+  utensilStatus: 1
 --- !u!65 &7735897762512490151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -99,20 +113,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &1490697777479233667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2715909322775024890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbcff70587c358641a300c9bd0278596, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  utensilName: 2
-  utensilStatus: 1
 --- !u!1001 &5932039346513522366
 PrefabInstance:
   m_ObjectHideFlags: 0

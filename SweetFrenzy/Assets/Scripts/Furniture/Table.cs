@@ -6,11 +6,17 @@ public class Table : MonoBehaviour
     [SerializeField] private TableID tableID;
     [SerializeField] private List<Order> activeOrders = new List<Order>();
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip correctSound;   
+    [SerializeField] private AudioClip incorrectSound; 
+    private AudioSource audioSource;                   
+
     private GameManager gameManager;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        audioSource = gameObject.AddComponent<AudioSource>(); 
     }
 
     private void OnCollisionEnter(Collision other)
@@ -31,11 +37,11 @@ public class Table : MonoBehaviour
                 {
                     gameManager.AddPoints(-10);
                 }
+                PlaySound(incorrectSound);
                 Destroy(other.gameObject);
             }
         }
     }
-
 
     public void AddOrder(Order order)
     {
@@ -66,20 +72,30 @@ public class Table : MonoBehaviour
                 isCorrect = true;
                 order.GetClient().OnOrderReceived();
                 order.SetIsReady(true);
-                activeOrders.Remove(order);
-                Debug.Log("Pedido cumplido y eliminado de la lista.");
-                break; 
+                activeOrders.Remove(order);                
+                PlaySound(correctSound);
+                Debug.Log($"{correctSound.name}. Pedido cumplido y eliminado de la lista.");
+                break;
             }
         }
 
-        if(!isCorrect)
+        if (!isCorrect)
         {
             if (gameManager != null)
             {
                 gameManager.AddPoints(-10);
             }
             Debug.Log("Pedido incorrecto");
+            PlaySound(incorrectSound); 
             Destroy(other.gameObject);
         }
-    }    
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip); 
+        }
+    }
 }
