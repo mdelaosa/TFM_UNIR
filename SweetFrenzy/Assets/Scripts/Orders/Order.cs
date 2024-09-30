@@ -12,17 +12,19 @@ public class Order : MonoBehaviour
     [SerializeField] private Sprite image;
     [SerializeField] private bool isReady;
 
+    private ClientController client;
+
     // Nueva variable para almacenar la receta
     private Dictionary<string, object> recipe; // Aquí se guardará la receta
 
     private float timer;
     private GameManager gameManager;
-    private OrderManager orderManager;
+    //private OrderManager orderManager;
 
     void Start()
     {
         isReady = false;
-        AssignRecipe();
+        //AssignRecipe();
         StartTimer();
 
         gameManager = FindObjectOfType<GameManager>();
@@ -36,8 +38,8 @@ public class Order : MonoBehaviour
             idOrder = gameManager.GetNumOrders();
         }
 
-        orderManager = FindObjectOfType<OrderManager>();
-        orderManager.AddOrder(this);
+        //orderManager = FindObjectOfType<OrderManager>();
+        //orderManager.AddOrder(this);
     }
 
     void Update()
@@ -50,10 +52,8 @@ public class Order : MonoBehaviour
         var recipes = Recipes.GetRecipes();
         if (recipes.ContainsKey(recipeName))
         {
-            // Guardar la receta en la variable global
             recipe = recipes[recipeName];
 
-            // Asignar los valores desde la receta
             ingredients = recipe["ingredients"] as List<FoodName>;
             deliveryTime = (int)recipe["deliveryTime"];
             points = (int)recipe["points"];
@@ -119,10 +119,25 @@ public class Order : MonoBehaviour
 
     #region Getters and setters
 
-    public static Order CreateOrder(GameObject parentObject, RecipeName recipeName)
+    public static Order CreateOrder(GameObject parentObject, RecipeName recipeName, ClientController client)
     {
         Order newOrder = parentObject.AddComponent<Order>();
+        
+
+        var recipes = Recipes.GetRecipes();
+        if (recipes.ContainsKey(recipeName))
+        {
+            Dictionary<string, object> recipe = recipes[recipeName];
+
+            newOrder.SetIngredients(recipe["ingredients"] as List<FoodName>);
+            newOrder.SetDeliveryTime((int)recipe["deliveryTime"]);
+            newOrder.SetPoints((int)recipe["points"]);
+            newOrder.SetImageRecipe((Sprite)recipe["image"]);
+        }
+
         newOrder.SetRecipeName(recipeName);
+        newOrder.SetClient(client);
+
         return newOrder;
     }
 
@@ -131,14 +146,34 @@ public class Order : MonoBehaviour
         return ingredients;
     }
 
+    public void SetIngredients(List<FoodName> list)
+    {
+        ingredients = list;
+    }
+
     public int GetDeliveryTime()
     {
         return deliveryTime;
     }
 
+    public void SetDeliveryTime(int newDevileryTime)
+    {
+        deliveryTime = newDevileryTime;
+    }
+
+    public void SetPoints(int newPoints)
+    {
+        points = newPoints;
+    }
+
     public Sprite GetImageRecipe()
     {
         return image;
+    }
+
+    public void SetImageRecipe(Sprite newImage)
+    {
+        image = newImage;
     }
 
     public void SetRecipeName(RecipeName newRecipeName)
@@ -150,6 +185,11 @@ public class Order : MonoBehaviour
     public Dictionary<string, object> GetRecipe()
     {
         return recipe;
+    }
+
+    public void SetClient(ClientController newClient)
+    {
+        client = newClient;
     }
 
     #endregion

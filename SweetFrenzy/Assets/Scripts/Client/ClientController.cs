@@ -15,7 +15,8 @@ public class ClientController : MonoBehaviour
 
     private GameObject[] chairs;
     private GameObject[] triggers;
-    private Chair chair;
+    [SerializeField] private Chair chair;
+    [SerializeField] private Table table;
 
     [SerializeField] private float speed;
 
@@ -24,6 +25,7 @@ public class ClientController : MonoBehaviour
     private bool reachedEnd;
     private bool ordered;
 
+    [Header("Order")]
     private OrderRecipe orderRecipe;
     private Order orderedRecipe;
 
@@ -31,6 +33,7 @@ public class ClientController : MonoBehaviour
     private float waitingTime;
     [SerializeField] private float maxWaitingTime;
 
+    [Header("Canvas")]
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image imageFace;
     [SerializeField] private Image imageOrder;
@@ -40,6 +43,7 @@ public class ClientController : MonoBehaviour
 
     [SerializeField] private bool receivedOrder;
     [SerializeField] private bool correctOrder;
+    [SerializeField] private bool hasEaten;
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +83,8 @@ public class ClientController : MonoBehaviour
 
         else if((reachedChair) & (!ordered)) //Está sentado y todavía no ha pedido
         {
-            orderedRecipe = orderRecipe.Order();
+            orderedRecipe = orderRecipe.Order(this);
+            table.AddOrder(orderedRecipe);
             maxWaitingTime = orderedRecipe.GetDeliveryTime();
             ordered = true;
         }
@@ -114,8 +119,7 @@ public class ClientController : MonoBehaviour
         {
             if (!reachedEnd) //No ha llegado a irse
             {
-                canvas.transform.LookAt(mainCamera.transform);
-                reachedEnd = Move(transform.position, triggers[2].transform.position); //Se mueve hasta la salida
+                Exit();
             }
             else //Se ha ido
             {
@@ -165,6 +169,7 @@ public class ClientController : MonoBehaviour
                 if (chair != null)
                 {
                     chair.SetClient(this); // Registramos el cliente en la silla
+                    table = chair.GetTable();
                 }
 
                 return true;
@@ -173,13 +178,12 @@ public class ClientController : MonoBehaviour
         return false;
     }
 
-
     private bool ChairOccupied(GameObject chair)
     {
         Collider[] colliders = Physics.OverlapSphere(chair.transform.position, 1f);
         foreach(Collider collider in colliders)
         {
-            if (collider.CompareTag("Client") || collider.CompareTag("Bowl")) //Si no hay una persona ni un plato
+            if (collider.CompareTag("Client")) 
             {
                 return true; //La silla está ocupada
             }
@@ -210,8 +214,12 @@ public class ClientController : MonoBehaviour
 
     private void Exit()
     {
-        transform.position = triggers[1].transform.position; // Mover a la salida
-        Destroy(gameObject); // Eliminar al cliente de la escena
+        if (!hasEaten)
+        {
+            table.RemoveOrder(orderedRecipe);
+        }
+        canvas.transform.LookAt(mainCamera.transform);
+        reachedEnd = Move(transform.position, triggers[2].transform.position);
     }
 
     #endregion
@@ -238,6 +246,7 @@ public class ClientController : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Una vez consumido, el cliente se levanta y se va
+        hasEaten = true;
         ClearChair();
         Exit();
     }

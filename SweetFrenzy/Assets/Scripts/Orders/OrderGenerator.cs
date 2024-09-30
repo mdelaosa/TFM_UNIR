@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class OrderGenerator : MonoBehaviour
 {
-    public Order GenerateOrder()
+    public Order GenerateOrder(ClientController client)
     {
         RecipeName recipeName = GetRandomRecipeName();
         GameObject recipeObject = new GameObject("Order_" + recipeName);
-        Order recipe = Order.CreateOrder(recipeObject, recipeName);
-
-        Debug.Log("Ingredientes para la receta de " + recipeName + ": " + string.Join(", ", recipe.GetIngredients()) + "...........Tiempo de entrega para la receta: " + recipe.GetDeliveryTime() + " segundos");
+        Order recipe = Order.CreateOrder(recipeObject, recipeName, client);
 
         return recipe;
     }
