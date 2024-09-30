@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697106241332199739}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5054858, y: -1.1399996, z: 0.682233}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -94,7 +94,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
@@ -108,15 +108,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bb56cd4f79b2d73439ccf188d8ca5c18, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb56cd4f79b2d73439ccf188d8ca5c18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb56cd4f79b2d73439ccf188d8ca5c18, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb56cd4f79b2d73439ccf188d8ca5c18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: bb56cd4f79b2d73439ccf188d8ca5c18, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f2e274229cb4e3c45a9e679b24a05cfa, type: 2}
+      objectReference: {fileID: 5561349426305759274, guid: 378e06d84c529c84892fd793243cdb59, type: 3}
     - target: {fileID: 919132149155446097, guid: bb56cd4f79b2d73439ccf188d8ca5c18, type: 3}
       propertyPath: m_Name
       value: pastel_manzana_SF

@@ -15,6 +15,8 @@ public class ClientController : MonoBehaviour
 
     private GameObject[] chairs;
     private GameObject[] triggers;
+    [SerializeField] private Chair chair;
+    [SerializeField] private Table table;
 
     [SerializeField] private float speed;
 
@@ -23,6 +25,7 @@ public class ClientController : MonoBehaviour
     private bool reachedEnd;
     private bool ordered;
 
+    [Header("Order")]
     private OrderRecipe orderRecipe;
     private Order orderedRecipe;
 
@@ -30,6 +33,7 @@ public class ClientController : MonoBehaviour
     private float waitingTime;
     [SerializeField] private float maxWaitingTime;
 
+    [Header("Canvas")]
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image imageFace;
     [SerializeField] private Image imageOrder;
@@ -39,8 +43,8 @@ public class ClientController : MonoBehaviour
 
     [SerializeField] private bool receivedOrder;
     [SerializeField] private bool correctOrder;
+    [SerializeField] private bool hasEaten;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -63,60 +67,58 @@ public class ClientController : MonoBehaviour
         customerSuccess = "waiting";
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!reachedEntrance) //No ha llegado a la entrada
+        if (!reachedEntrance) 
         {
-            reachedEntrance = Move(transform.position, triggers[0].transform.position); //Se mueve hasta la entrada
+            reachedEntrance = Move(transform.position, triggers[0].transform.position); 
         }
         
-        else if((reachedEntrance) & (!reachedChair)) //Está en la entrada pero no ha elegido silla
+        else if((reachedEntrance) & (!reachedChair)) 
         {
-            reachedChair = ChooseChair(); //Escoge silla
+            reachedChair = ChooseChair(); 
         }
 
-        else if((reachedChair) & (!ordered)) //Está sentado y todavía no ha pedido
+        else if((reachedChair) & (!ordered)) 
         {
-            orderedRecipe = orderRecipe.Order();
+            orderedRecipe = orderRecipe.Order(this);
+            table.AddOrder(orderedRecipe);
             maxWaitingTime = orderedRecipe.GetDeliveryTime();
             ordered = true;
         }
 
-        else if ((reachedChair) & (ordered) & (customerSuccess.Equals("waiting"))) //Está sentado esperando su pedido
+        else if ((reachedChair) & (ordered) & (customerSuccess.Equals("waiting"))) 
         {
-            //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
             canvas.gameObject.SetActive(true);
             canvas.transform.LookAt(mainCamera.transform);
             imageOrder.sprite = orderedRecipe.GetImageRecipe();
 
-            //Esperar
             customerSuccess = Wait();
         }
 
-        else if(customerSuccess.Equals("received")) //El cliente ha recibido su pedido
+        else if(customerSuccess.Equals("received")) 
         {
             if (correctOrder)
             {
-                Debug.Log("Estoy feliz");
+                OnOrderReceived();
                 PutHappyFace();
             }
             else
             {
                 PutMadFace();
             }
-            transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
+            transform.position = triggers[1].transform.position;
             customerSuccess = "exiting";
         }
 
-        else if (customerSuccess.Equals("exiting")) //El cliente se va
+        else if (customerSuccess.Equals("exiting")) 
         {
-            if (!reachedEnd) //No ha llegado a irse
+            if (!reachedEnd)
             {
                 canvas.transform.LookAt(mainCamera.transform);
-                reachedEnd = Move(transform.position, triggers[2].transform.position); //Se mueve hasta la salida
+                Exit();
             }
-            else //Se ha ido
+            else 
             {
                 Destroy(gameObject);
             }
@@ -149,15 +151,23 @@ public class ClientController : MonoBehaviour
             chairs = GameObject.FindGameObjectsWithTag("Chair");
         }
 
-        foreach (GameObject chair in chairs)
+        foreach (GameObject freeChair in chairs)
         {
-            if (!ChairOccupied(chair))
+            if (!ChairOccupied(freeChair))
             {
                 Vector3 offset = new Vector3(0.7f, 0f, 0f);
-                transform.position = chair.transform.position + chair.transform.rotation * offset;
-                transform.rotation = chair.transform.rotation * Quaternion.Euler(0, -90, 0);
+                transform.position = freeChair.transform.position + freeChair.transform.rotation * offset;
+                transform.rotation = freeChair.transform.rotation * Quaternion.Euler(0, -90, 0);
 
                 animator.SetBool("sit", true);
+
+                chair = freeChair.GetComponent<Chair>();
+                if (chair != null)
+                {
+                    chair.SetClient(this); 
+                    table = chair.GetTable();
+                }
+
                 return true;
             }
         }
@@ -169,51 +179,92 @@ public class ClientController : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(chair.transform.position, 1f);
         foreach(Collider collider in colliders)
         {
-            if (collider.CompareTag("Client") || collider.CompareTag("Bowl")) //Si no hay una persona ni un plato
+            if (collider.CompareTag("Client")) 
             {
-                return true; //La silla está ocupada
+                return true;
             }
         }
-        return false; //La silla está libre
+        return false; 
     }
 
-    private string Wait() //Si devuelve 0 sigue esperando, si devuelve 1 le ha llegado el pedido, si devuelve 2 el tiempo de espera se ha agotado
+    private string Wait() 
     {
-        if (waitingTime <= maxWaitingTime) //Mientras el tiempo que lleva esperando sea menor que el tiempo máximo de espera, espera
+        if (waitingTime <= maxWaitingTime) 
         {
             waitingTime += Time.deltaTime;
             UpdateWaitingImage(waitingTime);
 
-            if(receivedOrder) //Si mientras está esperando llega su pedido
+            if(receivedOrder) 
             {
-                return "received"; //1 = recibido pedido
+                return "received"; 
             }
 
-            return "waiting"; //Sino, sigue esperando 0 = waiting
+            return "waiting"; 
         }
-        else //Cuando ha llegado al tiempo máximo de espera, se va enfadado
+        else 
         {
-            transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
-            return "exiting"; // 2 = Se va
+            transform.position = triggers[1].transform.position; 
+            return "exiting"; 
         }
     }
+
+    private void Exit()
+    {
+        if (!hasEaten)
+        {
+            table.RemoveOrder(orderedRecipe);
+        }
+
+        reachedEnd = Move(transform.position, triggers[2].transform.position);
+    }
+
     #endregion
 
+    #region Consume food
+    public void OnOrderReceived()
+    {
+        StartCoroutine(ConsumeFood());
+    }
+
+    private IEnumerator ConsumeFood()
+    {
+        canvas.gameObject.SetActive(false);
+        receivedOrder = true;
+        correctOrder = true;
+
+        yield return new WaitForSeconds(5f);
+
+        Destroy(orderedRecipe.gameObject);
+
+        hasEaten = true;
+        ClearChair();
+        Exit();
+    }
+
+    private void ClearChair()
+    {
+        chair.ClearClient();
+    }
+
+    #endregion
 
     #region Update Canvas Logics
     private void UpdateWaitingImage(float waitTime)
     {
-        if (waitTime <= maxWaitingTime / 3) //Si el tiempo de espera es menor que 1/3, es que lleva 2/3 esperando
+        float totalPercentageTime = 6;
+        float partPercentagetime = 3; 
+
+        if ((maxWaitingTime - waitTime) <= 10)
         {
-            PutHappyFace();
+            PutMadFace();
         }
-        else if ((waitTime > maxWaitingTime / 3) & (waitTime <= (2 * maxWaitingTime) / 3)) //Si el tiempo de espera es menor que 2/3 el tiempo máximo de espera, es que lleva 1/3 esperando
+        else if (waitTime > ((partPercentagetime * maxWaitingTime) / totalPercentageTime))
         {
             PutNeutralFace();
         }
-        else if ((waitTime > (2 * maxWaitingTime) / 3) & (waitTime <= maxWaitingTime)) //Sino, es que lleva menos de 1/3 esperando
+        else
         {
-            PutMadFace();
+            PutHappyFace();
         }
     }
 

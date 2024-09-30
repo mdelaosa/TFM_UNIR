@@ -11,14 +11,17 @@ public class Order : MonoBehaviour
     [SerializeField] private int points;
     [SerializeField] private Sprite image;
     [SerializeField] private bool isReady;
+
+    private ClientController client;
+
+    private Dictionary<string, object> recipe;
+
     private float timer;
     private GameManager gameManager;
-    private OrderManager orderManager;
 
     void Start()
     {
         isReady = false;
-        AssignRecipe();
         StartTimer();
 
         gameManager = FindObjectOfType<GameManager>();
@@ -31,9 +34,6 @@ public class Order : MonoBehaviour
             gameManager.AddOrder();
             idOrder = gameManager.GetNumOrders();
         }
-
-        orderManager = FindObjectOfType<OrderManager>();
-        orderManager.AddOrder(this);
     }
 
     void Update()
@@ -46,11 +46,12 @@ public class Order : MonoBehaviour
         var recipes = Recipes.GetRecipes();
         if (recipes.ContainsKey(recipeName))
         {
-            var recipeData = recipes[recipeName];
-            ingredients = recipeData["ingredients"] as List<FoodName>;
-            deliveryTime = (int)recipeData["deliveryTime"];
-            points = (int)recipeData["points"];
-            image = (Sprite)recipeData["image"];
+            recipe = recipes[recipeName];
+
+            ingredients = recipe["ingredients"] as List<FoodName>;
+            deliveryTime = (int)recipe["deliveryTime"];
+            points = (int)recipe["points"];
+            image = (Sprite)recipe["image"];
         }
     }
 
@@ -78,50 +79,55 @@ public class Order : MonoBehaviour
     {
         if (!isReady)
         {
-            Debug.Log("Pedido perdido: " + idOrder + " - " + recipeName);
-
             if (gameManager != null)
             {
-                gameManager.AddPoints(-(points / 2));
+                gameManager.AddPoints(-5);
             }
-            Destroy(gameObject);
         }
     }
+  
 
-    public bool FulfillOrder(List<FoodName> servedFoods)
+    public static Order CreateOrder(GameObject parentObject, RecipeName recipeName, ClientController client)
     {
-        if (isReady)
-            return false;
+        Order newOrder = parentObject.AddComponent<Order>();
+        
 
-        foreach (var ingredient in ingredients)
+        var recipes = Recipes.GetRecipes();
+        if (recipes.ContainsKey(recipeName))
         {
-            if (!servedFoods.Contains(ingredient))
-                return false;
+            Dictionary<string, object> recipe = recipes[recipeName];
+
+            newOrder.SetIngredients(recipe["ingredients"] as List<FoodName>);
+            newOrder.SetDeliveryTime((int)recipe["deliveryTime"]);
+            newOrder.SetPoints((int)recipe["points"]);
+            newOrder.SetImageRecipe((Sprite)recipe["image"]);
         }
 
-        isReady = true;
-        Debug.Log($"Order {idOrder} is fulfilled!");
-        if (gameManager != null)
-        {
-            gameManager.AddPoints(points);
-        }
+        newOrder.SetRecipeName(recipeName);
+        newOrder.SetClient(client);
 
-        Destroy(gameObject);
-        return true;
+        return newOrder;
     }
 
     #region Getters and setters
 
-    public static Order CreateOrder(GameObject parentObject, RecipeName recipeName)
+    public void SetIsReady(bool newIsReady)
     {
-        Order newOrder = parentObject.AddComponent<Order>();
-        newOrder.SetRecipeName(recipeName);
-        return newOrder;
+        isReady = newIsReady;
+
+        if (isReady )
+        {
+            Debug.Log($"Order {idOrder} is fulfilled!");
+            if (gameManager != null)
+            {
+                gameManager.AddPoints(points);
+            }
+        }
     }
 
-    public List<FoodName> GetIngredients()
+    public void SetIngredients(List<FoodName> list)
     {
-        return ingredients;
+        ingredients = list;
     }
 
     public int GetDeliveryTime()
@@ -129,14 +135,46 @@ public class Order : MonoBehaviour
         return deliveryTime;
     }
 
+    public void SetDeliveryTime(int newDevileryTime)
+    {
+        deliveryTime = newDevileryTime;
+    }
+
+    public void SetPoints(int newPoints)
+    {
+        points = newPoints;
+    }
+
     public Sprite GetImageRecipe()
     {
         return image;
     }
+
+    public void SetImageRecipe(Sprite newImage)
+    {
+        image = newImage;
+    }
+
+    public RecipeName GetRecipeName()
+    {
+        return recipeName;
+    }
+
     public void SetRecipeName(RecipeName newRecipeName)
     {
         recipeName = newRecipeName;
         AssignRecipe();
     }
+
+    public void SetClient(ClientController newClient)
+    {
+        client = newClient;
+    }
+
+    public ClientController GetClient()
+    {
+        return client;
+    }
+
     #endregion
 }

@@ -47,9 +47,9 @@ GameObject:
   - component: {fileID: 3718856493017930465}
   - component: {fileID: 7786909853147695038}
   - component: {fileID: 9067544971077763922}
-  - component: {fileID: 7114367958181566247}
-  - component: {fileID: 1105141833359843619}
-  - component: {fileID: 1488217616500402557}
+  - component: {fileID: 8474440498978439422}
+  - component: {fileID: 3929002592505905640}
+  - component: {fileID: 1226132000769485259}
   m_Layer: 0
   m_Name: HandPrickle
   m_TagString: Hand
@@ -217,23 +217,7 @@ MonoBehaviour:
   player: {fileID: 5169456524109245508}
   isTouchingUtensil: 0
   isProcessing: 0
---- !u!114 &7114367958181566247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4679096481446371313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e6e5cc132ffc1c499f4300837ed2624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 5169456524109245508}
-  hasIngredient: 0
-  isTouchingPlayer: 0
-  isTouchingFruit: 0
---- !u!114 &1105141833359843619
+--- !u!114 &8474440498978439422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +233,7 @@ MonoBehaviour:
   hasBowl: 0
   isTouchingPlayer: 0
   isTouchingBowl: 0
---- !u!114 &1488217616500402557
+--- !u!114 &3929002592505905640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,6 +249,22 @@ MonoBehaviour:
   hasGlass: 0
   isTouchingPlayer: 0
   isTouchingGlass: 0
+--- !u!114 &1226132000769485259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679096481446371313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6e5cc132ffc1c499f4300837ed2624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 5169456524109245508}
+  hasIngredient: 0
+  isTouchingPlayer: 0
+  isTouchingFruit: 0
 --- !u!1001 &6897928863495955234
 PrefabInstance:
   m_ObjectHideFlags: 0

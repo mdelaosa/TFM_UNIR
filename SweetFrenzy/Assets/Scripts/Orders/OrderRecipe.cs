@@ -8,12 +8,7 @@ public class OrderRecipe : MonoBehaviour
 
     private Order recipeOrdered;
 
-    void Start()
-    {
-
-    }
-
-    public Order Order()
+    public Order Order(ClientController client)
     {
         orderGenerator = FindObjectOfType<OrderGenerator>();
 
@@ -23,7 +18,7 @@ public class OrderRecipe : MonoBehaviour
             return null;
         }
 
-        recipeOrdered = orderGenerator.GenerateOrder();
+        recipeOrdered = orderGenerator.GenerateOrder(client);
         return recipeOrdered;
     }
 }

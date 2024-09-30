@@ -84,3 +84,17 @@ public enum UtensilStatus
     finished,
     none
 }
+
+public enum TableID
+{
+    table1 = 1,
+    table2 = 2
+}
+
+public enum ChairID
+{
+    chair1 = 1,
+    chair2 = 2,
+    chair3 = 3,
+    chair4 = 4
+}

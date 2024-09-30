@@ -11,7 +11,7 @@ public class Recipes : MonoBehaviour
             RecipeName.applePie, new Dictionary<string, object>
             {
                 { "ingredients", new List<FoodName> { FoodName.apple, FoodName.milk, FoodName.flour, FoodName.egg } },
-                { "deliveryTime", 10 },
+                { "deliveryTime", 200 },
                 { "points", 50 },
                 { "image", Resources.Load<Sprite>("Sprites/applePieIcon") }
             }
@@ -20,7 +20,7 @@ public class Recipes : MonoBehaviour
             RecipeName.fruitBowl, new Dictionary<string, object>
             {
                 { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.apple, FoodName.banana } },
-                { "deliveryTime", 10 },
+                { "deliveryTime", 80 },
                 { "points", 10 },
                 { "image", Resources.Load<Sprite>("Sprites/fruitBowlIcon") }
             }
@@ -29,7 +29,7 @@ public class Recipes : MonoBehaviour
             RecipeName.fruitSmoothie, new Dictionary<string, object>
             {
                 { "ingredients", new List<FoodName> { FoodName.strawberry, FoodName.banana, FoodName.milk } },
-                { "deliveryTime", 10 },
+                { "deliveryTime", 120 },
                 { "points", 20 },
                 { "image", Resources.Load<Sprite>("Sprites/smoothieIcon")}
             }
@@ -38,7 +38,7 @@ public class Recipes : MonoBehaviour
 
     void Start()
     {
-
+        // Puedes eliminar este método si no lo necesitas
     }
 
     #region Getters and setters
