@@ -20,10 +20,13 @@ public class Fruit : Food
     private float timer = 0f;
     private float cutDelay;
     private Coroutine cutRoutine;
-     
+
+    private GameObject mainCamera;
+
 
     private void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         foodType = FoodType.raw;
         //foodStatus = FoodStatus.raw;
         fruitRaw.SetActive(true);
@@ -40,6 +43,9 @@ public class Fruit : Food
         if ((cutRoutine == null) && (foodType != FoodType.processed))
         {
             cutRoutine = StartCoroutine(CutFruitRoutine());
+
+            progressBar.transform.LookAt(mainCamera.transform);
+
             progressBar.SetActive(true);
             cloudCutting.SetActive(true);
         }

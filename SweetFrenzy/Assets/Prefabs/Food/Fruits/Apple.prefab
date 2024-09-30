@@ -449,6 +449,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6193678044810047444, guid: aa6ac0aca938f4f47a669fcc4ca98e63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193678044810047444, guid: aa6ac0aca938f4f47a669fcc4ca98e63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193678044810047444, guid: aa6ac0aca938f4f47a669fcc4ca98e63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193678044810047444, guid: aa6ac0aca938f4f47a669fcc4ca98e63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193678044810047444, guid: aa6ac0aca938f4f47a669fcc4ca98e63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 6209370900240979105, guid: aa6ac0aca938f4f47a669fcc4ca98e63, type: 3}
       propertyPath: m_Name
       value: ProgressBar

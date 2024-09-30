@@ -331,6 +331,15 @@ public class MixIngredients : MonoBehaviour
 
     private void CreateIngredientsMix(GameObject mixPrefab)
     {
+        Vector3 utensilPosition = Vector3.zero;
+        Quaternion utensilRotation = Quaternion.identity;
+
+        if (utensils.Count > 0 && utensils[0] != null)
+        {
+            utensilPosition = utensils[0].transform.position;
+            utensilRotation = utensils[0].transform.rotation;
+        }
+
         foreach (var ingredient in ingredients.ToList())
         {
             if (ingredient != null)
@@ -351,12 +360,12 @@ public class MixIngredients : MonoBehaviour
 
         if (mixPrefab != null)
         {
-            ingredientsMix = Instantiate(mixPrefab);
-            ingredientsMix.transform.position = transform.position;
+            ingredientsMix = Instantiate(mixPrefab, utensilPosition, utensilRotation);
         }
 
         isMixing = false;
     }
+
 
     private void CreateIngredientsMixInHand(GameObject mixPrefab)
     {
@@ -375,31 +384,32 @@ public class MixIngredients : MonoBehaviour
             {
                 if (utensil.CompareTag("Kneader"))
                 {
-                    GameObject emptyKneader = Instantiate(emptyKneaderPrefab, utensil.transform.position, utensil.transform.rotation);
+                    Instantiate(emptyKneaderPrefab, utensil.transform.position, utensil.transform.rotation);
                     Destroy(utensil.gameObject);
                 }
                 else if (utensil.CompareTag("Mixer"))
                 {
-                    GameObject emptyMixer = Instantiate(emptyMixerPrefab, utensil.transform.position, utensil.transform.rotation);
+                    Instantiate(emptyMixerPrefab, utensil.transform.position, utensil.transform.rotation);
                     Destroy(utensil.gameObject);
                 }
                 else
                 {
                     Destroy(utensil.gameObject);
                 }
+
                 utensils.Remove(utensil);
             }
         }
 
         if (mixPrefab != null)
         {
-            ingredientsMix = Instantiate(mixPrefab);
-            ingredientsMix.transform.position = handPoint.position;
+            ingredientsMix = Instantiate(mixPrefab, handPoint.position, handPoint.rotation);
             ingredientsMix.transform.parent = handPoint;
         }
 
         isMixing = false;
     }
+
 
 
     public void HandleUtensilDestruction(GameObject utensil)

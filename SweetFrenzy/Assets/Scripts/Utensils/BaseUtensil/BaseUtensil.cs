@@ -21,8 +21,12 @@ public abstract class BaseUtensil : Utensil
     private float timer = 0f;
     private float processDelay = 2f;
 
+    private GameObject mainCamera;
+
     protected virtual void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
         if (progressBarVariable != null)
         {
             initialScale = progressBarVariable.transform.localScale;
@@ -43,6 +47,9 @@ public abstract class BaseUtensil : Utensil
             {
                 processRoutine = StartCoroutine(ProcessRoutine());
             }
+
+            progressBar.transform.LookAt(mainCamera.transform);
+
             if (progressBar != null) progressBar.SetActive(true);
             if (notUtensilWorking != null) notUtensilWorking.SetActive(false);
             if (utensilWorking != null) utensilWorking.SetActive(true);

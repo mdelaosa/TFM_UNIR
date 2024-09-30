@@ -840,7 +840,7 @@ Transform:
   m_GameObject: {fileID: 111157170}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -5.04, y: -0.01, z: -9.3535}
+  m_LocalPosition: {x: -4.2, y: -0.01, z: -9.3535}
   m_LocalScale: {x: 2.984614, y: 0.5000001, z: 1.2590448}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7439,7 +7439,7 @@ Transform:
   m_GameObject: {fileID: 1234736370}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 15.39, y: -0.3875, z: 6.93}
+  m_LocalPosition: {x: 15.39, y: -2.87, z: 17.53}
   m_LocalScale: {x: 5.3919034, y: 0.5000001, z: 1.3645222}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8623,7 +8623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94411349986243f4f8b5d56ebebe5a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime: 300
+  initialTime: 360
   timerText: {fileID: 70862680}
   timerImage: {fileID: 2010429142}
   defaultColor: {r: 0.93725497, g: 0.32156864, b: 0.5372549, a: 1}

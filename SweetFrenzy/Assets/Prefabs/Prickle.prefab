@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 9067544971077763922}
   - component: {fileID: 8474440498978439422}
   - component: {fileID: 3929002592505905640}
-  - component: {fileID: 1226132000769485259}
+  - component: {fileID: 8896304283883205454}
   m_Layer: 0
   m_Name: HandPrickle
   m_TagString: Hand
@@ -249,7 +249,7 @@ MonoBehaviour:
   hasGlass: 0
   isTouchingPlayer: 0
   isTouchingGlass: 0
---- !u!114 &1226132000769485259
+--- !u!114 &8896304283883205454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
