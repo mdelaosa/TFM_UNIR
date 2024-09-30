@@ -21,18 +21,24 @@ public class Fruit : Food
     private float cutDelay;
     private Coroutine cutRoutine;
 
-    private GameObject mainCamera;
+    [Header("Audio")]
+    [SerializeField] private AudioSource cuttingSound;  
 
+    private GameObject mainCamera;
 
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         foodType = FoodType.raw;
-        //foodStatus = FoodStatus.raw;
         fruitRaw.SetActive(true);
         fruitCut.SetActive(false);
         progressBar.SetActive(false);
         cutDelay = 2;
+
+        if (cuttingSound == null)
+        {
+            Debug.LogError("No AudioSource assigned for cutting sound!");
+        }
 
         initialScale = progressBarVariable.transform.localScale;
         initialPosition = progressBarVariable.transform.localPosition;
@@ -45,12 +51,15 @@ public class Fruit : Food
             cutRoutine = StartCoroutine(CutFruitRoutine());
 
             progressBar.transform.LookAt(mainCamera.transform);
-
             progressBar.SetActive(true);
             cloudCutting.SetActive(true);
+
+            if (cuttingSound != null && !cuttingSound.isPlaying)
+            {
+                cuttingSound.Play();
+            }
         }
     }
-
 
     public void StopCutting()
     {
@@ -58,11 +67,18 @@ public class Fruit : Food
         {
             StopCoroutine(cutRoutine);
             cutRoutine = null;
+
             if (foodStatus == FoodStatus.cut)
             {
                 progressBar.SetActive(false);
             }
+
             cloudCutting.SetActive(false);
+
+            if (cuttingSound != null && cuttingSound.isPlaying)
+            {
+                cuttingSound.Stop();
+            }
         }
     }
 
@@ -75,7 +91,6 @@ public class Fruit : Food
             progress = timer / cutDelay;
 
             progressBarVariable.transform.localScale = new Vector3(initialScale.x * progress, initialScale.y, initialScale.z);
-
             progressBarVariable.transform.localPosition = new Vector3(initialPosition.x - initialScale.x * 0.5f * (1 - progress), initialPosition.y, initialPosition.z);
 
             yield return null;
@@ -88,6 +103,11 @@ public class Fruit : Food
         progressBar.SetActive(false);
         progressBarVariable.transform.localScale = initialScale;
         progressBarVariable.transform.localPosition = initialPosition;
+
+        if (cuttingSound != null && cuttingSound.isPlaying)
+        {
+            cuttingSound.Stop();
+        }
     }
 
     private void UpdateSprite()
