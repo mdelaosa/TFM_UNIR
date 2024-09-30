@@ -21,6 +21,9 @@ public abstract class BaseUtensil : Utensil
     private float timer = 0f;
     private float processDelay = 2f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource workingSound;
+
     private GameObject mainCamera;
 
     protected virtual void Start()
@@ -53,6 +56,11 @@ public abstract class BaseUtensil : Utensil
             if (progressBar != null) progressBar.SetActive(true);
             if (notUtensilWorking != null) notUtensilWorking.SetActive(false);
             if (utensilWorking != null) utensilWorking.SetActive(true);
+
+            if (workingSound != null && !workingSound.isPlaying)
+            {
+                workingSound.Play();
+            }
         }
     }
 
@@ -63,6 +71,11 @@ public abstract class BaseUtensil : Utensil
             StopCoroutine(processRoutine);
             processRoutine = null;
             utensilStatus = UtensilStatus.preparedToWork;
+
+            if (workingSound != null && workingSound.isPlaying)
+            {
+                workingSound.Stop();
+            }
         }
     }
 
@@ -87,6 +100,11 @@ public abstract class BaseUtensil : Utensil
         {
             progressBarVariable.transform.localScale = initialScale;
             progressBarVariable.transform.localPosition = initialPosition;
+        }
+
+        if (workingSound != null && workingSound.isPlaying)
+        {
+            workingSound.Stop();
         }
 
         OnProcessFinished();
