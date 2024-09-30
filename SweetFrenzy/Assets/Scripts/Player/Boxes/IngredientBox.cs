@@ -28,6 +28,7 @@ public class IngredientBox : MonoBehaviour
         if (!isTouchingPlayer)
         {
             hasIngredient = false;
+            isTouchingFruit = false;
         }
         else if (isTouchingPlayer && hasIngredient && !isTouchingFruit)
         {
@@ -72,6 +73,8 @@ public class IngredientBox : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Food"))
         {
+            isTouchingFruit = false;
+            hasIngredient = false;
             isTouchingFruit = false;
         }
     }
