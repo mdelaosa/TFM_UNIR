@@ -4,8 +4,38 @@ using UnityEngine;
 public class Table : MonoBehaviour
 {
     [SerializeField] private TableID tableID;
-
     [SerializeField] private List<Order> activeOrders = new List<Order>();
+
+    private GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Food"))
+        {
+            Food food = other.gameObject.GetComponent<Food>();
+            if (food != null && food.GetFoodStatus() == FoodStatus.ready && food.GetFoodType() == FoodType.cooked)
+            {
+                food.SetFoodStatus(FoodStatus.served);
+                Debug.Log($"Food {food.GetFoodName()} is now served.");
+
+                FulfillOrder(other.gameObject);
+            }
+            else
+            {
+                if (gameManager != null)
+                {
+                    gameManager.AddPoints(-10);
+                }
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
 
     public void AddOrder(Order order)
     {
@@ -19,36 +49,37 @@ public class Table : MonoBehaviour
 
     public void FulfillOrder(GameObject other)
     {
-        Food food = other.GetComponent<Food>();
-        List<FoodName> servedFood = new List<FoodName> { food.GetFoodName() };
+        Food servedFood = other.GetComponent<Food>();
+
+        if (servedFood == null)
+        {
+            Debug.LogWarning("No se ha encontrado un componente Food en el objeto proporcionado.");
+            return;
+        }
+
+        bool isCorrect = false;
 
         foreach (var order in activeOrders)
         {
-            if (order.FulfillOrder(servedFood))
+            if (order.GetRecipeName().ToString() == servedFood.GetFoodName().ToString())
             {
+                isCorrect = true;
+                order.GetClient().OnOrderReceived();
+                order.SetIsReady(true);
                 activeOrders.Remove(order);
-
-                break;
+                Debug.Log("Pedido cumplido y eliminado de la lista.");
+                break; 
             }
         }
-    }
 
-    private void OnColliderEnter(Collider other)
-    {
-        if (other.CompareTag("Food"))
+        if(!isCorrect)
         {
-            Food food = other.GetComponent<Food>();
-            if (food != null && food.GetFoodStatus() == FoodStatus.ready && food.GetFoodType() == FoodType.cooked)
+            if (gameManager != null)
             {
-                food.SetFoodStatus(FoodStatus.served);
-                Debug.Log($"Food {food.GetFoodName()} is now served.");
-
-                FulfillOrder(other.gameObject);
+                gameManager.AddPoints(-10);
             }
-            else
-            {
-                Destroy(other.gameObject);
-            }
+            Debug.Log("Pedido incorrecto");
+            Destroy(other.gameObject);
         }
-    }
+    }    
 }

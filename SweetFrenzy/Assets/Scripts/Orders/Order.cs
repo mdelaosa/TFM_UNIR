@@ -14,17 +14,14 @@ public class Order : MonoBehaviour
 
     private ClientController client;
 
-    // Nueva variable para almacenar la receta
-    private Dictionary<string, object> recipe; // Aquí se guardará la receta
+    private Dictionary<string, object> recipe;
 
     private float timer;
     private GameManager gameManager;
-    //private OrderManager orderManager;
 
     void Start()
     {
         isReady = false;
-        //AssignRecipe();
         StartTimer();
 
         gameManager = FindObjectOfType<GameManager>();
@@ -37,9 +34,6 @@ public class Order : MonoBehaviour
             gameManager.AddOrder();
             idOrder = gameManager.GetNumOrders();
         }
-
-        //orderManager = FindObjectOfType<OrderManager>();
-        //orderManager.AddOrder(this);
     }
 
     void Update()
@@ -85,39 +79,13 @@ public class Order : MonoBehaviour
     {
         if (!isReady)
         {
-            Debug.Log("Pedido perdido: " + idOrder + " - " + recipeName);
-
             if (gameManager != null)
             {
-                gameManager.AddPoints(-(points / 2));
+                gameManager.AddPoints(-5);
             }
-            Destroy(gameObject);
         }
     }
-
-    public bool FulfillOrder(List<FoodName> servedFoods)
-    {
-        if (isReady)
-            return false;
-
-        foreach (var ingredient in ingredients)
-        {
-            if (!servedFoods.Contains(ingredient))
-                return false;
-        }
-
-        isReady = true;
-        Debug.Log($"Order {idOrder} is fulfilled!");
-        if (gameManager != null)
-        {
-            gameManager.AddPoints(points);
-        }
-
-        Destroy(gameObject);
-        return true;
-    }
-
-    #region Getters and setters
+  
 
     public static Order CreateOrder(GameObject parentObject, RecipeName recipeName, ClientController client)
     {
@@ -141,9 +109,20 @@ public class Order : MonoBehaviour
         return newOrder;
     }
 
-    public List<FoodName> GetIngredients()
+    #region Getters and setters
+
+    public void SetIsReady(bool newIsReady)
     {
-        return ingredients;
+        isReady = newIsReady;
+
+        if (isReady )
+        {
+            Debug.Log($"Order {idOrder} is fulfilled!");
+            if (gameManager != null)
+            {
+                gameManager.AddPoints(points);
+            }
+        }
     }
 
     public void SetIngredients(List<FoodName> list)
@@ -176,20 +155,25 @@ public class Order : MonoBehaviour
         image = newImage;
     }
 
+    public RecipeName GetRecipeName()
+    {
+        return recipeName;
+    }
+
     public void SetRecipeName(RecipeName newRecipeName)
     {
         recipeName = newRecipeName;
         AssignRecipe();
     }
 
-    public Dictionary<string, object> GetRecipe()
-    {
-        return recipe;
-    }
-
     public void SetClient(ClientController newClient)
     {
         client = newClient;
+    }
+
+    public ClientController GetClient()
+    {
+        return client;
     }
 
     #endregion

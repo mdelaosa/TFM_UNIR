@@ -45,7 +45,6 @@ public class ClientController : MonoBehaviour
     [SerializeField] private bool correctOrder;
     [SerializeField] private bool hasEaten;
 
-    // Start is called before the first frame update
     void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -68,20 +67,19 @@ public class ClientController : MonoBehaviour
         customerSuccess = "waiting";
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!reachedEntrance) //No ha llegado a la entrada
+        if (!reachedEntrance) 
         {
-            reachedEntrance = Move(transform.position, triggers[0].transform.position); //Se mueve hasta la entrada
+            reachedEntrance = Move(transform.position, triggers[0].transform.position); 
         }
         
-        else if((reachedEntrance) & (!reachedChair)) //Está en la entrada pero no ha elegido silla
+        else if((reachedEntrance) & (!reachedChair)) 
         {
-            reachedChair = ChooseChair(); //Escoge silla
+            reachedChair = ChooseChair(); 
         }
 
-        else if((reachedChair) & (!ordered)) //Está sentado y todavía no ha pedido
+        else if((reachedChair) & (!ordered)) 
         {
             orderedRecipe = orderRecipe.Order(this);
             table.AddOrder(orderedRecipe);
@@ -89,39 +87,38 @@ public class ClientController : MonoBehaviour
             ordered = true;
         }
 
-        else if ((reachedChair) & (ordered) & (customerSuccess.Equals("waiting"))) //Está sentado esperando su pedido
+        else if ((reachedChair) & (ordered) & (customerSuccess.Equals("waiting"))) 
         {
-            //Activar Canvas y Mostrar Satisfacción y la imagen del pedido que quiere
             canvas.gameObject.SetActive(true);
             canvas.transform.LookAt(mainCamera.transform);
             imageOrder.sprite = orderedRecipe.GetImageRecipe();
 
-            //Esperar
             customerSuccess = Wait();
         }
 
-        else if(customerSuccess.Equals("received")) //El cliente ha recibido su pedido
+        else if(customerSuccess.Equals("received")) 
         {
             if (correctOrder)
             {
-                Debug.Log("Estoy feliz");
+                OnOrderReceived();
                 PutHappyFace();
             }
             else
             {
                 PutMadFace();
             }
-            transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
+            transform.position = triggers[1].transform.position;
             customerSuccess = "exiting";
         }
 
-        else if (customerSuccess.Equals("exiting")) //El cliente se va
+        else if (customerSuccess.Equals("exiting")) 
         {
-            if (!reachedEnd) //No ha llegado a irse
+            if (!reachedEnd)
             {
+                canvas.transform.LookAt(mainCamera.transform);
                 Exit();
             }
-            else //Se ha ido
+            else 
             {
                 Destroy(gameObject);
             }
@@ -164,11 +161,10 @@ public class ClientController : MonoBehaviour
 
                 animator.SetBool("sit", true);
 
-                // Asignar el cliente a la silla
                 chair = freeChair.GetComponent<Chair>();
                 if (chair != null)
                 {
-                    chair.SetClient(this); // Registramos el cliente en la silla
+                    chair.SetClient(this); 
                     table = chair.GetTable();
                 }
 
@@ -185,30 +181,30 @@ public class ClientController : MonoBehaviour
         {
             if (collider.CompareTag("Client")) 
             {
-                return true; //La silla está ocupada
+                return true;
             }
         }
-        return false; //La silla está libre
+        return false; 
     }
 
-    private string Wait() //Si devuelve 0 sigue esperando, si devuelve 1 le ha llegado el pedido, si devuelve 2 el tiempo de espera se ha agotado
+    private string Wait() 
     {
-        if (waitingTime <= maxWaitingTime) //Mientras el tiempo que lleva esperando sea menor que el tiempo máximo de espera, espera
+        if (waitingTime <= maxWaitingTime) 
         {
             waitingTime += Time.deltaTime;
             UpdateWaitingImage(waitingTime);
 
-            if(receivedOrder) //Si mientras está esperando llega su pedido
+            if(receivedOrder) 
             {
-                return "received"; //1 = recibido pedido
+                return "received"; 
             }
 
-            return "waiting"; //Sino, sigue esperando 0 = waiting
+            return "waiting"; 
         }
-        else //Cuando ha llegado al tiempo máximo de espera, se va enfadado
+        else 
         {
-            transform.position = triggers[1].transform.position; //Se mueve hasta la puerta de salida
-            return "exiting"; // 2 = Se va
+            transform.position = triggers[1].transform.position; 
+            return "exiting"; 
         }
     }
 
@@ -218,34 +214,28 @@ public class ClientController : MonoBehaviour
         {
             table.RemoveOrder(orderedRecipe);
         }
-        canvas.transform.LookAt(mainCamera.transform);
+
         reachedEnd = Move(transform.position, triggers[2].transform.position);
     }
 
     #endregion
 
     #region Consume food
-    private void OnOrderReceived()
+    public void OnOrderReceived()
     {
-        if (correctOrder)
-        {
-            PutHappyFace();
-        }
-        else
-        {
-            PutMadFace();
-        }
-
-        // Consume el postre
         StartCoroutine(ConsumeFood());
     }
 
     private IEnumerator ConsumeFood()
     {
-        // Tiempo de consumo de 2 segundos
-        yield return new WaitForSeconds(2f);
+        canvas.gameObject.SetActive(false);
+        receivedOrder = true;
+        correctOrder = true;
 
-        // Una vez consumido, el cliente se levanta y se va
+        yield return new WaitForSeconds(5f);
+
+        Destroy(orderedRecipe.gameObject);
+
         hasEaten = true;
         ClearChair();
         Exit();
@@ -277,8 +267,6 @@ public class ClientController : MonoBehaviour
             PutHappyFace();
         }
     }
-
-
 
     private void PutHappyFace()
     {
